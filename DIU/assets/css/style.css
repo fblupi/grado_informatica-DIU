@@ -6,7 +6,7 @@
 #divPrincipal{
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   margin-top: 1%;
 }
 
@@ -37,8 +37,13 @@ nav{
 }
 
 .navbar-default .navbar-nav > li > a{
-		color: #86588F !important;
+		color: #86588F !important;		
 }
+
+.navbar-default .navbar-nav > li > a:hover{
+	border-color: transparent;
+}
+
 
 .navbar-collapse, .navbar-default{
 		border-color: transparent;
@@ -56,8 +61,8 @@ nav{
 }
 
 section {
-		padding: 20 20 20 20;
-		height: 100%;
+		padding: 20;
+		height: auto;
   	background-color: #FAFAFA;
 }
 
@@ -75,16 +80,34 @@ article{
 .nav-tabs > li.active > a{
   background-color: #FAFAFA !important;
   color: inherit !important;
+	border-color: transparent;
+}
+
+.nav-tabs > li.active > a:hover{
+	border-color: transparent !important;
 }
 
 .nav-tabs > li > a{
   color: #86588F !important;
 }
 
+
 .navbar-default .navbar-toggle{
 		background-color: white !important;
 }
 @media (max-width: 768px) {
+	h1{
+		font-size: 24px;
+	}
+	h2{
+		font-size: 20px;
+	}
+	#divPrincipal{
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		margin-top: 1%;
+	}
     .navbar-nav li{
       float:none;
 			background-color: transparent !important;
