@@ -1,4 +1,8 @@
 <?php include 'header.php'; ?>
+<?php if(isset($_SESSION['login'])){
+	echo '<script>location.href="index.php";</script>';
+} 
+?>
 <section>
 <article>
 	<form class="form-signin" method="POST" action="registrarUsuario.php" data-toggle="validator" role="form" enctype="multipart/form-data">
