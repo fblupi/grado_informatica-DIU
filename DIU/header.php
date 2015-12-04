@@ -43,7 +43,7 @@
 					<li role="presentation" id="salas"><a href="salas.php">Salas</a></li>
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
-					<?php if(isset($_SESSION)){ echo '<li role="presentation" class="nav-right" id="micuenta"><a href="miCuenta.php">Mi Cuenta</a></li>'; }else{ echo '<li role="presentation" id="identificar" class="nav-right"><a href="inicioSesion.php">Indentifícate</a></li>';}
+					<?php if(isset($_SESSION['login'])){ echo '<li role="presentation" class="nav-right" id="micuenta"><a href="miCuenta.php">Mi Cuenta</a></li>'; }else{ echo '<li role="presentation" id="identificar" class="nav-right"><a href="inicioSesion.php">Indentifícate</a></li>';}
 					?>
 			</ul>
     </div><!-- /.navbar-collapse -->
