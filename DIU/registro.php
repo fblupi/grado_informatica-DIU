@@ -58,11 +58,14 @@
 				<label>Imagen de perfil</label>
 					<input type="file" class="form-control" id="imagen" name="imagen">
 		</div>
+		<i><small>* Un usuario nuevo no puede reservar ni alquilar salas hasta que no obtiene los permisos para ello. Para eso acudir a recepción.</i></small>
+
 			<div class="form-group">
 				<button type="submit" class="btn btn-default inicioSesion">Regístrate</button>
 				<small class="izquierda">¿Ya estás registrado?<a href="inicioSesion.php"> Inicia sesión</a></small>
 			</div>
 		</form>
+
 </article>
 </section>
 <script type="text/javascript">

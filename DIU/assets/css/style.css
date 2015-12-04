@@ -123,8 +123,8 @@ article{
 	width: 30%;
 }
 
-.form-control{
-	display: inherit !important;
+.buscar{
+	display: inherit;
 	border-radius: 20px;
 	width: 40%;
 }
@@ -246,7 +246,7 @@ article{
 		display: none;
 	}
 	
-	.form-control{
+	.buscar{
 		display: inherit !important;
 		border-radius: 20px;
 		width: 100%;

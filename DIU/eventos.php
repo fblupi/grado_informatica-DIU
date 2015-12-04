@@ -3,7 +3,7 @@
 		<h1 class="section-header">Eventos<hr></hr></h1>
 		<article>
 			<form role="search" class="busquedaEmpresas">
-          <input type="text" class="form-control" placeholder="Buscar...">
+          <input type="text" class="form-control buscar" placeholder="Buscar...">
        </form>
 			<div id="todasEmpresas">
 			<?php 
