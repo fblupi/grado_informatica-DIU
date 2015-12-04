@@ -143,9 +143,37 @@ article{
 	margin-left: 25%;
 }
 
-.empresas{
+.empresas, eventos{
 	margin-bottom: 5%;
 }
+
+.logoEvento{
+	width: 24%;
+	margin-top: 1%;
+	float: left;
+}
+
+.nombreEvento{
+	font-size: 22px;
+	font-weight: bold;
+	margin-left: 26%;
+}
+
+.descripcionEvento, .masInfoEvento{
+	margin-left: 26%;
+}
+
+.fechaEvento{
+	float:right;
+	margin-top: -5%;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.eventoGratuito{
+	margin-left: 2%;
+}
+
 
 @media (max-width: 768px) {
 	#logo{
@@ -241,7 +269,36 @@ article{
 		margin-left: 2%;
 	}
 
-	.empresas{
+	.empresas, eventos{
 		margin-bottom: 5%;
 	}
+	
+	.logoEvento{
+		float:none;
+		display: block;
+		margin: 0 auto;
+		margin-top: 1%;
+		width: 80%;
+	}
+	
+	.nombreEvento{
+		font-weight: bold;
+		margin-left: 1%;
+	}
+
+	.descripcionEvento, .masInfoEvento{
+		margin-left: 1%;
+	}
+	
+	.fechaEvento{
+		float:none;
+		margin-top: 0;
+		font-weight: bold;
+		font-size: 14px;
+	}
+
+	.eventoGratuito{
+		margin-left: 2%;
+	}
+
 }

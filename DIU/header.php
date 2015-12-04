@@ -1,7 +1,8 @@
 <html lang="es">
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+	<?php header('Content-Type: text/html; charset=utf-8' ); ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- css -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav nav-tabs">
 					<li role="presentation" id="inicio"><a href="index.php">Home</a></li>
 					<li role="presentation" id="empresas"><a href="empresas.php">Empresas</a></li>
-					<li role="presentation" id="eventos"><a href="#">Eventos</a></li>
+					<li role="presentation" id="eventos"><a href="eventos.php">Eventos</a></li>
 					<li role="presentation" id="salas"><a href="#">Salas</a></li>
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
