@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-	<?php header('Content-Type: text/html; charset=utf-8' ); ?>
+	<?php if(!isset($_SESSION)){ session_start();} ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- css -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
