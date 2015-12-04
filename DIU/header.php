@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-tabs">
 					<li role="presentation" id="inicio"><a href="index.php">Home</a></li>
-					<li role="presentation" id="empresas"><a href="#">Empresas</a></li>
+					<li role="presentation" id="empresas"><a href="empresas.php">Empresas</a></li>
 					<li role="presentation" id="eventos"><a href="#">Eventos</a></li>
 					<li role="presentation" id="salas"><a href="#">Salas</a></li>
 			</ul>

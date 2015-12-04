@@ -123,6 +123,30 @@ article{
 	width: 30%;
 }
 
+.form-control{
+	display: inherit !important;
+	border-radius: 20px;
+	width: 40%;
+}
+
+.logoEmpresa{
+	width: 20%;
+	float:left;
+}
+
+.nombreEmpresa{
+	font-weight: bold;
+	margin-left: 25%;
+}
+
+.descripcionEmpresa, .masInfoEmpresa{
+	margin-left: 25%;
+}
+
+.empresas{
+	margin-bottom: 5%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
@@ -194,7 +218,30 @@ article{
 		display: none;
 	}
 	
+	.form-control{
+		display: inherit !important;
+		border-radius: 20px;
+		width: 100%;
+	}
 	
+	.logoEmpresa{
+		float:none;
+		display: block;
+		margin: 0 auto;
+		margin-top: 1%;
+		width: 30%;
+	}
+	
+	.nombreEmpresa{
+		font-weight: bold;
+		margin-left: 2%;
+	}
 
-		
+	.descripcionEmpresa, .masInfoEmpresa{
+		margin-left: 2%;
+	}
+
+	.empresas{
+		margin-bottom: 5%;
+	}
 }
