@@ -61,7 +61,7 @@ nav{
 }
 
 section {
-		padding: 20;
+		padding: 50;
 		height: auto;
   	background-color: #FAFAFA;
 }
@@ -91,45 +91,84 @@ article{
   color: #86588F !important;
 }
 
-
 .navbar-default .navbar-toggle{
 		background-color: white !important;
 }
+
+.izquierda{
+	float: right;
+	padding: 14;
+}
+
+.divInicioSesion{
+	padding: 50;
+	height: 100%;
+}
+
+.inicioSesion{
+	float:right;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+	right: 0;
+}
+
+
 @media (max-width: 768px) {
 	h1{
 		font-size: 24px;
 	}
+	
 	h2{
 		font-size: 20px;
 	}
+	
 	#divPrincipal{
 		display: block;
 		margin: 0 auto;
 		width: 100%;
 		margin-top: 1%;
 	}
-    .navbar-nav li{
-      float:none;
+	
+	.navbar-nav li{
+		float:none;
+		background-color: transparent !important;
+		text-align: right;
+ 	}
+	
+	.navbar-collapse{
+			border-color: transparent !important;
+	}
+		
+	.navbar-right{
+			border: 0;
+	}
+		
+	.nav-tabs{
+			border: 0 !important;
+			border-color: transparent;
+	}
+
+	.navbar-nav li.active a{
 			background-color: transparent !important;
-			text-align: right;
-   }
-		
-		.navbar-collapse{
-				border-color: transparent !important;
-		}
-		
-		.navbar-right{
-				border: 0;
-		}
-		
-		.nav-tabs{
-				border: 0 !important;
-				border-color: transparent;
-		}
-		
-		.navbar-nav li.active a{
-				background-color: transparent !important;
-				border: 0;
-		}
+			border: 0;
+	}
+
+	.izquierda{
+		margin: 0;
+		float: inherit;
+		padding: 0;
+	}
+
+	.divInicioSesion{
+		width: 100%;
+		padding: 30;
+		height: 100%;
+	}
+	
+	section{
+		padding: 30;
+	}
+	
 		
 }
