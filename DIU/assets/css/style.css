@@ -113,8 +113,24 @@ article{
 	right: 0;
 }
 
+.gtech{
+	margin-left: 5%;
+	width: 20%;
+}
+
+.coworking{
+	margin-left: 5%;
+	width: 30%;
+}
 
 @media (max-width: 768px) {
+	#logo{
+		display: block;
+		margin: 0 auto;
+		width: 20%;
+		margin-top: 1%;
+	}
+	
 	h1{
 		font-size: 24px;
 	}
@@ -170,5 +186,15 @@ article{
 		padding: 30;
 	}
 	
+	.gtech{
+		display: none;
+	}
+	
+	.coworking{
+		display: none;
+	}
+	
+	
+
 		
 }

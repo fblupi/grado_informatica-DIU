@@ -44,5 +44,12 @@
 <small>Tfno.: 958664422</small><br>
 <small>Fax: 958664422</small>
 
-</article></section>
+</article>
+</section>
+<script type="text/javascript">
+window.onload = function()
+{
+		document.getElementById("inicio").className = "active menu";
+}
+</script>
 <?php include 'footer.php'; ?>

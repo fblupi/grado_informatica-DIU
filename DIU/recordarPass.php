@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-<body>
 <section class="divInicioSesion">
 <article>
 	<form class="form-horizontal" method="POST" action="#" data-toggle="validator" role="form">
@@ -22,5 +21,10 @@
 		</form>
 </article>
 </section>
-</body>
+<script type="text/javascript">
+window.onload = function()
+{
+		document.getElementById("identificar").className = "active menu";
+}
+</script>
 <?php include 'footer.php'; ?>

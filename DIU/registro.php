@@ -65,4 +65,10 @@
 		</form>
 </article>
 </section>
+<script type="text/javascript">
+window.onload = function()
+{
+		document.getElementById("identificar").className = "active menu";
+}
+</script>
 <?php include 'footer.php'; ?>

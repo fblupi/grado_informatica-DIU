@@ -14,6 +14,8 @@
 <header>
 <div class="header">
 <a href="index.php"><img id="logo" src="assets/img/logo.png" alt="Inicio"></a>
+	<img class="gtech" src="assets/img/header1.png">
+	<img class="coworking" src="assets/img/header2.png">
 </div>
 </header>
 <!-- navbar -->
@@ -34,13 +36,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-tabs">
-					<li role="presentation" class="active menu"><a href="index.php">Home</a></li>
-					<li role="presentation"><a href="#">Empresas</a></li>
-					<li role="presentation"><a href="#">Eventos</a></li>
-					<li role="presentation"><a href="#">Salas</a></li>
+					<li role="presentation" id="inicio"><a href="index.php">Home</a></li>
+					<li role="presentation" id="empresas"><a href="#">Empresas</a></li>
+					<li role="presentation" id="eventos"><a href="#">Eventos</a></li>
+					<li role="presentation" id="salas"><a href="#">Salas</a></li>
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
-					<?php if(isset($_SESSION)){ echo '<li role="presentation" class="nav-right"><a href="miCuenta.php">Mi Cuenta</a></li>'; }else{ echo '<li role="presentation" class="nav-right"><a href="inicioSesion.php">Indentifícate</a></li>';}
+					<?php if(isset($_SESSION)){ echo '<li role="presentation" class="nav-right" id="micuenta"><a href="miCuenta.php">Mi Cuenta</a></li>'; }else{ echo '<li role="presentation" id="identificar" class="nav-right"><a href="inicioSesion.php">Indentifícate</a></li>';}
 					?>
 			</ul>
     </div><!-- /.navbar-collapse -->
