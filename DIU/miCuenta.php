@@ -12,6 +12,7 @@ $sql = "SELECT * FROM Usuario WHERE login = '$login'";
 $resultado = mysqli_query($conn, $sql);
 
 while($usuario = mysqli_fetch_assoc($resultado)){
+	echo '<div class="miPerfil">';
 	echo '<img class="fotoPerfil" src="';
 	echo $usuario['imagen'];
 	echo '">';
@@ -44,6 +45,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<p class="datosUsuario">Código postal: ';
 	echo $usuario['codigoPostal'];
 	echo '</p>';
+	echo '</div>';
 }
 
 ?>	
