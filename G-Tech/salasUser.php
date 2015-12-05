@@ -1,33 +1,64 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+<?php 
+$sql2 = "SELECT * FROM Sala;";
+$resultado2 = mysqli_query($conn, $sql2);
+$auxEmpresas = Array();
+$auxEventos = Array();
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img class="carrousel" src="assets/img/carousel1.jpg" alt="Coworking">
-    </div>
+while($salas = mysqli_fetch_assoc($resultado2)){
+	if($salas['tipo'] == "empresa"){
+		array_push($auxEmpresas,$salas);
+	}
+	if($salas['tipo'] == "evento"){
+		array_push($auxEventos,$salas);
+	}
+}
 
-    <div class="item">
-      <img class="carrousel" src="assets/img/carousel2.jpg" alt="Coworking">
-    </div>
+echo '<h2>Salas para eventos</h2>';
 
-    <div class="item">
-      <img class="carrousel" src="assets/img/carousel3.jpg" alt="Coworking">
-    </div>
-  </div>
+foreach(array_chunk($auxEventos, 3, true) as $salasRow) {
+	echo '<div class="row">';
+		foreach ($salasRow as $sala) {
+			echo '<div class="col-md-4 sala">';
+			echo '<img class="imagenSala" src="';
+			echo $sala['imagen'];
+			echo '">';
+			echo '<h3 class="nombreSala">';
+			echo $sala['nombre'];
+			echo '</h3>';
+			echo '<p>Capacidad: ';
+			echo $sala['capacidad'];
+			echo ' personas</p>';
+			echo '<a href="masInfoSala.php?i=';
+			echo $sala['id'];
+			echo '" class="btn btn-default" type="button">';
+			echo 'Disponibilidad</a>';
+			echo '</div>';
+		}
+	echo '</div>';
+}
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+
+echo '<h2>Salas para empresas</h2>';
+
+foreach(array_chunk($auxEmpresas, 3, true) as $salasRow) {
+	echo '<div class="row">';
+		foreach ($salasRow as $sala) {
+			echo '<div class="col-md-4 sala">';
+			echo '<img class="imagenSala" src="';
+			echo $sala['imagen'];
+			echo '">';
+			echo '<h3 class="nombreSala">';
+			echo $sala['nombre'];
+			echo '</h3>';
+			echo '<p>Capacidad: ';
+			echo $sala['capacidad'];
+			echo ' personas</p>';
+			echo '<a href="masInfoSala.php?i=';
+			echo $sala['id'];
+			echo '" class="btn btn-default" type="button">';
+			echo 'Disponibilidad</a>';
+			echo '</div>';
+		}
+	echo '</div>';
+}
+?>

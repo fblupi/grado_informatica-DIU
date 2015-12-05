@@ -5,25 +5,28 @@
 <?php
 	include 'libs/myLib.php';
 	$conn = dbConnect();
-	$login = $_SESSION['login'];
-	
-	$sql = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
-	$resultado = mysqli_query($conn, $sql);
-	$permisosAdmin = 0;
-	$permisosUser = 0;
-	while($permisos = mysqli_fetch_assoc($resultado)){
-		if($permisos['permiso']==1){
-			$permisosAdmin = 1;
+	if(isset($_SESSION['login'])){
+		$login = $_SESSION['login'];
+		$sql = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
+		$resultado = mysqli_query($conn, $sql);
+		$permisosAdmin = 0;
+		$permisosUser = 0;
+		while($permisos = mysqli_fetch_assoc($resultado)){
+			if($permisos['permiso']==1){
+				$permisosAdmin = 1;
+			}
+			if($permisos['permiso']==2){
+				$permisosUser = 1;
+			}
 		}
-		if($permisos['permiso']==2){
-			$permisosUser = 1;
+
+		if($permisosAdmin == 1){
+			include 'salasAdmin.php';
+		}else if($permisosUser == 1){
+			include 'salasUser.php';
+		}else{
+			include 'salasNoIdentificado.php';
 		}
-	}
-	
-	if($permisosAdmin == 1){
-		include 'salasAdmin.php';
-	}else if($permisosUser == 1){
-		include 'salasUser.php';
 	}else{
 		include 'salasNoIdentificado.php';
 	}		
