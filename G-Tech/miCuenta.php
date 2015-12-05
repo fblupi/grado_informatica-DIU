@@ -21,10 +21,8 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '">';
 	echo '<h2 class="nombreUsuario">';
 	echo $usuario['login'];
-	echo '<a href="#" class="btn btn-default btnperfil">Cambiar contraseña</a>';
-	echo '<a href="editarPerfil.php?u=';
-	echo $usuario['login'];
-	echo '" class="btn btn-default btnperfil2">Editar perfil</a>';
+	echo '<a href="cambiarPass.php" class="btn btn-default btnperfil">Cambiar contraseña</a>';
+	echo '<a href="editarPerfil.php" class="btn btn-default btnperfil2">Editar perfil</a>';
 	echo '</h2>';
 	echo '<p class="datosUsuario">Email: ';
 	echo $usuario['email'];
