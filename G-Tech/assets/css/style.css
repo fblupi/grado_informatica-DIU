@@ -203,6 +203,10 @@ article{
 	height: 100%;
 }
 
+.gestionar{
+	float:right;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;

@@ -1,11 +1,16 @@
 <?php include 'header.php'; ?>
 <section>
-		<h1 class="section-header">Eventos<hr></hr></h1>
+		<h1 class="section-header">Eventos
+			<?php
+			if(isset($_SESSION['login'])){
+				echo '<a href="gestionarEventos.php" type="button" class="btn btn-default gestionar"><i class="fa fa-cogs"></i>  Gestionar </a>';
+			}
+		?><hr></hr></h1>
 		<article>
 			<form role="search" class="busquedaEmpresas">
-          <input type="text" class="form-control buscar" placeholder="Buscar...">
+          <input type="text" id="busqueda" name="busqueda" onkeyup="MostrarConsultaEventos();" class="form-control buscar" placeholder="Buscar...">
        </form>
-			<div id="todasEmpresas">
+			<div id="todosEventos">
 			<?php
 				include 'libs/myLib.php';
 				$conn = dbConnect();

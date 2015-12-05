@@ -1,9 +1,15 @@
 <?php include 'header.php'; ?>
 <section>
-		<h1 class="section-header">Empresas<hr></hr></h1>
+		<h1 class="section-header">Empresas
+		<?php 
+			if(isset($_SESSION['login'])){
+				echo '<a href="gestionarEmpresas.php" type="button" class="btn btn-default gestionar"><i class="fa fa-cogs"></i>  Gestionar </a>';
+			}
+		?><hr></hr></h1>
 		<article>
 			<form role="search" class="busquedaEmpresas">
-          <input type="text" class="form-control buscar" placeholder="Buscar...">
+          <input type="text" id="busqueda" name="busqueda" onkeyup="MostrarConsultaEmpresas();" class="form-control buscar" placeholder="Buscar...">
+				
        </form>
 			<div id="todasEmpresas">
 			<?php
