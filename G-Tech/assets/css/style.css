@@ -211,9 +211,9 @@ article{
 .imagenSala{
 	margin-top:4%;
 	width: 100%;
-	height: 65%;
+	height: 35%;
 	border-radius: 50%; /* Borde redondeado */
-	box-shadow: 0px 0px 15px #000; /* Sombra */
+	box-shadow: 0px 0px 2px #000; /* Sombra */
 	padding:0;
 	border:0;
 	-moz-transition: all 1s;
@@ -452,7 +452,7 @@ article{
 		width: 100%;
 		height: 35%;
 		border-radius: 50%; /* Borde redondeado */
-		box-shadow: 0px 0px 15px #000; /* Sombra */
+		box-shadow: 0px 0px 2px #000; /* Sombra */
 		padding:0;
 		border:0;
 		-moz-transition: all 1s;
