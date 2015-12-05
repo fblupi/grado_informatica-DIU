@@ -20,4 +20,22 @@ function salir($message, $code) {
   </script>';
   return $code;
 }
+
+function envioCorreo($correo, $asunto, $contenido){
+  require("../assets/sendgrid-php/sendgrid-php.php");
+
+  $sendgrid = new SendGrid('GtechDIU', 'gtechdiu201516');
+  $to = $correo;
+  $subject = '[G-Tech] '.$asunto;
+  $consulta = $contenido;
+
+  $email = new SendGrid\Email();
+  $email
+      ->addTo($to)
+      ->setFrom('gtech@gtech.com')
+      ->setSubject($subject)
+      ->setHtml($consulta);
+
+  $sendgrid->send($email);
+}
 ?>
