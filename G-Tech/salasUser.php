@@ -18,7 +18,7 @@ echo '<h2>Salas para eventos</h2>';
 foreach(array_chunk($auxEventos, 3, true) as $salasRow) {
 	echo '<div class="row">';
 		foreach ($salasRow as $sala) {
-			echo '<div class="col-md-4 sala">';
+			echo '<div class="col-md-4 col-lg-4 sala">';
 			echo '<img class="imagenSala" src="';
 			echo $sala['imagen'];
 			echo '">';
@@ -43,7 +43,7 @@ echo '<h2>Salas para empresas</h2>';
 foreach(array_chunk($auxEmpresas, 3, true) as $salasRow) {
 	echo '<div class="row">';
 		foreach ($salasRow as $sala) {
-			echo '<div class="col-md-4 sala">';
+			echo '<div class="col-md-4 col-lg-4 sala">';
 			echo '<img class="imagenSala" src="';
 			echo $sala['imagen'];
 			echo '">';

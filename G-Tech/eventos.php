@@ -29,9 +29,17 @@
 					echo '</h2>';
 					echo '<p class="fechaEvento">';
 					echo '<i class="fa fa-2x fa-calendar iconoFecha"></i>';
-					$fecha = strtotime($eventos['fecha']);
-
-					echo '  '.date('j F, Y', $fecha);
+					$fechaInicio = explode(" ", $eventos['fechaInicio']);
+					$fechaFin = explode(" ", $eventos['fechaFin']);
+					$fecha = strtotime($eventos['fechaInicio']);
+					$fecha2 = strtotime($eventos['fechaFin']);
+					if(strtotime($fechaInicio[0])==strtotime($fechaFin[0])){
+						echo ' '.date('j F, Y H:i', $fecha);
+						echo ' - '.date('H:i', $fecha2);
+					}else{
+						echo ' '.date('j F, Y', $fecha);
+						echo ' - '.date('j F, Y', $fecha2);
+					}
 					echo '</p>';
 					echo '<p class="descripcionEvento">';
 					echo $eventos['descripcion'];
