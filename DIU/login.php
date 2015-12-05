@@ -3,7 +3,7 @@
 include_once "dbConnect.php";
 
 $login = $_POST['login'];
-$pass = $_POST['pass'];
+$pass = md5($_POST['pass']);
 
 $conexion = dbConnect();
 $sql = "SELECT * FROM usuario WHERE usuario.login='$login'";
@@ -14,19 +14,24 @@ if ($row = mysqli_fetch_array($resultado)) {
     session_start();
     $_SESSION['login'] = $login;
     mysqli_close($conexion);
-    echo '<script>
-      alert("Se ha iniciado sesión correctamente");
-      location.href="'.$_SERVER['HTTP_REFERER'].'";
-    </script>';
-    return 0;
+    salir("Se ha iniciado sesión correctamente", 0);
+  } else {
+    mysqli_close($conexion);
+    salir("El nombre de usuario o la contraseña no son correctos", -1);
   }
+} else {
+  mysqli_close($conexion);
+  salir("No existe ese usuario en el sistema", -1);  
 }
 
-mysqli_close($conexion);
-echo '<script>
-  alert("El nombre de usuario o la contraseña no son correctos");
-  location.href="'.$_SERVER['HTTP_REFERER'].'";
-</script>';
-return -1;
+
+
+function salir($message, $code) {
+  echo '<script>
+    alert("' . $message . '");
+    location.href= " ' . $_SERVER['HTTP_REFERER'] . '";
+  </script>';
+  return $code;
+}
 
 ?>

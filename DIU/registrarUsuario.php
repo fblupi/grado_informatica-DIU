@@ -7,7 +7,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 $login = $_POST['login'];
-$pass = $_POST['pass'];
+$pass = md5($_POST['pass']);
 $email = $_POST['correo'];
 $nombre = "";
 $telefono = "";
@@ -16,34 +16,34 @@ $pais = "";
 $localidad = "";
 $direccion = "";
 $codigoPostal = "";
-$imagen = "assets/img/usuario.png";
+$imagen = "assets/img/user.png";
 
 if (!empty($_POST['nombre'])) {
   $nombre = $_POST['nombre'];
 }
 
 if (!empty($_POST['telefono'])) {
-  $nombre = $_POST['telefono'];
+  $telefono = $_POST['telefono'];
 }
 
 if (!empty($_POST['sexo'])) {
-  $nombre = $_POST['sexo'];
+  $sexo = $_POST['sexo'];
 }
 
 if (!empty($_POST['pais'])) {
-  $nombre = $_POST['pais'];
+  $pais = $_POST['pais'];
 }
 
-if (!empty($_POST['localidad'])) {
-  $nombre = $_POST['localidad'];
+if (!empty($_POST['localizacion'])) {
+  $localidad = $_POST['localizacion'];
 }
 
 if (!empty($_POST['direccion'])) {
-  $nombre = $_POST['direccion'];
+  $direccion = $_POST['direccion'];
 }
 
 if (!empty($_POST['codigoPostal'])) {
-  $nombre = $_POST['codigoPostal'];
+  $codigoPostal = $_POST['codigoPostal'];
 }
 
 $subidaCorrecta = false;
