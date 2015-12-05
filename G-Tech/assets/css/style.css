@@ -234,6 +234,11 @@ article{
 	text-align: center;
 }
 
+.acciones{
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
@@ -467,5 +472,15 @@ article{
 		-webkit-transition: all 1s;
 		-o-transition: all 1s;
 		cursor:pointer;
+	}
+	
+	.acciones{
+		width: 70%;
+		margin-top: 1%;
+		margin-bottom: 1%;
+	}
+	
+	.st-head-row.st-head-row-main{
+		font-size: 20px !important;
 	}
 }

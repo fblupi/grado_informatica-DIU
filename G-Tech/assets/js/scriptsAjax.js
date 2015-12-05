@@ -1,4 +1,4 @@
-function MostrarConsultaEmpresas(){
+function MostrarConsultaEmpresas() {
     var busqueda = $('#busqueda').val();
     var parametros = {
         search : busqueda
@@ -13,7 +13,7 @@ function MostrarConsultaEmpresas(){
     });
 }
 
-function MostrarConsultaEventos(){
+function MostrarConsultaEventos() {
     var busqueda = $('#busqueda').val();
     var parametros = {
         search : busqueda
