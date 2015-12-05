@@ -6,14 +6,14 @@
           <input type="text" class="form-control buscar" placeholder="Buscar...">
        </form>
 			<div id="todasEmpresas">
-			<?php 
-				include 'dbConnect.php';
+			<?php
+				include 'libs/myLib.php';
 				$conn = dbConnect();
-				
+
 				$sql = "SELECT * FROM Empresa;";
-				
+
 				$resultado = mysqli_query($conn, $sql);
-				
+
 				while ($empresa = mysqli_fetch_assoc($resultado)) {
 					echo '<div class="empresas">';
 					echo '<img class="logoEmpresa" src="';
@@ -28,7 +28,7 @@
 					echo '<a class="btn btn-default masInfoEmpresa" href="#" role="button">Ver más...</a>';
 					echo '</div>';
 				}
-				
+
 				?>
 </div>
 </article>

@@ -1,6 +1,6 @@
 <?php
 
-include_once "dbConnect.php";
+include_once "../libs/myLib.php";
 
 $login = $_POST['login'];
 $pass = md5($_POST['pass']);
@@ -21,17 +21,7 @@ if ($row = mysqli_fetch_array($resultado)) {
   }
 } else {
   mysqli_close($conexion);
-  salir("No existe ese usuario en el sistema", -1);  
-}
-
-
-
-function salir($message, $code) {
-  echo '<script>
-    alert("' . $message . '");
-    location.href= " ' . $_SERVER['HTTP_REFERER'] . '";
-  </script>';
-  return $code;
+  salir("No existe ese usuario en el sistema", -1);
 }
 
 ?>

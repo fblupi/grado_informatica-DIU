@@ -1,6 +1,6 @@
 <?php
 
-include_once "dbConnect.php";
+include_once "../libs/myLib.php";
 
 if (!isset($_SESSION['login'])) {
     session_start();
@@ -52,17 +52,19 @@ if (isset($_FILES['imagen'])) {
     salir("Ha ocurrido un error en la carga de la imagen", -2);
   } else {
     $extensiones = array("image/jpg", "image/jpeg", "image/png");
-    $limite = 2048;
+    $limite = 4096;
     if (in_array($_FILES['imagen']['type'], $extensiones) && $_FILES['imagen']['size'] < $limite * 1024) {
       $foldername = "assets/img/users";
-      if (!is_dir($foldername)) {
-        mkdir($foldername);
+      $foldermkdir = "../" . $foldername;
+      if (!is_dir($foldermkdir)) {
+        mkdir($foldermkdir, 0777, true);
       }
       $extension = "." . split("/", $_FILES['imagen']['type'])[1];
       $filename = $login . $extension;
       $ruta = $foldername . "/" . $filename;
-      if (!file_exists($ruta)) {
-        $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
+      $rutacrear = $foldermkdir . "/" . $filename;
+      if (!file_exists($rutacrear)) {
+        $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $rutacrear);
         if ($subidaCorrecta) {
           $imagen = $ruta;
         }
@@ -84,15 +86,6 @@ if (!$resultado && $subidaCorrecta) {
 } else {
   $_SESSION['login'] = $login;
   salir("Se ha registrado correctamente", 0);
-}
-
-
-function salir($message, $code) {
-  echo '<script>
-    alert("' . $message . '");
-    location.href= " ' . $_SERVER['HTTP_REFERER'] . '";
-  </script>';
-  return $code;
 }
 
 ?>

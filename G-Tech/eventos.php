@@ -6,14 +6,14 @@
           <input type="text" class="form-control buscar" placeholder="Buscar...">
        </form>
 			<div id="todasEmpresas">
-			<?php 
-				include 'dbConnect.php';
+			<?php
+				include 'libs/myLib.php';
 				$conn = dbConnect();
-				
+
 				$sql = "SELECT * FROM Evento;";
-				
+
 				$resultado = mysqli_query($conn, $sql);
-				
+
 				while ($eventos = mysqli_fetch_assoc($resultado)) {
 					echo '<div class="eventos">';
 					echo '<img class="logoEvento" src="';
@@ -25,7 +25,7 @@
 					echo '<p class="fechaEvento">';
 					echo '<i class="fa fa-2x fa-calendar iconoFecha"></i>';
 					$fecha = strtotime($eventos['fecha']);
-					
+
 					echo '  '.date('j F, Y', $fecha);
 					echo '</p>';
 					echo '<p class="descripcionEvento">';
@@ -40,7 +40,7 @@
 					}
 					echo '</div>';
 				}
-				
+
 				?>
 </div>
 </article>

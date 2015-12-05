@@ -1,11 +1,11 @@
 <?php include 'header.php'; ?>
 <?php if(isset($_SESSION['login'])){
 	echo '<script>location.href="index.php";</script>';
-} 
+}
 ?>
 <section class="divInicioSesion">
 	<article>
-		<form class="form-horizontal" method="POST" action="login.php" data-toggle="validator" role="form">
+		<form class="form-horizontal" method="POST" action="scripts/login.php" data-toggle="validator" role="form">
 			<div class="form-group has-feedback">
 				<label>Nombre de usuario</label>
 					<input type="text" class="form-control" id="login" name="login" placeholder="Nombre de usuario" required>

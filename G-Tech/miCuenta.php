@@ -2,11 +2,11 @@
 <section>
 <h1 class="section-header">Mi cuenta<hr></hr></h1>
 <article>
-<?php 
-include 'dbConnect.php';
+<?php
+include 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
-	
+
 $sql = "SELECT * FROM Usuario WHERE login = '$login'";
 
 $resultado = mysqli_query($conn, $sql);
@@ -48,7 +48,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '</div>';
 }
 
-?>	
+?>
 </article>
 </section>
 <script type="text/javascript">

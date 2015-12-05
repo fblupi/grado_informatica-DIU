@@ -4,13 +4,20 @@
     $username = "root";
     $password = "";
     $dbname = "diu";
-
-// Create connection
+    // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+    // Check connection
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
     return $conn;
+}
+
+function salir($message, $code) {
+  echo '<script>
+    alert("' . $message . '");
+    location.href= " ' . $_SERVER['HTTP_REFERER'] . '";
+  </script>';
+  return $code;
 }
 ?>

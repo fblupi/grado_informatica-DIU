@@ -1,11 +1,11 @@
 <?php include 'header.php'; ?>
 <?php if(isset($_SESSION['login'])){
 	echo '<script>location.href="index.php";</script>';
-} 
+}
 ?>
 <section>
 <article>
-	<form class="form-signin" method="POST" action="registrarUsuario.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+	<form class="form-signin" method="POST" action="scripts/registrarUsuario.php" data-toggle="validator" role="form" enctype="multipart/form-data">
 			<div class="form-group has-feedback">
 				<label>Nombre de usuario</label>
 				<input type="text" class="form-control" id="login" name="login" placeholder="Nombre de usuario" maxlength="10" required>
@@ -57,7 +57,7 @@
 				<label>Teléfono</label>
 					<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="612345678">
 			</div>
-		
+
 		<div class="form-group">
 				<label>Imagen de perfil</label>
 					<input type="file" class="form-control" id="imagen" name="imagen">
