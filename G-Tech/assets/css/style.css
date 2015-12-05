@@ -199,6 +199,10 @@ article{
 	width: 100%;
 }
 
+.formularioEditarPerfil{
+	height: 100%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;

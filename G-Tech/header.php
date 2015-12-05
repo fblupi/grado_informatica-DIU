@@ -20,8 +20,6 @@
 </div>
 </header>
 <!-- navbar -->
-<nav>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,5 +46,4 @@
 			</ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
 </nav>

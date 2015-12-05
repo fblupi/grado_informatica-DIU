@@ -3,6 +3,9 @@
 <h1 class="section-header">Mi cuenta<hr></hr></h1>
 <article>
 <?php
+	if(!isset($_SESSION['login'])){
+	echo '<script>location.href="inicioSesion.php";</script>';
+}
 include 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
@@ -19,7 +22,9 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<h2 class="nombreUsuario">';
 	echo $usuario['login'];
 	echo '<a href="#" class="btn btn-default btnperfil">Cambiar contraseña</a>';
-	echo '<a href="#" class="btn btn-default btnperfil2">Editar perfil</a>';
+	echo '<a href="editarPerfil.php?u=';
+	echo $usuario['login'];
+	echo '" class="btn btn-default btnperfil2">Editar perfil</a>';
 	echo '</h2>';
 	echo '<p class="datosUsuario">Email: ';
 	echo $usuario['email'];
