@@ -7,6 +7,7 @@
 <!-- css -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/animate.css" rel="stylesheet"/>
 <link href="assets/css/stacktable.css" rel="stylesheet"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -14,8 +15,8 @@
 </head>
 <body id="divPrincipal">
 <header>
-<div class="header">
-<a href="index.php"><img id="logo" src="assets/img/logo.png" alt="Inicio"></a>
+<div class="header animated lightSpeedIn">
+<a href="index.php"><img class="animated rollIn" id="logo" src="assets/img/logo.png" alt="Inicio"></a>
 	<img class="gtech" src="assets/img/header1.png">
 	<img class="coworking" src="assets/img/header2.png">
 </div>
