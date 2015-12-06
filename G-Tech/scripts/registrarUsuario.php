@@ -47,7 +47,7 @@ if (!empty($_POST['codigoPostal'])) {
 }
 
 $subidaCorrecta = false;
-if (isset($_FILES['imagen'])) {
+if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
   if ($_FILES['imagen']['error'] > 0) {
     salir("Ha ocurrido un error en la carga de la imagen", -2);
   } else {

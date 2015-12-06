@@ -37,7 +37,7 @@ nav{
 }
 
 .navbar-default .navbar-nav > li > a{
-		color: #86588F !important;		
+		color: #86588F !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover{
@@ -246,30 +246,30 @@ article{
 		width: 20%;
 		margin-top: 1%;
 	}
-	
+
 	h1{
 		font-size: 24px;
 	}
-	
+
 	h2{
 		font-size: 20px;
 	}
-	
+
 	#divPrincipal{
 		display: block;
 		margin: 0 auto;
 		width: 100%;
 		margin-top: 1%;
 	}
-	
+
 	#cerrarSesion{
 		-webkit-box-ordinal-group: 2;
     -moz-box-ordinal-group: 2;
     -ms-flex-order: 2;
-    -webkit-order: 2; 
+    -webkit-order: 2;
     order: 2;
 	}
-	
+
 	#micuenta{
 		-webkit-box-ordinal-group: 1;
     -moz-box-ordinal-group: 1;
@@ -277,21 +277,21 @@ article{
     -webkit-order: 1;
     order: 1;
 	}
-	
+
 	.navbar-nav {
 		margin: -1px -15px;
 	}
-	
+
 	.navbar-nav li{
 		float:none !important;
 		background-color: transparent !important;
 		text-align: right;
  	}
-	
+
 	.navbar-collapse{
 			border-color: transparent !important;
 	}
-		
+
 	.navbar-right{
 		border: 0;
 		display: -webkit-box;
@@ -305,7 +305,7 @@ article{
     -ms-flex-direction: column;
     flex-direction: column;
 	}
-		
+
 	.nav-tabs{
 			border: 0 !important;
 			border-color: transparent;
@@ -327,25 +327,25 @@ article{
 		padding: 30;
 		height: 100%;
 	}
-	
+
 	section{
 		padding: 30;
 	}
-	
+
 	.gtech{
 		display: none;
 	}
-	
+
 	.coworking{
 		display: none;
 	}
-	
+
 	.buscar{
 		display: inherit !important;
 		border-radius: 20px;
 		width: 100%;
 	}
-	
+
 	.logoEmpresa{
 		float:none;
 		display: block;
@@ -353,7 +353,7 @@ article{
 		margin-top: 1%;
 		width: 30%;
 	}
-	
+
 	.nombreEmpresa{
 		font-weight: bold;
 		margin-left: 2%;
@@ -366,7 +366,7 @@ article{
 	.empresas, eventos{
 		margin-bottom: 5%;
 	}
-	
+
 	.logoEvento{
 		float:none;
 		display: block;
@@ -374,7 +374,7 @@ article{
 		margin-top: 1%;
 		width: 80%;
 	}
-	
+
 	.nombreEvento{
 		font-weight: bold;
 		margin-left: 1%;
@@ -383,7 +383,7 @@ article{
 	.descripcionEvento, .masInfoEvento{
 		margin-left: 1%;
 	}
-	
+
 	.fechaEvento{
 		float:none;
 		margin-top: 0;
@@ -406,7 +406,7 @@ article{
     -ms-flex-order: 2;
     -webkit-order: 2;
     order: 2;
-		
+
 	}
 
 	.nombreUsuario{
@@ -418,13 +418,12 @@ article{
     -ms-flex-order: 1;
     -webkit-order: 1;
     order: 1;
-		
+
 	}
 
 	.datosUsuario{
 		margin-top: 2%;
 		margin-left: 2%;
-		font-weight: bold;
 		-webkit-box-ordinal-group: 2;
     -moz-box-ordinal-group: 2;
     -ms-flex-order: 2;
@@ -436,9 +435,9 @@ article{
 		display: inline;
 		float:none;
 		margin-left: 2%;
-		
+
 	}
-	
+
 	.miPerfil{
 		display: -webkit-box;
     display: -moz-box;
@@ -451,7 +450,7 @@ article{
     -ms-flex-direction: column;
     flex-direction: column;
 	}
-	
+
 	.imagenSala{
 		margin-top:4%;
 		width: 100%;
@@ -473,13 +472,13 @@ article{
 		-o-transition: all 1s;
 		cursor:pointer;
 	}
-	
+
 	.acciones{
 		width: 70%;
 		margin-top: 1%;
 		margin-bottom: 1%;
 	}
-	
+
 	.st-head-row.st-head-row-main{
 		font-size: 20px !important;
 	}
