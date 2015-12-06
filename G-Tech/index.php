@@ -51,6 +51,7 @@
 window.onload = function()
 {
 	document.getElementById("inicio").className = "active menu";
+	document.getElementById("logos").className = "animated rubberBand";
 }
 </script>
 <?php include 'footer.php'; ?>

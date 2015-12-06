@@ -15,8 +15,8 @@
 </head>
 <body id="divPrincipal">
 <header>
-<div class="header animated lightSpeedIn">
-<a href="index.php"><img class="animated rollIn" id="logo" src="assets/img/logo.png" alt="Inicio"></a>
+<div class="header" id="logos">
+<a href="index.php"><img id="logo" src="assets/img/logo.png" alt="Inicio"></a>
 	<img class="gtech" src="assets/img/header1.png">
 	<img class="coworking" src="assets/img/header2.png">
 </div>
