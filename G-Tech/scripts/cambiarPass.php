@@ -9,7 +9,7 @@ if (!isset($_SESSION['login'])) {
 $pass = md5($_POST['newPass']);
 
 $conexion = dbConnect();
-$sql = "UPDATE usuario SET pass='" . $pass. "' WHERE login='" . $_SESSION['login'] . "'";
+$sql = "UPDATE usuario SET pass='" . $pass . "' WHERE login='" . $_SESSION['login'] . "'";
 $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);
 

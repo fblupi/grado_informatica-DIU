@@ -25,7 +25,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<label>Nombre: </label>';
 	echo '<input type="text" class="form-control" id="nombre" name="nombre" value="';
 	echo $usuario['nombre'];
-	echo '" maxlength="20" required>';
+	echo '" maxlength="40">';
 	echo '<span class="glyphicon form-control-feedback" aria-hidden="true"></span>';
 	echo '</div>';
 	echo '<div class="form-group">';

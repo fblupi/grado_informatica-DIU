@@ -6,9 +6,13 @@ if (!isset($_SESSION['login'])) {
     session_start();
 }
 
+$login = $_SESSION['login'];
 $nombre = $_POST['nombre'];
 $telefono = $_POST['telefono'];
-$sexo = $_POST['sexo'];
+$sexo = "";
+if (!empty($_POST['sexo'])) {
+  $sexo = $_POST['sexo'];
+}
 $pais = $_POST['pais'];
 $localidad = $_POST['localizacion'];
 $direccion = $_POST['direccion'];
@@ -34,27 +38,30 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
       $rutacrear = $foldermkdir . "/" . $filename;
       if (!file_exists($rutacrear)) {
         $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $rutacrear);
-        if ($subidaCorrecta) {
-          $imagen = $ruta;
-        }
+      } else {
+        unlink($rutacrear);
+        $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $rutacrear);
+      }
+      if ($subidaCorrecta) {
+        $imagen = $ruta;
       }
     }
   }
 }
 
 $conexion = dbConnect();
-$sql = "UPDATE usuario SET nombre='$nombre' telefono='$telefono' sexo='$sexo' pais='$pais' localidad='$localidad' direccion='$direccion' codigoPostal='$codigoPostal' WHERE login='" . $_SESSION['login'] . "'";
+$sql = "UPDATE usuario SET nombre='" . $nombre . "', telefono='" . $telefono . "', sexo='" . $sexo . "', pais='" . $pais . "', localidad='" . $localidad . "', direccion='" . $direccion . "', codigoPostal='" . $codigoPostal . "' WHERE login='" . $login . "'";
 if ($imagen != "") {
-  $sql = "UPDATE usuario SET nombre='$nombre' telefono='$telefono' sexo='$sexo' pais='$pais' localidad='$localidad' direccion='$direccion' codigoPostal='$codigoPostal' imagen='$imagen' WHERE login='" . $_SESSION['login'] . "'";
+  $sql = "UPDATE usuario SET nombre='" . $nombre . "', telefono='" . $telefono . "', sexo='" . $sexo . "', pais='" . $pais . "', localidad='" . $localidad . "', direccion='" . $direccion . "', codigoPostal='" . $codigoPostal . "', imagen='" . $imagen . "' WHERE login='" . $login . "'";
 }
 $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);
 
 if (!$resultado) {
   if ($subidaCorrecta) {
-    unlink($ruta);
+    unlink($rutacrear);
   }
-  salir("Error al modificar el perfil", -1);
+  salir("Error al modificar el perfil".$sql, -1);
 } else {
   salir("Se ha editado correctamente", 0);
 }
