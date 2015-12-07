@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 <?php if(!isset($_SESSION['login'])){
 	echo '<script>location.href="inicioSesion.php";</script>';
-} 
+}
 ?>
 <section class="divInicioSesion">
 	<h1 class="section-header">Cambiar contraseña<hr></hr></h1>
 <article>
-	<form class="form-horizontal" method="POST" action="script/cambiarPass.php" data-toggle="validator" role="form">
+	<form class="form-horizontal" method="POST" action="scripts/cambiarPass.php" data-toggle="validator" role="form">
 			<div class="form-group has-feedback">
 				<label>Contraseña antigua</label>
 					<input type="password" class="form-control" id="pass" name="pass" data-minlength="6" required>

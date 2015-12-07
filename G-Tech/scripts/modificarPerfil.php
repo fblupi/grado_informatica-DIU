@@ -6,48 +6,17 @@ if (!isset($_SESSION['login'])) {
     session_start();
 }
 
-$login = $_POST['login'];
-$pass = md5($_POST['pass']);
-$email = $_POST['correo'];
-$nombre = "";
-$telefono = "";
-$sexo = "";
-$pais = "";
-$localidad = "";
-$direccion = "";
-$codigoPostal = "";
-$imagen = "assets/img/user.png";
-
-if (!empty($_POST['nombre'])) {
-  $nombre = $_POST['nombre'];
-}
-
-if (!empty($_POST['telefono'])) {
-  $telefono = $_POST['telefono'];
-}
-
-if (!empty($_POST['sexo'])) {
-  $sexo = $_POST['sexo'];
-}
-
-if (!empty($_POST['pais'])) {
-  $pais = $_POST['pais'];
-}
-
-if (!empty($_POST['localizacion'])) {
-  $localidad = $_POST['localizacion'];
-}
-
-if (!empty($_POST['direccion'])) {
-  $direccion = $_POST['direccion'];
-}
-
-if (!empty($_POST['codigoPostal'])) {
-  $codigoPostal = $_POST['codigoPostal'];
-}
+$nombre = $_POST['nombre'];
+$telefono = $_POST['telefono'];
+$sexo = $_POST['sexo'];
+$pais = $_POST['pais'];
+$localidad = $_POST['localizacion'];
+$direccion = $_POST['direccion'];
+$codigoPostal = $_POST['codigoPostal'];
+$imagen = "";
 
 $subidaCorrecta = false;
-if (isset($_FILES['imagen'])) {
+if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
   if ($_FILES['imagen']['error'] > 0) {
     salir("Ha ocurrido un error en la carga de la imagen", -2);
   } else {
@@ -74,16 +43,20 @@ if (isset($_FILES['imagen'])) {
 }
 
 $conexion = dbConnect();
-$sql = "UPDATE usuario SET login=$login pass=$pass email=$email nombre=$nombre telefono=$telefono sexo=$sexo pais=$pais localidad=$localidad direccion=$direccion codigoPostal=$codigoPostal imagen=$imagen WHERE usuario.login=$_SESSION['login']";
+$sql = "UPDATE usuario SET nombre='$nombre' telefono='$telefono' sexo='$sexo' pais='$pais' localidad='$localidad' direccion='$direccion' codigoPostal='$codigoPostal' WHERE login='" . $_SESSION['login'] . "'";
+if ($imagen != "") {
+  $sql = "UPDATE usuario SET nombre='$nombre' telefono='$telefono' sexo='$sexo' pais='$pais' localidad='$localidad' direccion='$direccion' codigoPostal='$codigoPostal' imagen='$imagen' WHERE login='" . $_SESSION['login'] . "'";
+}
 $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);
 
-if (!$resultado && $subidaCorrecta) {
-  unlink($ruta);
-  salir("El usuario ya existe", -1);
+if (!$resultado) {
+  if ($subidaCorrecta) {
+    unlink($ruta);
+  }
+  salir("Error al modificar el perfil", -1);
 } else {
-  $_SESSION['login'] = $login;
-  salir("Se ha registrado correctamente", 0);
+  salir("Se ha editado correctamente", 0);
 }
 
 ?>
