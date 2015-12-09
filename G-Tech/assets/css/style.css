@@ -133,6 +133,7 @@ article{
 
 .logoEmpresa{
 	width: 20%;
+  min-width: 100px;
 	float:left;
 }
 
