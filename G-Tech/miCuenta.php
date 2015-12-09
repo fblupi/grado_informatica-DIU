@@ -1,6 +1,5 @@
 <?php include 'header.php'; ?>
 <section>
-<h1 class="section-header">Mi cuenta<hr></hr></h1>
 <article>
 <?php
 	if(!isset($_SESSION['login'])){
@@ -19,11 +18,13 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<img class="fotoPerfil" src="';
 	echo $usuario['imagen'];
 	echo '">';
-	echo '<h2 class="nombreUsuario">';
+	echo '<h1 class="section-header">Mi cuenta ';
+	echo '<small>';
 	echo $usuario['login'];
+	echo '</small>';
+	echo '<hr></hr></h1>';
 	echo '<a href="cambiarPass.php" class="btn btn-default btnperfil">Cambiar contraseña</a>';
 	echo '<a href="editarPerfil.php" class="btn btn-default btnperfil2">Editar perfil</a>';
-	echo '</h2>';
 	echo '<p class="datosUsuario">Email: ';
 	echo $usuario['email'];
 	echo '</p>';
