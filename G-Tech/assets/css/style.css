@@ -64,6 +64,7 @@ nav{
 section {
 		padding: 50;
 		height: auto;
+    min-height: 800px;
   	background-color: #FAFAFA;
 }
 
