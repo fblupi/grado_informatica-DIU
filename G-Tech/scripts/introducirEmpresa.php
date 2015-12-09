@@ -18,11 +18,12 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 $fax = "";
 $descripcion = $_POST['descripcion'];
-$representante = $_POST[''];
+$representante = $resultadoIdLogin;
 $imagen = "assets/img/oslugr.png";
 $sala = "";//Las salas entiendo que las cogerá desde la interfaz de registrar empresa que se encargará de recogerlas de la base de datos.
 $fechaInicio = "";
 $fechaFin = "";
+
 
 if (!empty($_POST['fax'])) {
   $fax = $_POST['fax'];
@@ -68,14 +69,14 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 }
 
 
-$sql="INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,imagen,representante,sala,fechaInicio,fechaFin) VALUES('" . $CIF . "','" . $nombre . "','" . $direccion . "','" . $telefono . "','" . $fax . "','" . $descripcion . "','" . $imagen . "','" . $sala . "','" . $fechaInicio . "','" . $fechaFin . "');";
+$sql="INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,imagen,representante,sala,fechaInicio,fechaFin) VALUES('" . $CIF . "','" . $nombre . "','" . $direccion . "','" . $telefono . "','" . $fax . "','" . $descripcion . "','" . $imagen . "','" . $sala . "','" . $representante . "','" . $fechaInicio . "','" . $fechaFin . "');";
 
 $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);  
 
 
 if (!$resultado && $subidaCorrecta) {
-  unlink($ruta);
+    unlink($ruta);
   salir("La empresa ya existe", -1);
 } else {
   salir("Se ha registrado la empresa correctamente", 0);
