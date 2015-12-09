@@ -41,7 +41,8 @@
 						echo ' - '.date('j F, Y', $fecha2);
 					}
 					echo '</p>';
-					echo '<p class="descripcionEvento">';
+					echo '<div class="descripcionEvento">';
+					echo '<p>';
 					echo $eventos['descripcion'];
 					echo '</p>';
 					echo '<a class="btn btn-default masInfoEvento" href="#" role="button">Ver más...</a>';
@@ -51,6 +52,7 @@
 					if($eventos['plazas']==0){
 						echo '<span class="label label-danger eventoGratuito">No hay plazas</span>';
 					}
+					echo '</div>';
 					echo '</div>';
 				}
 

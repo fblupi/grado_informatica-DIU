@@ -139,8 +139,12 @@ article{
 	margin-left: 25%;
 }
 
-.descripcionEmpresa, .masInfoEmpresa{
-	margin-left: 25%;
+.descripcionEmpresa {
+  margin-left: 25%;
+}
+
+.masInfoEmpresa{
+	margin-left: 0;
 }
 
 .empresas, eventos{
@@ -159,8 +163,12 @@ article{
 	margin-left: 26%;
 }
 
-.descripcionEvento, .masInfoEvento{
+.descripcionEvento{
 	margin-left: 26%;
+}
+
+.masInfoEvento{
+  margin-left: 0;
 }
 
 .fechaEvento{
@@ -359,9 +367,13 @@ article{
 		margin-left: 2%;
 	}
 
-	.descripcionEmpresa, .masInfoEmpresa{
+	.descripcionEmpresa{
 		margin-left: 2%;
 	}
+
+  .masInfoEmpresa{
+    margin-left: 0;
+  }
 
 	.empresas, eventos{
 		margin-bottom: 5%;
@@ -380,9 +392,13 @@ article{
 		margin-left: 1%;
 	}
 
-	.descripcionEvento, .masInfoEvento{
+	.descripcionEvento{
 		margin-left: 1%;
 	}
+
+  .masInfoEvento{
+    margin-left: 0;
+  }
 
 	.fechaEvento{
 		float:none;
