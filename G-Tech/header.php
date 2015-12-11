@@ -43,7 +43,20 @@
 					<li role="presentation" id="salas"><a href="salas.php">Salas</a></li>
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
-					<?php if(isset($_SESSION['login'])){ echo '<li role="presentation" class="nav-right" id="cerrarSesion"><a href="scripts/cerrarSesion.php">Cerrar sesión</a></li>'; echo '<li role="presentation" class="nav-right" id="micuenta"><a href="miCuenta.php">Mi Cuenta</a></li>'; }else{ echo '<li role="presentation" id="identificar" class="nav-right"><a href="inicioSesion.php">Identifícate</a></li>';}
+					<?php if(isset($_SESSION['login'])){
+						echo '<li class="dropdown">';
+	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta <span class="caret"></span></a>';
+	          echo '<ul class="dropdown-menu animated fadeInDown">';
+	          echo '<li><a href="miCuenta.php"><i class="fa fa-user usuario"></i> Mi perfil</a></li>';
+	          echo '<li><a href="eventosUsuario.php"><i class="fa fa-calendar usuario"></i> Mis eventos</a></li>';
+						echo '<li><a href="empresasUsuario.php"><i class="fa fa-certificate usuario"></i> Mis empresas</a></li>';
+	          echo '<li role="separator" class="divider"></li>';
+	          echo '<li><a href="scripts/cerrarSesion.php">Cerrar sesión</a></li>';
+	          echo '</ul>';
+	          echo '</li>';
+					}else{
+						echo '<li role="presentation" id="identificar" class="nav-right"><a href="inicioSesion.php">Identifícate</a></li>';
+					}
 					?>
 			</ul>
     </div><!-- /.navbar-collapse -->

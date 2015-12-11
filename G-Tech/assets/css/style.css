@@ -250,6 +250,19 @@ article{
 	margin-right: 1%;
 }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
+  background-color: transparent;
+}
+
+.nav .open > a, .nav .open > a:focus{
+  border-color: transparent;
+}
+
+.navbar-nav .open .dropdown-menu > li > a{
+  color: #000 !important;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
@@ -507,4 +520,13 @@ article{
 	.st-head-row.st-head-row-main{
 		font-size: 20px !important;
 	}
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
+    background-color: transparent;
+  }
+
+  .navbar-nav .open .dropdown-menu > li > a{
+    color: #86588F !important;
+    font-weight: bold;
+  }
 }
