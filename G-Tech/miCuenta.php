@@ -18,7 +18,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<img class="fotoPerfil" src="';
 	echo $usuario['imagen'];
 	echo '">';
-	echo '<h1 class="section-header">Mi cuenta ';
+	echo '<h1 class="section-header">Mi perfil ';
 	echo '<small>';
 	echo $usuario['login'];
 	echo '</small>';

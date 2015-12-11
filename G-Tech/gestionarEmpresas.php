@@ -5,8 +5,8 @@ if(!isset($_SESSION['login'])){
 ?>
 <section>
 		<h1 class="section-header">Gestionar empresas
+		<a href="crearEmpresa.php" type="button" class="btn btn-primary gestionar">Crear empresa</a>
 		<hr></hr></h1>
-		<a href=""
 		<article>
 			<?php
 				include 'libs/myLib.php';
@@ -86,7 +86,9 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['sala'];
 						echo '</td>';
 						echo '<td>';
-						echo '<a type="button" class="btn btn-success" href="promocionarEmpresa.php">Promocionar</a>';
+						echo '<a type="button" class="btn btn-success" href="promocionarEmpresa.php?i=';
+						echo $empresa['id'];
+						echo '">Promocionar</a>';
 						echo '</td>';
 						echo '</tr>';
 					}
@@ -96,20 +98,20 @@ if(!isset($_SESSION['login'])){
 
 				$resultado = mysqli_query($conn, $sql);
 
-				while ($empresa = mysqli_fetch_assoc($resultado)) {
-					echo '<div class="empresas">';
-					echo '<img class="logoEmpresa" src="';
-					echo $empresa['imagen'];
-					echo '">';
-					echo '<h2 class="nombreEmpresa">';
-					echo $empresa['nombre'];
-					echo '</h2>';
-					echo '<p class="descripcionEmpresa">';
-					echo $empresa['descripcion'];
-					echo '</p>';
-					echo '<a class="btn btn-default masInfoEmpresa" href="#" role="button">Ver más...</a>';
-					echo '</div>';
-				}
+					while ($empresa = mysqli_fetch_assoc($resultado)) {
+						echo '<div class="empresas">';
+						echo '<img class="logoEmpresa" src="';
+						echo $empresa['imagen'];
+						echo '">';
+						echo '<h2 class="nombreEmpresa">';
+						echo $empresa['nombre'];
+						echo '</h2>';
+						echo '<p class="descripcionEmpresa">';
+						echo $empresa['descripcion'];
+						echo '</p>';
+						echo '<a class="btn btn-default masInfoEmpresa" href="#" role="button">Ver más...</a>';
+						echo '</div>';
+					}
 				}
 
 				?>

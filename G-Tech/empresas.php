@@ -31,7 +31,9 @@
 					echo '<p>';
 					echo $empresa['descripcion'];
 					echo '</p>';
-					echo '<a class="btn btn-default masInfoEmpresa" href="#" role="button">Ver más...</a>';
+					echo '<a class="btn btn-default masInfoEmpresa" href="empresa.php?i=';
+					echo $empresa['id'];
+					echo '" role="button">Ver más...</a>';
 					echo '</div>';
 					echo '</div>';
 				}
