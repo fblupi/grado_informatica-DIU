@@ -1,4 +1,4 @@
-<?php 
+<?php
 $sql2 = "SELECT * FROM Sala;";
 $resultado2 = mysqli_query($conn, $sql2);
 $auxEmpresas = Array();
@@ -12,7 +12,6 @@ while($salas = mysqli_fetch_assoc($resultado2)){
 		array_push($auxEventos,$salas);
 	}
 }
-
 echo '<h2>Salas para eventos</h2>';
 
 foreach(array_chunk($auxEventos, 3, true) as $salasRow) {
@@ -28,10 +27,11 @@ foreach(array_chunk($auxEventos, 3, true) as $salasRow) {
 			echo '<p>Capacidad: ';
 			echo $sala['capacidad'];
 			echo ' personas</p>';
-			echo '<a href="masInfoSala.php?i=';
-			echo $sala['id'];
-			echo '" class="btn btn-default" type="button">';
-			echo 'Disponibilidad</a>';
+			echo '<p>Localización: ';
+			echo $sala['planta'];
+			echo '.';
+			echo $sala['numero'];
+			echo '</p>';
 			echo '</div>';
 		}
 	echo '</div>';
@@ -53,10 +53,11 @@ foreach(array_chunk($auxEmpresas, 3, true) as $salasRow) {
 			echo '<p>Capacidad: ';
 			echo $sala['capacidad'];
 			echo ' personas</p>';
-			echo '<a href="masInfoSala.php?i=';
-			echo $sala['id'];
-			echo '" class="btn btn-default" type="button">';
-			echo 'Disponibilidad</a>';
+			echo '<p>Localización: ';
+			echo $sala['planta'];
+			echo '.';
+			echo $sala['numero'];
+			echo '</p>';
 			echo '</div>';
 		}
 	echo '</div>';

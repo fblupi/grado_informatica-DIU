@@ -1,6 +1,8 @@
 <?php include 'header.php'; ?>
 <section>
-		<h1 class="section-header">Nuestras instalaciones<hr></hr></h1>
+		<h1 class="section-header">Nuestras instalaciones
+		<a href="gestionarSalas.php" type="button" class="btn btn-default gestionar"><i class="fa fa-cogs"></i>  Gestionar </a>
+		<hr></hr></h1>
 <article>
 <?php
 	include 'libs/myLib.php';
@@ -29,8 +31,8 @@
 		}
 	}else{
 		include 'salasNoIdentificado.php';
-	}		
-?>			
+	}
+?>
 </article>
 </section>
 <script type="text/javascript">

@@ -1,17 +1,18 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+if(!isset($_SESSION['login'])){
+	echo '<script>location.href="inicioSesion.php";</script>';
+}
+?>
 <section>
 		<h1 class="section-header">Gestionar empresas
-		<?php 
-			if(!isset($_SESSION['login'])){
-				echo '<script>location.href="inicioSesion.php";</script>';
-			}
-		?><hr></hr></h1>
+		<hr></hr></h1>
+		<a href=""
 		<article>
 			<?php
 				include 'libs/myLib.php';
 				$conn = dbConnect();
 				$login = $_SESSION['login'];
-			
+
 				$sql2 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
 				$resultado2 = mysqli_query($conn, $sql2);
 				$permisosAdmin = 0;
@@ -72,7 +73,7 @@
 					echo '<th>Sala</th>';
 					echo '<th>Acciones</th>';
 					echo '</tr>';
-					
+
 					while ($empresa = mysqli_fetch_assoc($resultado3)) {
 						echo '<tr>';
 						echo '<td>';
@@ -90,7 +91,7 @@
 						echo '</tr>';
 					}
 				}else{
-				
+
 				$sql = "SELECT * FROM Empresa;";
 
 				$resultado = mysqli_query($conn, $sql);
