@@ -8,8 +8,8 @@ if (!isset($_SESSION['login'])) {
 
 $conexion = dbConnect();
 
-$login=$_SESSION['login'];
-$sqlLoginId="SELECT id FROM usuario where login=$login";
+$login = $_SESSION['login'];
+$sqlLoginId = "SELECT id FROM usuario WHERE login='$login'";
 $resultadoIdLogin = mysqli_query($conexion, $sqlLoginId);
 
 $CIF = $_POST['CIF'];
@@ -18,27 +18,16 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 $fax = "";
 $descripcion = $_POST['descripcion'];
-$representante = $resultadoIdLogin;
+$representante = mysqli_fetch_array($resultadoIdLogin);
 $imagen = "assets/img/oslugr.png";
-$sala = "";//Las salas entiendo que las cogerá desde la interfaz de registrar empresa que se encargará de recogerlas de la base de datos.
-$fechaInicio = "";
-$fechaFin = "";
+$sala = ""; // Las salas entiendo que las cogerá desde la interfaz de registrar empresa que se encargará de recogerlas de la base de datos.
 
 
 if (!empty($_POST['fax'])) {
   $fax = $_POST['fax'];
 }
 if (!empty($_POST['sala'])) {
-  $codigoPostal = $_POST['sala'];
-}
-if (!empty($_POST['fechaInicio'])) {
-  $codigoPostal = $_POST['fechaInicio'];
-}
-if (!empty($_POST['fechaInicio'])) {
-  $codigoPostal = $_POST['fechaInicio'];
-}
-if (!empty($_POST['fechaFin'])) {
-  $codigoPostal = $_POST['fechaFin'];
+  $sala = $_POST['sala'];
 }
 
 $subidaCorrecta = false;
@@ -49,7 +38,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
     $extensiones = array("image/jpg", "image/jpeg", "image/png");
     $limite = 4096;
     if (in_array($_FILES['imagen']['type'], $extensiones) && $_FILES['imagen']['size'] < $limite * 1024) {
-      $foldername = "assets/img/users";
+      $foldername = "assets/img/empresa";
       $foldermkdir = "../" . $foldername;
       if (!is_dir($foldermkdir)) {
         mkdir($foldermkdir, 0777, true);
@@ -69,17 +58,17 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 }
 
 
-$sql="INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,imagen,representante,sala,fechaInicio,fechaFin) VALUES('" . $CIF . "','" . $nombre . "','" . $direccion . "','" . $telefono . "','" . $fax . "','" . $descripcion . "','" . $imagen . "','" . $sala . "','" . $representante . "','" . $fechaInicio . "','" . $fechaFin . "');";
+$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,imagen,representante,sala) VALUES('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion','$imagen','$representante','$sala');";
 
 $resultado = mysqli_query($conexion, $sql);
-mysqli_close($conexion);  
+mysqli_close($conexion);
 
 
 if (!$resultado && $subidaCorrecta) {
     unlink($ruta);
-  salir("La empresa ya existe", -1);
+    salir("La empresa ya existe", -1);
 } else {
-  salir("Se ha registrado la empresa correctamente", 0);
+    salir("Se ha registrado la empresa correctamente", 0);
 }
 
 
