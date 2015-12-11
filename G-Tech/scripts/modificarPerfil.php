@@ -50,9 +50,11 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 }
 
 $conexion = dbConnect();
-$sql = "UPDATE usuario SET nombre='" . $nombre . "', telefono='" . $telefono . "', sexo='" . $sexo . "', pais='" . $pais . "', localidad='" . $localidad . "', direccion='" . $direccion . "', codigoPostal='" . $codigoPostal . "' WHERE login='" . $login . "'";
+$sql="";
 if ($imagen != "") {
   $sql = "UPDATE usuario SET nombre='" . $nombre . "', telefono='" . $telefono . "', sexo='" . $sexo . "', pais='" . $pais . "', localidad='" . $localidad . "', direccion='" . $direccion . "', codigoPostal='" . $codigoPostal . "', imagen='" . $imagen . "' WHERE login='" . $login . "'";
+}else {
+  $sql = "UPDATE usuario SET nombre='" . $nombre . "', telefono='" . $telefono . "', sexo='" . $sexo . "', pais='" . $pais . "', localidad='" . $localidad . "', direccion='" . $direccion . "', codigoPostal='" . $codigoPostal . "' WHERE login='" . $login . "'";
 }
 $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);
