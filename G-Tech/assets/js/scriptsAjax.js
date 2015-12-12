@@ -27,3 +27,32 @@ function MostrarConsultaEventos() {
             }
     });
 }
+
+function MostrarConsultaSalas() {
+	var busqueda = $('#busqueda').val();
+	var capacidadMin = $('#capacidadMin').val();
+	var capacidadMax = $('#capacidadMax').val();
+	var fechaEntrada = $('#fechaEntrada').val();
+	var fechaE = dateFormat(fechaEntrada, "yyyy-mm-dd");
+	var horaEntrada = $('#horaEntrada').val();
+	var fechaSalida = $('#fechaSalida').val();
+	var horaSalida = $('#horaSalida').val();
+	var fechaS = dateFormat(fechaSalida, "yyyy-mm-dd");
+	var parametros = {
+			search : busqueda,
+			capacidadMin : capacidadMin,
+			capacidadMax : capacidadMax,
+			fechaEntrada : fechaE,
+			horaEntrada : horaEntrada,
+			fechaSalida : fechaS,
+			horaSalida : horaSalida
+	};
+	$.ajax({
+					data:  parametros,
+					url:   'scripts/mostrarSalas.php',
+					type:  'GET',
+					success:  function (response) {
+									$("#resultadosSalas").html(response);
+					}
+	});
+}

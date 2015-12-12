@@ -3,3 +3,5 @@
 <script src="assets/js/validator.js"></script>
 <script src="assets/js/scriptsAjax.js"></script>
 <script src="assets/js/stacktable.js"></script>
+<script src="assets/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/locales/bootstrap-datepicker.es.min.js"></script>

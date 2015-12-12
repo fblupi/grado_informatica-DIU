@@ -30,4 +30,10 @@ if(isset($_SESSION['login'])){
 </center>
 </article>
 </section>
+<script type="text/javascript">
+window.onload = function()
+{
+		document.getElementById("salas").className = "active menu";
+}
+</script>
 <?php include 'footer.php'; ?>
