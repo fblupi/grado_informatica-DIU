@@ -50,13 +50,13 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['sala'];
 						echo '</td>';
 						echo '<td>';
-						echo '<a type="button" class="btn btn-info acciones" href="darAltaEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-info acciones" href="scripts/darAltaEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Dar de alta</a>';
-						echo '<a type="button" class="btn btn-danger acciones" href="darBajaEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-danger acciones" href="scripts/darBajaEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Dar de baja</a>';
-						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-warning acciones" href="scripts/editarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
 						echo '</td>';
@@ -86,7 +86,7 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['sala'];
 						echo '</td>';
 						echo '<td>';
-						echo '<a type="button" class="btn btn-success" href="promocionarEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-success" href="scripts/promocionarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Promocionar</a>';
 						echo '</td>';
@@ -113,7 +113,6 @@ if(!isset($_SESSION['login'])){
 						echo '</div>';
 					}
 				}
-
 				?>
 
 </div>

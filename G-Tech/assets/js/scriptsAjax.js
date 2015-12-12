@@ -33,18 +33,16 @@ function MostrarConsultaSalas() {
 	var capacidadMin = $('#capacidadMin').val();
 	var capacidadMax = $('#capacidadMax').val();
 	var fechaEntrada = $('#fechaEntrada').val();
-	var fechaE = dateFormat(fechaEntrada, "yyyy-mm-dd");
 	var horaEntrada = $('#horaEntrada').val();
 	var fechaSalida = $('#fechaSalida').val();
 	var horaSalida = $('#horaSalida').val();
-	var fechaS = dateFormat(fechaSalida, "yyyy-mm-dd");
 	var parametros = {
 			search : busqueda,
 			capacidadMin : capacidadMin,
 			capacidadMax : capacidadMax,
-			fechaEntrada : fechaE,
+			fechaEntrada : fechaEntrada,
 			horaEntrada : horaEntrada,
-			fechaSalida : fechaS,
+			fechaSalida : fechaSalida,
 			horaSalida : horaSalida
 	};
 	$.ajax({

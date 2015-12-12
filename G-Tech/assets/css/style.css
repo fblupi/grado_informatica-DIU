@@ -298,6 +298,10 @@ article{
   font-size: 15px;
 }
 
+.btnSalas{
+  width: 90%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
