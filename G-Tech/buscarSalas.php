@@ -51,6 +51,7 @@ $conn = dbConnect();
 window.onload = function()
 {
 		document.getElementById("salas").className = "active menu";
+    $('table').stacktable();
 }
 </script>
 <?php include 'footer.php'; ?>

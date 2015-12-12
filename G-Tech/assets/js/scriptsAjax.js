@@ -51,6 +51,7 @@ function MostrarConsultaSalas() {
 					type:  'GET',
 					success:  function (response) {
 									$("#resultadosSalas").html(response);
+                  $('table').stacktable();
 					}
 	});
 }

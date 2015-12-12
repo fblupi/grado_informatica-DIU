@@ -302,6 +302,10 @@ article{
   width: 90%;
 }
 
+.btnSalasCancelar{
+  width: 100%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;

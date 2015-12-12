@@ -10,9 +10,11 @@ $fechaEntrada = $_GET['fechaEntrada'];
 $fechaSalida = $_GET['fechaSalida'];
 $horaEntrada = $_GET['horaEntrada'];
 $horaSalida = $_GET['horaSalida'];
-$fechaHoraInicio = strtotime($fechaEntrada.' '.$horaEntrada);
-$fechaHoraSalida = strtotime($fechaSalida.' '.$horaSalida);
+$fechaHoraInicio = $fechaEntrada.' '.$horaEntrada;
+$fechaHoraSalida = $fechaSalida.' '.$horaSalida;
 $sqlBusqueda = "SELECT * FROM sala WHERE (sala.nombre LIKE '%$busqueda%' AND sala.capacidad BETWEEN '$capacidadMin' AND '$capacidadMax') AND sala.id NOT IN (SELECT sala FROM alquiler WHERE fechaInicio = '$fechaHoraInicio' OR fechaInicio = '$fechaHoraSalida' OR fechaInicio BETWEEN '$fechaHoraInicio' AND '$fechaHoraSalida');";
+echo $fechaHoraInicio;
+echo $fechaHoraSalida;
 
 $resultado = mysqli_query($conn, $sqlBusqueda);
 
@@ -33,7 +35,11 @@ while($salasDisponibles = mysqli_fetch_assoc($resultado)){
   echo $salasDisponibles['nombre'];
   echo '</td>';
   echo '<td>';
-  echo $salasDisponibles['tipo'];
+  if($salasDisponibles['tipo']=='evento'){
+    echo 'Evento';
+  }else{
+    echo 'Empresa';
+  }
   echo '</td>';
   echo '<td>';
   echo $salasDisponibles['capacidad'];
