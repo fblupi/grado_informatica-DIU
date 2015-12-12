@@ -269,6 +269,34 @@ article{
   margin-right: 2%;
 }
 
+.logoEventoDetallado{
+  width: 100%;
+}
+
+.fechaEventoDetallado, .precioEventoDetallado, .salaEventoDetallado, .organizadorEventoDetallado, .etiquetaEventoDetallado{
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+.etiquetaEventoDetallado{
+  font-size: 19px;
+}
+
+.iconoEventoDetallado{
+
+}
+
+.descripcionEventoDetallado{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 3%;
+  text-align: justify;
+}
+
+.btnApuntarseEvento{
+  float:right;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;

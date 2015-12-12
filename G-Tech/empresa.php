@@ -29,7 +29,7 @@
           if($empresa['sala']==''){
             echo 'Ninguna sala asignada';
           }else{
-            echo $empresa['sala'];
+            echo 'Sala '.$empresa['sala'];
           }
           echo '</p>';
           echo '<p><i class="fa fa-2x fa-phone etiquetasEmpresa"></i>';

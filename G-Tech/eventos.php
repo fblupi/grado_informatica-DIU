@@ -45,7 +45,9 @@
 					echo '<p>';
 					echo $eventos['descripcion'];
 					echo '</p>';
-					echo '<a class="btn btn-default masInfoEvento" href="#" role="button">Ver más...</a>';
+					echo '<a class="btn btn-default masInfoEvento" href="evento.php?i=';
+					echo $eventos['id'];
+					echo '" role="button">Ver más...</a>';
 					if($eventos['precio']==0){
 						echo '<span class="label label-success eventoGratuito">Evento gratuito</span>';
 					}
