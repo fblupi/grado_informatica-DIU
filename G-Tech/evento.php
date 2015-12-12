@@ -70,11 +70,11 @@
       $resultado3 = mysqli_query($conn, $sql3);
       $asiste = mysqli_num_rows($resultado3);
       if($asiste>0){
-          echo '<a href="desapuntarEvento.php?i=';
+          echo '<a href="scripts/desapuntarEvento.php?i=';
           echo $eventos['id'];
           echo '" class="btn btn-danger btnApuntarseEvento">Desapuntarse</a>';
         }else{
-        echo '<a href="apuntarEvento.php?i=';
+        echo '<a href="scripts/apuntarEvento.php?i=';
         echo $eventos['id'];
         echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
       }

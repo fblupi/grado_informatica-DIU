@@ -78,6 +78,9 @@ $sql = "INSERT INTO usuario (login, pass, email, nombre, telefono, sexo, pais, l
         VALUES ('" . $login . "', '" . $pass . "', '" . $email . "', '" . $nombre . "', '" . $telefono . "', '" . $sexo . "',
         '" . $pais . "', '" . $localidad . "', '" . $direccion . "', '" . $codigoPostal . "', '" . $imagen . "');";
 $resultado = mysqli_query($conexion, $sql);
+$sql2 = "SELECT id FROM usuario WHERE login='$login'";
+$resultado2 = mysqli_query($conexion, $sql2);
+$row = mysqli_fetch_array($resultado2);
 mysqli_close($conexion);
 
 if (!$resultado && $subidaCorrecta) {
@@ -85,6 +88,7 @@ if (!$resultado && $subidaCorrecta) {
   salir("El usuario ya existe", -1);
 } else {
   $_SESSION['login'] = $login;
+  $_SESSION['id'] = $row['id'];
   salir("Se ha registrado correctamente", 0);
 }
 
