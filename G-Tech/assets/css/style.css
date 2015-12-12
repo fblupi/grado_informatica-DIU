@@ -306,6 +306,15 @@ article{
   width: 100%;
 }
 
+.btnSalasAdmin{
+  margin-right: 2%;
+}
+
+.btnAdmin, .btnCrearSala{
+  float: right;
+}
+
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
@@ -587,4 +596,13 @@ article{
     font-size: 15px;
   }
 
+  .btnSalasAdmin{
+    margin-right: 2%;
+    display: inline;
+  }
+
+  .btnAdmin{
+    float: right;
+    margin-bottom: 6%;
+  }
 }
