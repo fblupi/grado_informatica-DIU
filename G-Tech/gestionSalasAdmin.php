@@ -46,16 +46,16 @@ while($misSalas = mysqli_fetch_assoc($resultado)){
   echo '</td>';
   echo '<td>';
   if($misSalas['baja']==0){
-    echo '<a href="bajaSala?i=';
-    echo $salasDisponibles['id'];
+    echo '<a href="bajaSala.php?i=';
+    echo $misSalas['id'];
     echo '" class="btn btn-danger btnSalasAdmin">Dar de baja</a>';
   }else{
-    echo '<a href="altaSala?i=';
-    echo $salasDisponibles['id'];
+    echo '<a href="altaSala.php?i=';
+    echo $misSalas['id'];
     echo '" class="btn btn-info btnSalasAdmin">Dar de alta</a>';
   }
-  echo '<a href="editarSala?i=';
-  echo $salasDisponibles['id'];
+  echo '<a href="editarSala.php?i=';
+  echo $misSalas['id'];
   echo '" class="btn btn-warning btnSalasAdmin">Editar</a>';
   echo '</td>';
   echo '</tr>';
