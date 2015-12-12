@@ -31,7 +31,7 @@ if ($representante == $usuario) {
   $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
   mysqli_close($conexion);
   if ($resultadoActualizar) {
-    salir("Evento promocionada correctamente", 0):
+    salir("Evento promocionada correctamente", 0);
   } else {
     salir("Error al promocionar evento", -1);
   }

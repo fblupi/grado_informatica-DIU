@@ -25,7 +25,7 @@ if ($representante == $usuario) {
   $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
   mysqli_close($conexion);
   if ($resultadoActualizar) {
-    salir("Empresa promocionada correctamente", 0):
+    salir("Empresa promocionada correctamente", 0);
   } else {
     salir("Error al promocionar empresa", -1);
   }
