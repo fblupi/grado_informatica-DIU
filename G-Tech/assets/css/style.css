@@ -293,6 +293,11 @@ article{
   float:right;
 }
 
+.btnGestionarSala{
+  margin-right: 2%;
+  font-size: 15px;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
@@ -564,5 +569,13 @@ article{
     margin-top: 3%;
     margin-left: 0;
     float:none;
+  }
+
+  .btnGestionarSala{
+    margin-right: 2%;
+    margin-top: 2%;
+    display: block;
+    width: 60%;
+    font-size: 15px;
   }
 }

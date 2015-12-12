@@ -78,6 +78,10 @@
         echo $eventos['id'];
         echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
       }
+    }else{
+      echo '<a href="apuntarEvento.php?i=';
+      echo $eventos['id'];
+      echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
     }
     echo '</div>';
     echo '</div>';
