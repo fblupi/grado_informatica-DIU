@@ -282,10 +282,6 @@ article{
   font-size: 19px;
 }
 
-.iconoEventoDetallado{
-
-}
-
 .descripcionEventoDetallado{
   margin-left: 2%;
   margin-right: 2%;
@@ -562,5 +558,11 @@ article{
   .navbar-nav .open .dropdown-menu > li > a{
     color: #86588F !important;
     font-weight: bold;
+  }
+
+  .btnApuntarseEvento{
+    margin-top: 3%;
+    margin-left: 0;
+    float:none;
   }
 }

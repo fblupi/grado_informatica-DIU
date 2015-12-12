@@ -64,9 +64,21 @@
     echo '</p>';
     echo '</div>';
     echo '<div class="col-md-2 col-lg-2">';
-    echo '<a href="apuntarEvento.php?i=';
-    echo $eventos['id'];
-    echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
+    if(isset($_SESSION['login'])){
+      $login = $_SESSION['login'];
+      $sql3 = "SELECT * FROM Evento, Usuario, Asistencia WHERE Usuario.id = Asistencia.usuario AND Evento.id = Asistencia.evento AND Usuario.login = '$login' AND Evento.id = '$idEvento';";
+      $resultado3 = mysqli_query($conn, $sql3);
+      $asiste = mysqli_num_rows($resultado3);
+      if($asiste>0){
+          echo '<a href="desapuntarEvento.php?i=';
+          echo $eventos['id'];
+          echo '" class="btn btn-danger btnApuntarseEvento">Desapuntarse</a>';
+        }else{
+        echo '<a href="apuntarEvento.php?i=';
+        echo $eventos['id'];
+        echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
+      }
+    }
     echo '</div>';
     echo '</div>';
     echo '<div class="row">';
