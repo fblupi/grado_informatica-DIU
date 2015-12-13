@@ -92,7 +92,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '</tr>';
 					}
 				}else if($permisosUser == 1){
-					$sql3 = "SELECT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario FROM Evento, Empresa, Usuario WHERE Evento.empresa = Empresa.id AND Evento.usuario = Usuario.id AND Empresa.representante = Usuario.id AND Evento.usuario = '$id';";
+					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR evento.usuario = '$id';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
