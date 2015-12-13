@@ -14,29 +14,39 @@ if(!isset($_SESSION['login'])){
         <label>Nombre</label>
         <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Taller de Arduino" required>
         </div>
-        <div class="form-group">
-        <label>Fecha de inicio</label>
-        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" placeholder="20-08-2016" required>
-        </div>
-        <div class="form-group">
-        <label>Hora de inicio</label>
-        <input type="text" id="horaInicio" name="horaInicio" class="form-control" placeholder="10:00" required>
-        </div>
+				<div class="row">
+					<div class="col-md-6 col-lg-6">
+	        <div class="form-group">
+	        <label>Fecha de inicio</label>
+	        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" placeholder="20-08-2016" required>
+	        </div>
+				</div>
+				<div class="col-md-6 col-lg-6">
+	        <div class="form-group">
+	        <label>Hora de inicio</label>
+	        <input type="text" id="horaInicio" name="horaInicio" class="form-control" placeholder="10:00" required>
+	        </div>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-6">
         <div class="form-group">
         <label>Fecha de fin</label>
         <input type="text" id="fechaFin" name="fechaFin" class="form-control" placeholder="28-08-2016" required>
         </div>
+				</div>
+				<div class="col-md-6 col-lg-6">
         <div class="form-group">
         <label>Hora de fin</label>
         <input type="text" id="horaFin" name="horaFin" class="form-control" placeholder="12:00" required>
         </div>
+				</div>
+			</div>
         <div class="form-group">
         <label>Precio (€)</label>
         <input type="text" id="precio" name="precio" class="form-control" placeholder="20" required>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-6">
-        <div class="form-group">
+				<div class="form-group">
         <label>Organizador (Usuario)</label>
         <select class="form-control" name="usuario" id="usuario">
           <?php
@@ -59,6 +69,9 @@ if(!isset($_SESSION['login'])){
           * Cambiar en caso de que el evento esté organizado por usted
         </span>
         </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+
         <div class="form-group">
         <label>Organizador (Empresa)</label>
         <select class="form-control" name="empresa" id="empresa">
@@ -80,32 +93,12 @@ if(!isset($_SESSION['login'])){
           </span>
         </div>
         <div class="form-group">
-        <label>Sala</label>
-        <select class="form-control" name="sala" id="sala">
-          <?php
-          $sql = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND usuario = '$idUsuario' AND alquiler.tipoSala = 'evento';";
-          $resultado = mysqli_query($conn, $sql);
-
-          while($salasAlquiladas = mysqli_fetch_assoc($resultado)){
-            echo '<option name="sala" id="sala" value="';
-            echo $salasAlquiladas['id'];
-            echo '">';
-            echo $salasAlquiladas['nombre'];
-            echo '</option>';
-          }
-          ?>
-        </select>
-        <span id="helpBlock" class="help-block">
-          * Si no tienes ninguna sala, alquila una <a href="buscarSalas.php">aquí</a>
-        </span>
-        </div>
-        <div class="form-group">
         <label>Imagen</label>
         <input type="file" class="form-control" id="imagen" name="imagen">
         </div>
         <div class="form-group">
         <label>Descripción</label>
-        <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
+        <textarea rows="6" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
         </textarea>
       </div>
       </div>
