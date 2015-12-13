@@ -90,6 +90,10 @@
     echo '<p class="descripcionEventoDetallado">';
     echo $eventos['descripcion'];
     echo '</p>';
+    echo '<p class="descripcionEventoDetallado etiquetaEventoDetallado">Requisitos:</p>';
+    echo '<p class="descripcionEventoDetallado">';
+    echo $eventos['requisitos'];
+    echo '</p>';
     echo '</div>';
     }
 ?>

@@ -80,7 +80,7 @@ if(!isset($_SESSION['login'])){
         <label>Organizador (Empresa)</label>
         <select class="form-control" name="empresa" id="empresa">
           <?php
-          $sql2 = "SELECT Empresa.nombre FROM Empresa WHERE representante = '$idUsuario';";
+          $sql2 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
           $resultado2 = mysqli_query($conn, $sql2);
           while($empresasUsuario = mysqli_fetch_assoc($resultado2)){
             echo '<option value="';
