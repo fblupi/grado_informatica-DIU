@@ -14,8 +14,9 @@ $sqlPermiso = "SELECT empresa, usuario FROM evento WHERE id=$evento";
 $resultadoPermiso = mysqli_query($conexion, $sqlPermiso);
 $filaPermiso = mysqli_fetch_array($resultadoPermiso);
 $representante = $filaPermiso['usuario'];
+$representanteEmpresa = $filaPermiso['empresa'];
 if ($filaPermiso['empresa'] != '') {
-  $sqlEmpresa = "SELECT representante FROM empresa WHERE id=$filaPermiso['usuario']";
+  $sqlEmpresa = "SELECT representante FROM empresa WHERE id=$representanteEmpresa";
   $resultadoEmpresa = mysqli_query($conexion, $sqlEmpresa);
   $filaEmpresa = mysqli_fetch_array($resultadoEmpresa);
   $representante = $filaEmpresa['representante'];
@@ -31,7 +32,7 @@ if ($representante == $usuario) {
   $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
   mysqli_close($conexion);
   if ($resultadoActualizar) {
-    salir("Evento promocionada correctamente", 0);
+    salir("Evento promocionado correctamente", 0);
   } else {
     salir("Error al promocionar evento", -1);
   }
