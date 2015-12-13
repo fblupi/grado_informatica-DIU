@@ -22,7 +22,7 @@ function salir($message, $code) {
 }
 
 function envioCorreo($correo, $asunto, $contenido){
-  require("../assets/sendgrid-php/sendgrid-php.php");
+  include_once("../assets/sendgrid-php/sendgrid-php.php");
 
   $sendgrid = new SendGrid('GtechDIU', 'gtechdiu201516');
   $to = $correo;
