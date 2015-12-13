@@ -47,10 +47,6 @@ if(!isset($_SESSION['login'])){
         <input type="text" id="precio" name="precio" class="form-control" placeholder="20" required>
         </div>
 				<div class="form-group">
-        <label>Plazas</label>
-        <input type="number" id="plazas" name="plazas" class="form-control" placeholder="20" value="50" required>
-        </div>
-				<div class="form-group">
         <label>Organizador (Usuario)</label>
         <select class="form-control" name="usuario" id="usuario">
           <?php
@@ -60,14 +56,14 @@ if(!isset($_SESSION['login'])){
           $sql3 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
           $resultado3 = mysqli_query($conn, $sql3);
           while($usuario = mysqli_fetch_assoc($resultado3)){
-            echo '<option value="';
+            echo '<option name="usuario" id="usuario" value="';
             echo $usuario['id'];
             echo '">';
             echo $usuario['nombre'];
             echo '</option>';
           }
           ?>
-        <option value="" selected>No</option>
+        <option name="usuario" id="usuario" selected>No</option>
         </select>
         <span id="helpBlock" class="help-block">
           * Cambiar en caso de que el evento esté organizado por usted
@@ -83,14 +79,14 @@ if(!isset($_SESSION['login'])){
           $sql2 = "SELECT Empresa.nombre FROM Empresa WHERE representante = '$idUsuario';";
           $resultado2 = mysqli_query($conn, $sql2);
           while($empresasUsuario = mysqli_fetch_assoc($resultado2)){
-            echo '<option value="';
+            echo '<option name="empresa" id="empresa" value="';
             echo $empresasUsuario['id'];
             echo '">';
             echo $empresasUsuario['nombre'];
             echo '</option>';
           }
           ?>
-          <option value="" selected>No</option>
+          <option name="empresa" id="empresa" selected>No</option>
           </select>
           <span id="helpBlock" class="help-block">
             * Cambiar en caso de que el evento esté organizado por una de sus empresas
@@ -102,11 +98,11 @@ if(!isset($_SESSION['login'])){
         </div>
         <div class="form-group">
         <label>Descripción</label>
-        <textarea rows="3" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción del evento..." required></textarea>
+        <textarea rows="2" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción del evento..." required></textarea>
       </div>
 			<div class="form-group">
 			<label>Requisitos</label>
-			<textarea rows="3" id="requisitos" name="requisitos" class="form-control" placeholder="¿Qué se necesita?" required></textarea>
+			<textarea rows="2" id="requisitos" name="requisitos" class="form-control" placeholder="¿Qué se necesita?" required></textarea>
 		</div>
       </div>
       </div>

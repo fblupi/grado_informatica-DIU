@@ -16,21 +16,27 @@ $plazas = $_POST['plazas'];
 $descripcion = $_POST['descripcion'];
 $requisitos = $_POST['requisitos'];
 $imagen = "";
-$empresa = "NULL";
-$usuario = "NULL";
+$empresa = "";
+$usuario = "";
+$fechaI = $fechaInicio.' '.$horaInicio;
+$fechaF = $fechaFin.' '.$horaFin;
+$todoInicio = date('Y-m-d H:i:s', strtotime($fechaI));
+$todoFin = date('Y-m-d H:i:s', strtotime($fechaF));
 
-$todoInicio = date('yyyy-mm-dd HH:ii:ss',strtotime($fechaInicio . $horaInicio));
-$todoFin = date('yyyy-mm-dd HH:ii:ss',strtotime($fechaFin . $horaFin));
-if($_POST['sala']!= "")
-  $sala = $_POST['sala'];
-if ($_POST['empresa'] != "" && $_POST['usuario'] == "")
-  $empresa=$_POST['empresa'];
-else if ($_POST['empresa'] == "" && $_POST['usuario'] != "")
-  $usuario=$_POST['usuario'];
+
+if ($_POST['empresa'] != "" && $_POST['usuario'] == ""){
+  $empresa = $_POST['empresa'];
+  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,empresa)
+          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$empresa')";
+}
+else if ($_POST['empresa'] == "" && $_POST['usuario'] != ""){
+  $usuario = $_POST['usuario'];
+  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,usuario)
+          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$usuario')";
+}
 
 $conexion = dbConnect();
-$sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,empresa,usuario,promocion,baja)
-        VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$empresa','$usuario','$promocion','$baja')";
+
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {

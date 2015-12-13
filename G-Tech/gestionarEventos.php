@@ -88,12 +88,6 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
-						echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Promocionar</a>';
-            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Invitar</a>';
 						echo '</td>';
 						echo '</tr>';
 					}
