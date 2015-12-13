@@ -63,7 +63,7 @@ if(!isset($_SESSION['login'])){
 							echo $empresa['id'];
 							echo '">Dar de alta</a>';
 						}
-						echo '<a type="button" class="btn btn-warning acciones" href="scripts/editarEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
 						echo '</td>';
