@@ -98,8 +98,7 @@ if(!isset($_SESSION['login'])){
         </div>
         <div class="form-group">
         <label>Descripción</label>
-        <textarea rows="6" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
-        </textarea>
+        <textarea rows="6" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required></textarea>
       </div>
       </div>
       </div>

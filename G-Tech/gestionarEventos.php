@@ -154,6 +154,11 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
             echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
 						echo $empresa['id'];
 						echo '">Invitar</a>';
+						if($empresa['sala']==''){
+							echo '<a type="button" class="btn btn-info accionesEventos" href="asignarSala.php?i=';
+							echo $empresa['id'];
+							echo '">Asignar Sala</a>';
+						}
 						echo '</td>';
 						echo '</tr>';
 				}

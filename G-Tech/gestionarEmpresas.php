@@ -105,9 +105,14 @@ if(!isset($_SESSION['login'])){
 						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
-						echo '<a type="button" class="btn btn-success" href="scripts/promocionarEmpresa.php?i=';
+						echo '<a type="button" class="btn btn-success acciones" href="scripts/promocionarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Promocionar</a>';
+						if($empresa['sala']==''){
+							echo '<a type="button" class="btn btn-info acciones" href="asignarSala.php?i=';
+							echo $empresa['id'];
+							echo '">Asignar Sala</a>';
+						}
 						echo '</td>';
 						echo '</tr>';
 					}

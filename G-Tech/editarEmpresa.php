@@ -48,9 +48,7 @@ if(!isset($_SESSION['login'])){
           </div>
           <div class="form-group">
           <label>Descripción</label>
-          <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
-          <?php echo $empresa['descripcion']; ?>
-          </textarea>
+          <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required><?php echo $empresa['descripcion']; ?></textarea>
           </div>
           <div class="form-group">
           <label>Sala</label>
