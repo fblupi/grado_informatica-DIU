@@ -54,6 +54,9 @@ if(!isset($_SESSION['login'])){
 						}
 						echo '</td>';
 						echo '<td>';
+						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
+						echo $empresa['id'];
+						echo '">Editar</a>';
 						if($empresa['baja']==0){
 							echo '<a type="button" class="btn btn-danger acciones" href="scripts/bajaEmpresa.php?i=';
 							echo $empresa['id'];
@@ -63,25 +66,24 @@ if(!isset($_SESSION['login'])){
 							echo $empresa['id'];
 							echo '">Dar de alta</a>';
 						}
-						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
-						echo $empresa['id'];
-						echo '">Editar</a>';
 						echo '</td>';
 						echo '</tr>';
 					}
 				}else if($permisosUser == 1){
 					$sql3 = "SELECT * FROM Empresa WHERE representante = '$id';";
 					$resultado3 = mysqli_query($conn, $sql3);
-					echo '<table class="table table-condensed">';
+					echo '<table class="table table-condensed" id="testingTable1">';
 					echo '<thead>';
 					echo '<tr>';
 					echo '<th>Nombre</th>';
 					echo '<th>CIF</th>';
 					echo '<th>Sala</th>';
 					echo '<th>Acciones</th>';
+					echo '</thead>';
 					echo '</tr>';
 
 					while ($empresa = mysqli_fetch_assoc($resultado3)) {
+						$idEmpresa = $empresa['id'];
 						echo '<tr>';
 						echo '<td>';
 						echo $empresa['nombre'];
@@ -109,12 +111,14 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['id'];
 						echo '">Promocionar</a>';
 						if($empresa['sala']==''){
-							echo '<a type="button" class="btn btn-info acciones" href="asignarSala.php?i=';
-							echo $empresa['id'];
-							echo '">Asignar Sala</a>';
+							echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</a>';
 						}
 						echo '</td>';
 						echo '</tr>';
+						echo '<tr id="resultadoEscondido'.$idEmpresa.'" class="resultadoEscondido">';
+						echo '<td colspan="4" id="resultado'.$idEmpresa.'"></td>';
+						echo '</tr>';
+
 					}
 				}else{
 

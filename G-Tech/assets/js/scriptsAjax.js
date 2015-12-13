@@ -55,3 +55,40 @@ function MostrarConsultaSalas() {
 					}
 	});
 }
+
+function MostrarSalasDisponiblesEmpresas(id) {
+  if(document.getElementById("resultadoEscondido"+id).className==""){
+    document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
+  }else{
+    document.getElementById("resultadoEscondido"+id).className="";
+    var idEmpresa = id;
+    var parametros = {
+  			idEmpresa : idEmpresa
+  	};
+  	$.ajax({
+  					data:  parametros,
+  					url:   'scripts/asignarSalaEmpresa.php',
+  					type:  'GET',
+  					success:  function (response) {
+  									$("#resultado"+idEmpresa).html(response);
+                    $('table').stacktable();
+  					}
+  	});
+  }
+}
+
+function AsignarSala(idSala, idEmpresa) {
+  var parametros = {
+      idSala : idSala,
+      idEmpresa : idEmpresa
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/asignarSala.php',
+          type:  'GET',
+          success:  function (response) {
+              document.getElementById("resultadoEscondido"+idEmpresa).className="resultadoEscondido";
+              $("#resultado").html(response);
+          }
+  });
+}

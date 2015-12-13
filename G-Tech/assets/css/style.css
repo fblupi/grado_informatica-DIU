@@ -146,7 +146,7 @@ article{
 	margin-left: 0;
 }
 
-.empresas, eventos{
+.empresas, .eventos{
 	margin-bottom: 5%;
 }
 
@@ -321,6 +321,26 @@ textarea{
 .fotoAsistente{
   width: 100%;
   max-width: 100px;
+}
+
+.salasEmpresa{
+  width: 100%;
+}
+
+.alert{
+  width: 100%;
+	position: fixed;
+	top: 0;
+  left: 0;
+	z-index: 1;
+}
+
+.table .table{
+  background-color: transparent;
+}
+
+.resultadoEscondido{
+  display: none;
 }
 
 @media (max-width: 768px) {

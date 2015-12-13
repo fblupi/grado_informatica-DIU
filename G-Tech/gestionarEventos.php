@@ -145,7 +145,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '<td>';
 						if($empresa['baja']==0){
 							if($empresa['sala']==''){
-							echo '<a type="button" class="btn btn-warning accionesEventos" href="asignarSala.php?i=';
+							echo '<a type="button" class="btn btn-warning accionesEventos" href="asignarSalaEventos.php?i=';
 							echo $empresa['id'];
 							echo '">Asignar Sala</a>';
 							}
