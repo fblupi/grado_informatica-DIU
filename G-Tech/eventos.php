@@ -51,8 +51,15 @@
 					if($eventos['precio']==0){
 						echo '<span class="label label-success eventoGratuito">Evento gratuito</span>';
 					}
-					if($eventos['plazas']==0){
+					$idEvento = $eventos['id'];
+					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+					$resultado2 = mysqli_query($conn, $sql2);
+					$totalUsuariosApuntados = mysqli_fetch_assoc($resultado2);
+					if($eventos['plazas']==$totalUsuariosApuntados['usuariosApuntados']){
 						echo '<span class="label label-danger eventoGratuito">No hay plazas</span>';
+					}
+					if($eventos['baja']==1){
+						echo '<span class="label label-danger eventoGratuito">Cancelado</span>';
 					}
 					echo '</div>';
 					echo '</div>';
