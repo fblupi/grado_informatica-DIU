@@ -133,12 +133,6 @@ article{
 	width: 40%;
 }
 
-.logoEmpresa{
-	width: 20%;
-  max-width: 100px;
-	float:left;
-}
-
 .nombreEmpresa{
 	font-weight: bold;
 	margin-left: 25%;
@@ -156,7 +150,7 @@ article{
 	margin-bottom: 5%;
 }
 
-.logoEvento{
+.logoEvento, .logoEmpresa{
 	width: 24%;
 	margin-top: 1%;
 	float: left;
@@ -430,14 +424,6 @@ textarea{
 		width: 100%;
 	}
 
-	.logoEmpresa{
-		float:none;
-		display: block;
-		margin: 0 auto;
-		margin-top: 1%;
-		width: 30%;
-	}
-
 	.nombreEmpresa{
 		font-weight: bold;
 		margin-left: 2%;
@@ -455,7 +441,7 @@ textarea{
 		margin-bottom: 5%;
 	}
 
-	.logoEvento{
+	.logoEvento, .logoEmpresa{
 		float:none;
 		display: block;
 		margin: 0 auto;
