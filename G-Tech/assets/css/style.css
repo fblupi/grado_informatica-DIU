@@ -318,6 +318,11 @@ textarea{
   resize: none;
 }
 
+.accionesEventos{
+  display: block;
+  margin-bottom: 4%;
+}
+
 @media (max-width: 768px) {
 	#logo{
 		display: block;
