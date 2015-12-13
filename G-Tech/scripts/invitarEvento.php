@@ -20,6 +20,9 @@ $conexion = dbConnect();
 $sql = "SELECT nombre, fechaInicio, fechaFin, precio FROM evento WHERE id=$evento";
 $resultado = mysqli_query($conexion, $sql);
 $row = mysqli_fetch_array($resultado);
+
+mysqli_close($conexion);
+
 $nombre = $row['nombre'];
 $fechaInicio = $row['fechaInicio'];
 $fechaFin = $row['fechaFin'];
