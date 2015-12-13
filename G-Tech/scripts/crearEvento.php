@@ -92,7 +92,7 @@ if (!$salir) {
     salir("Error añadiendo el evento", -1);
   }
 } else {
-  salir("No se ha itroducido ningún organizador", -1);
+  salir("No se ha introducido correctamente el organizador", -1);
 }
 
 ?>

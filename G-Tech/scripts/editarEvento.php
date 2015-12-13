@@ -70,9 +70,9 @@ if (!$salir) {
 
         //Comprobación de si el representante es usuario o es una empresa
         if($empresaUsuario)
-          $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', empresa='$empresa' WHERE id=$evento";
+          $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', empresa='$empresa', usuario=NULL WHERE id=$evento";
         else
-          $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', usuario='$usuario' WHERE id=$evento";
+          $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', usuario='$usuario', empresa=NULL WHERE id=$evento";
 
         $resultado = mysqli_query($conexion, $sql);
         mysqli_close($conexion);
@@ -90,9 +90,9 @@ if (!$salir) {
   } else { // No hay imagen
     //Comprobación de si el representante es usuario o es una empresa
     if($empresaUsuario)
-      $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', empresa='$empresa' WHERE id=$evento";
+      $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', empresa='$empresa', usuario=NULL WHERE id=$evento";
     else
-      $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', usuario='$usuario' WHERE id=$evento";
+      $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', usuario='$usuario', empresa=NULL WHERE id=$evento";
 
     $resultado = mysqli_query($conexion, $sql);
     mysqli_close($conexion);
@@ -103,7 +103,7 @@ if (!$salir) {
     }
   }
 } else {
-  salir("No se ha itroducido ningún organizador", -1);
+  salir("No se ha introducido correctamente el organizador", -1);
 }
 
 ?>
