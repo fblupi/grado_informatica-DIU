@@ -17,7 +17,7 @@ $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
 
 ?>
 <section>
-		<h1 class="section-header">Añadir evento
+		<h1 class="section-header">Editar evento
 		<hr></hr></h1>
 		<article>
       <form method="POST" action="scripts/editarEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
@@ -130,7 +130,7 @@ $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
 		</div>
       </div>
       </div>
-      <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">
+      <input type="submit" class="btn btn-default btnCrearSala" value="Editar">
     </form>
 </article>
 </section>

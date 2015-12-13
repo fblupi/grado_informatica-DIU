@@ -4,7 +4,7 @@ if(!isset($_SESSION['login'])){
 }
 ?>
 <section>
-		<h1 class="section-header">Añadir evento
+		<h1 class="section-header">Crear evento
 		<hr></hr></h1>
 		<article>
       <form method="POST" action="scripts/crearEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
@@ -110,7 +110,7 @@ if(!isset($_SESSION['login'])){
 		</div>
       </div>
       </div>
-      <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">
+      <input type="submit" class="btn btn-default btnCrearSala" value="Crear">
     </form>
 </article>
 </section>

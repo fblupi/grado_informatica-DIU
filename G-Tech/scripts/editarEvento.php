@@ -17,7 +17,7 @@ $precio = $_POST['precio'];
 $plazas = $_POST['plazas'];
 $descripcion = $_POST['descripcion'];
 $requisitos = $_POST['requisitos'];
-$imagen = "";
+$imagen = "assets/img/evento.png";
 $empresa = "";
 $usuario = "";
 
@@ -65,9 +65,9 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 
       //Comprobación de si el representante es usuario o es una empresa
       if($empresaUsuario)
-        $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', empresa='$empresa' WHERE id=$evento";
+        $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', empresa='$empresa' WHERE id=$evento";
       else
-        $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', usuario='$usuario' WHERE id=$evento";
+        $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', usuario='$usuario' WHERE id=$evento";
 
       $resultado = mysqli_query($conexion, $sql);
       mysqli_close($conexion);
@@ -85,9 +85,9 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 } else { // No hay imagen
   //Comprobación de si el representante es usuario o es una empresa
   if($empresaUsuario)
-    $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', empresa='$empresa' WHERE id=$evento";
+    $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', empresa='$empresa' WHERE id=$evento";
   else
-    $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', imagen='$imagen', usuario='$usuario' WHERE id=$evento";
+    $sql = "UPDATE evento SET nombre='$nombre', fechaInicio='$todoInicio', fechaFin='$todoFin', precio='$precio', plazas='$plazas', descripcion='$descripcion', requisitos='$requisitos', usuario='$usuario' WHERE id=$evento";
 
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
