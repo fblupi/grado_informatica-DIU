@@ -93,6 +93,18 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['sala'];
 						echo '</td>';
 						echo '<td>';
+						if($empresa['baja']==0){
+							echo '<a type="button" class="btn btn-danger acciones" href="scripts/darBajaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de baja</a>';
+						}else{
+							echo '<a type="button" class="btn btn-info acciones" href="scripts/darAltaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de alta</a>';
+						}
+						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
+						echo $empresa['id'];
+						echo '">Editar</a>';
 						echo '<a type="button" class="btn btn-success" href="scripts/promocionarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Promocionar</a>';

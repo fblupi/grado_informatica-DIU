@@ -26,45 +26,21 @@ if(!isset($_SESSION['login'])){
         <label>Teléfono</label>
         <input type="text" id="telefono" name="telefono" class="form-control" placeholder="612345678" required>
         </div>
-        <div class="form-group">
-        <label>Fax</label>
-        <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" required>
-        </div>
       </div>
       <div class="col-md-6 col-lg-6">
+				<div class="form-group">
+        <label>Fax</label>
+        <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678">
+        </div>
         <div class="form-group">
         <label>Imagen</label>
         <input type="file" class="form-control" id="imagen" name="imagen">
         </div>
         <div class="form-group">
         <label>Descripción</label>
-        <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
+        <textarea rows="4" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
         </textarea>
         </div>
-        <div class="form-group">
-        <label>Sala</label>
-        <select class="form-control" name="sala" id="sala">
-          <?php
-          include 'libs/myLib.php';
-          $conn = dbConnect();
-          $idUsuario = $_SESSION['id'];
-          $sql = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa';";
-          $resultado = mysqli_query($conn, $sql);
-
-          while($salasAlquiladas = mysqli_fetch_assoc($resultado)){
-            echo '<option name="sala" id="sala" value="';
-            echo $salasAlquiladas['id'];
-            echo '">';
-            echo $salasAlquiladas['nombre'];
-            echo '</option>';
-          }
-          ?>
-        </select>
-        <span id="helpBlock" class="help-block">
-          * Si no tienes ninguna sala, alquila una <a href="buscarSalas.php">aquí</a>
-        </span>
-        </div>
-
       </div>
       </div>
       <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">

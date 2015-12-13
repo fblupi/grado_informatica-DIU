@@ -6,22 +6,35 @@ if (!isset($_SESSION['login'])) {
     session_start();
 }
 
+$login = $_SESSION['login'];
+$usuario = $_SESSION['id'];
+
 $nombre = $_POST['nombre'];
-$capacidad = $_POST['capacidad'];
-$tipo = $_POST['tipo'];
-$planta = $_POST['planta'];
-$numero = $_POST['numero'];
-$imagen = "assets/img/sala.png";
+$CIF = $_POST['cif'];
+$direccion = $_POST['direccion'];
+$telefono = $_POST['telefono'];
+$descripcion = $_POST['descripcion'];
+$fax = "";
+$sala = "NULL";
+$representante = $usuario;
+$imagen = "assets/img/empresa.png";
+
+if (!empty($_POST['fax'])) {
+  $fax = $_POST['fax'];
+}
+if (!empty($_POST['sala'])) {
+  $sala = $_POST['sala'];
+}
 
 $conexion = dbConnect();
-$sql = "INSERT INTO sala (tipo, nombre, planta, numero, capacidad, imagen, baja)
-        VALUES ('$tipo', '$nombre', $planta, $numero, $capacidad, '$imagen', 0)";
+$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante,sala) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante,$sala)";
+echo "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante,sala) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante,$sala)";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {
   if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
     $subidaCorrecta = false;
-    $sql = "SELECT id FROM sala WHERE id=@@Identity";
+    $sql = "SELECT id FROM empresa WHERE id=@@Identity";
     $resultado = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_array($resultado);
     $id = $row['id'];
@@ -31,7 +44,7 @@ if ($resultado) {
       $extensiones = array("image/jpg", "image/jpeg", "image/png");
       $limite = 4096;
       if (in_array($_FILES['imagen']['type'], $extensiones) && $_FILES['imagen']['size'] < $limite * 1024) {
-        $foldername = "assets/img/salas";
+        $foldername = "assets/img/empresas";
         $foldermkdir = "../" . $foldername;
         if (!is_dir($foldermkdir)) {
           mkdir($foldermkdir, 0777, true);
@@ -46,11 +59,11 @@ if ($resultado) {
         }
       }
       if ($subidaCorrecta) {
-        $sql = "UPDATE sala SET imagen='$imagen' WHERE id=$id";
+        $sql = "UPDATE empresa SET imagen='$imagen' WHERE id=$id";
         $resultado = mysqli_query($conexion, $sql);
         mysqli_close($conexion);
         if ($resultado) {
-          salir("Sala añadida correctamente", 0);
+          salir("Empresa añadida correctamente", 0);
         } else {
           salir("Ha ocurrido un error con la imagen", -1);
         }
@@ -61,11 +74,11 @@ if ($resultado) {
     }
   } else { // No hay imagen
     mysqli_close($conexion);
-    salir("Sala añadida correctamente", 0);
+    salir("Empresa añadida correctamente", 0);
   }
 } else { // Fallo en INSERT
   mysqli_close($conexion);
-  salir("Error añadiendo la sala", -1);
+  salir("Error añadiendo la empresa", -1);
 }
 
 ?>
