@@ -164,6 +164,7 @@ article{
 
 .descripcionEvento{
 	margin-left: 26%;
+  margin-bottom: 6%;
 }
 
 .masInfoEvento{
@@ -315,6 +316,11 @@ textarea{
 .accionesEventos{
   display: block;
   margin-bottom: 4%;
+}
+
+.fotoAsistente{
+  width: 100%;
+  max-width: 100px;
 }
 
 @media (max-width: 768px) {
