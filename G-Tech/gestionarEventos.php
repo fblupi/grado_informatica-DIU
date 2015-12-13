@@ -84,15 +84,17 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 							echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
 							echo $empresa['id'];
 							echo '">Cancelar</a>';
+							echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Editar</a>';
+						}else{
+							echo 'EVENTO CANCELADO';
 						}
-						echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Editar</a>';
 						echo '</td>';
 						echo '</tr>';
 					}
 				}else if($permisosUser == 1){
-					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR evento.usuario = '$id';";
+					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0;";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
@@ -141,28 +143,30 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
             }
 						echo '</td>';
 						echo '<td>';
-						if($empresa['sala']==''){
+						if($empresa['baja']==0){
+							if($empresa['sala']==''){
 							echo '<a type="button" class="btn btn-warning accionesEventos" href="asignarSala.php?i=';
 							echo $empresa['id'];
 							echo '">Asignar Sala</a>';
-						}
-						echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Editar</a>';
-						echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
-						echo $empresa['id'];
-						echo '">Asistentes</a>';
-						echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Promocionar</a>';
+							}
+							echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Editar</a>';
+							echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
+							echo $empresa['id'];
+							echo '">Asistentes</a>';
+							echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Promocionar</a>';
 
-            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
-						echo $empresa['id'];
-						echo '">Invitar</a>';
-						if($empresa['baja']==0){
+	            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Invitar</a>';
 							echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
 							echo $empresa['id'];
 							echo '">Cancelar</a>';
+						}else{
+							echo 'EVENTO CANCELADO';
 						}
 						echo '</td>';
 						echo '</tr>';
