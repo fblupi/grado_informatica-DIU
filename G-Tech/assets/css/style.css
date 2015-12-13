@@ -314,6 +314,9 @@ article{
   float: right;
 }
 
+textarea{
+  resize: none;
+}
 
 @media (max-width: 768px) {
 	#logo{

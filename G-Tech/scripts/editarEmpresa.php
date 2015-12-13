@@ -54,10 +54,10 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
 }
 $sql = "";
 if($imagen != ""){
-  $sql = "UPDATE empresa set CIF='$CIF' nombre='$nombre' direccion='$direccion' telefono='$telefono' fax='$fax' descripcion='$descripcion' representante='$representate'";
+  $sql = "UPDATE empresa set CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono', fax='$fax', descripcion='$descripcion', representante='$representate'";
 }
 else {
-  $sql = "UPDATE empresa set CIF='$CIF' nombre='$nombre' direccion='$direccion' telefono='$telefono' fax='$fax' descripcion='$descripcion' representante='$representate' imagen='$imagen'";
+  $sql = "UPDATE empresa set CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono', fax='$fax', descripcion='$descripcion', representante='$representate', imagen='$imagen'";
 }
 
 $resultado = mysqli_query($conexion, $sql);

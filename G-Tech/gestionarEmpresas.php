@@ -47,15 +47,22 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['CIF'];
 						echo '</td>';
 						echo '<td>';
-						echo $empresa['sala'];
+						if($empresa['sala']==''){
+							echo 'Sin asignar';
+						}else{
+							echo $empresa['sala'];
+						}
 						echo '</td>';
 						echo '<td>';
-						echo '<a type="button" class="btn btn-info acciones" href="scripts/darAltaEmpresa.php?i=';
-						echo $empresa['id'];
-						echo '">Dar de alta</a>';
-						echo '<a type="button" class="btn btn-danger acciones" href="scripts/darBajaEmpresa.php?i=';
-						echo $empresa['id'];
-						echo '">Dar de baja</a>';
+						if($empresa['baja']==0){
+							echo '<a type="button" class="btn btn-danger acciones" href="scripts/darBajaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de baja</a>';
+						}else{
+							echo '<a type="button" class="btn btn-info acciones" href="scripts/darAltaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de alta</a>';
+						}
 						echo '<a type="button" class="btn btn-warning acciones" href="scripts/editarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
@@ -114,7 +121,6 @@ if(!isset($_SESSION['login'])){
 					}
 				}
 				?>
-
 </div>
 </article>
 </section>
