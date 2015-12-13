@@ -48,7 +48,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
       $resultado = mysqli_query($conexion, $sql);
       mysqli_close($conexion);
       if ($resultado) {
-        salir("Sala añadida correctamente", 0);
+        salir("Sala editada correctamente", 0);
       } else {
         unlink($ruta);
         salir("Ha ocurrido un error con la imagen", -1);

@@ -19,6 +19,7 @@ if(!isset($_SESSION['login'])){
         <form method="POST" action="scripts/editarEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
         <div class="row">
         <div class="col-md-6 col-lg-6">
+					<input type="hidden" name="empresa" value="<?php echo $empresa['id']; ?>">
           <div class="form-group">
           <label>Nombre</label>
           <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $empresa['nombre']; ?>" required>

@@ -28,7 +28,7 @@ if(!isset($_SESSION['login'])){
         </div>
         <div class="form-group">
         <label>Fax</label>
-        <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" required>
+        <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678">
         </div>
       </div>
       <div class="col-md-6 col-lg-6">
