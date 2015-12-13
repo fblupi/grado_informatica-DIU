@@ -14,14 +14,10 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 $descripcion = $_POST['descripcion'];
 $fax = "";
-$sala = "NULL";
 $imagen = "assets/img/empresa.png";
 
 if (!empty($_POST['fax'])) {
   $fax = $_POST['fax'];
-}
-if (!empty($_POST['sala'])) {
-  $sala = $_POST['sala'];
 }
 
 $conexion = dbConnect();
@@ -55,7 +51,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
     }
     if ($subidaCorrecta) {
       $sql = "UPDATE empresa SET CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono',
-              fax='$fax', descripcion='$descripcion', sala=$sala, imagen='$imagen' WHERE id=$empresa";
+              fax='$fax', descripcion='$descripcion', imagen='$imagen' WHERE id=$empresa";
       $resultado = mysqli_query($conexion, $sql);
       mysqli_close($conexion);
       if ($resultado) {
@@ -70,7 +66,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
   }
 } else { // No hay imagen
   $sql = "UPDATE empresa SET CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono',
-          fax='$fax', descripcion='$descripcion', sala=$sala WHERE id=$empresa";
+          fax='$fax', descripcion='$descripcion' WHERE id=$empresa";
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {

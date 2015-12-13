@@ -22,7 +22,7 @@ if(!isset($_SESSION['login'])){
 					<input type="hidden" name="empresa" value="<?php echo $empresa['id']; ?>">
           <div class="form-group">
           <label>Nombre</label>
-          <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $empresa['nombre']; ?>" required>
+          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Feisbuk" value="<?php echo $empresa['nombre']; ?>" required>
           </div>
           <div class="form-group">
           <label>CIF <i class="fa fa-lock"></i></label>
@@ -36,52 +36,20 @@ if(!isset($_SESSION['login'])){
           <label>Teléfono</label>
           <input type="text" id="telefono" name="telefono" class="form-control" placeholder="612345678" value="<?php echo $empresa['telefono']; ?>" required>
           </div>
-          <div class="form-group">
-          <label>Fax</label>
-          <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" value="<?php echo $empresa['fax']; ?>" required>
-          </div>
         </div>
         <div class="col-md-6 col-lg-6">
+          <div class="form-group">
+          <label>Fax</label>
+          <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" value="<?php echo $empresa['fax']; ?>">
+          </div>
           <div class="form-group">
           <label>Imagen</label>
           <input type="file" class="form-control" id="imagen" name="imagen">
           </div>
           <div class="form-group">
           <label>Descripción</label>
-          <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
-          <?php echo $empresa['descripcion']; ?>
-          </textarea>
+          <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required><?php echo $empresa['descripcion']; ?></textarea>
           </div>
-          <div class="form-group">
-          <label>Sala</label>
-          <select class="form-control" name="sala" id="sala">
-            <?php
-
-            $sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa';";
-            $resultado2 = mysqli_query($conn, $sql2);
-
-            while($salasAlquiladas = mysqli_fetch_assoc($resultado2)){
-              if($salasAlquiladas['id']==$empresa['sala']){
-                echo '<option name="sala" id="sala" value="';
-                echo $salasAlquiladas['id'];
-                echo '" selected>';
-                echo $salasAlquiladas['nombre'];
-                echo '</option>';
-              }else{
-                echo '<option name="sala" id="sala" value="';
-                echo $salasAlquiladas['id'];
-                echo '">';
-                echo $salasAlquiladas['nombre'];
-                echo '</option>';
-              }
-            }
-            ?>
-          </select>
-          <span id="helpBlock" class="help-block">
-            * Si no tienes ninguna sala, alquila una <a href="buscarSalas.php">aquí</a>
-          </span>
-          </div>
-
         </div>
         </div>
         <input type="submit" class="btn btn-default btnCrearSala" value="Editar">
