@@ -15,20 +15,15 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 $descripcion = $_POST['descripcion'];
 $fax = "";
-$sala = "NULL";
 $representante = $usuario;
 $imagen = "assets/img/empresa.png";
 
 if (!empty($_POST['fax'])) {
   $fax = $_POST['fax'];
 }
-if (!empty($_POST['sala'])) {
-  $sala = $_POST['sala'];
-}
 
 $conexion = dbConnect();
-$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante,sala) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante,$sala)";
-echo "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante,sala) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante,$sala)";
+$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante)";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {

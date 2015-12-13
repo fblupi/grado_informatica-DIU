@@ -22,7 +22,7 @@ if(!isset($_SESSION['login'])){
 					<input type="hidden" name="empresa" value="<?php echo $empresa['id']; ?>">
           <div class="form-group">
           <label>Nombre</label>
-          <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $empresa['nombre']; ?>" required>
+          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Feisbuk" value="<?php echo $empresa['nombre']; ?>" required>
           </div>
           <div class="form-group">
           <label>CIF <i class="fa fa-lock"></i></label>
@@ -36,12 +36,12 @@ if(!isset($_SESSION['login'])){
           <label>Teléfono</label>
           <input type="text" id="telefono" name="telefono" class="form-control" placeholder="612345678" value="<?php echo $empresa['telefono']; ?>" required>
           </div>
-          <div class="form-group">
-          <label>Fax</label>
-          <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" value="<?php echo $empresa['fax']; ?>" required>
-          </div>
         </div>
         <div class="col-md-6 col-lg-6">
+          <div class="form-group">
+          <label>Fax</label>
+          <input type="text" id="fax" name="fax" class="form-control" placeholder="612345678" value="<?php echo $empresa['fax']; ?>">
+          </div>
           <div class="form-group">
           <label>Imagen</label>
           <input type="file" class="form-control" id="imagen" name="imagen">

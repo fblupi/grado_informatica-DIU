@@ -4,7 +4,7 @@ if(!isset($_SESSION['login'])){
 }
 ?>
 <section>
-		<h1 class="section-header">Añadir empresa
+		<h1 class="section-header">Crear empresa
 		<hr></hr></h1>
 		<article>
       <form method="POST" action="scripts/crearEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
@@ -12,7 +12,7 @@ if(!isset($_SESSION['login'])){
       <div class="col-md-6 col-lg-6">
         <div class="form-group">
         <label>Nombre</label>
-        <input type="text" id="nombre" name="nombre" class="form-control" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Feisbuk" class="form-control" required>
         </div>
         <div class="form-group">
         <label>CIF <i class="fa fa-lock"></i></label>
@@ -42,7 +42,7 @@ if(!isset($_SESSION['login'])){
         </div>
       </div>
       </div>
-      <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">
+      <input type="submit" class="btn btn-default btnCrearSala" value="Crear">
     </form>
 </article>
 </section>
