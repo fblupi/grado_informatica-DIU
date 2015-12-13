@@ -23,6 +23,7 @@ $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
       <form method="POST" action="scripts/editarEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
       <div class="row">
       <div class="col-md-6 col-lg-6">
+				<input type="hidden" name="id" id="id" value="<?php echo $evento['id']; ?>">
         <div class="form-group">
         <label>Nombre</label>
         <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Taller de Arduino" value="<?php echo $evento['nombre'];?>" required>
