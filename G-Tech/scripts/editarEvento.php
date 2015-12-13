@@ -22,8 +22,8 @@ $empresa = "";
 $usuario = "";
 
 $empresaUsuario = true;
-$todoInicio = date('yyyy-mm-dd HH:ii:ss',strtotime($fechaInicio . $horaInicio));
-$todoFin = date('yyyy-mm-dd HH:ii:ss',strtotime($fechaFin . $horaFin));
+$todoInicio = date('Y-m-d H:i:s',strtotime($fechaInicio.' '.$horaInicio));
+$todoFin = date('Y-m-d H:i:s',strtotime($fechaFin.' '.$horaFin));
 
 if ($_POST['empresa'] != "" && $_POST['usuario'] == ""){
   $empresa=$_POST['empresa'];
