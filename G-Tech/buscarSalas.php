@@ -23,22 +23,35 @@ $conn = dbConnect();
     </div>
   </div>
   <div class="col-md-6 col-lg-6">
-    <div class="form-group">
-    <label>Fecha de entrada</label>
-    <input type="date" id="fechaEntrada" name="fechaEntrada" onkeyup="MostrarConsultaSalas();" class="form-control" placeholder="20-08-2016">
+    <div class="row">
+    <div class="col-md-6 col-lg-6">
+      <div class="form-group">
+      <label>Fecha de entrada</label>
+      <input type="date" id="fechaEntrada" name="fechaEntrada" onkeyup="MostrarConsultaSalas();" class="form-control" placeholder="20-08-2016">
+      </div>
     </div>
+    <div class="col-md-6 col-lg-6">
     <div class="form-group">
     <label>Hora de entrada</label>
     <input type="date" id="horaEntrada" name="horaEntrada" onkeyup="MostrarConsultaSalas();" class="form-control" placeholder="10:00">
     </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6 col-lg-6">
     <div class="form-group">
     <label>Fecha de salida</label>
     <input type="date" id="fechaSalida" name="fechaSalida" onkeyup="MostrarConsultaSalas();" class="form-control" placeholder="28-08-2016">
     </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
     <div class="form-group">
     <label>Hora de salida</label>
     <input type="date" id="horaSalida" name="horaSalida" onkeyup="MostrarConsultaSalas();" class="form-control" placeholder="12:00">
     </div>
+    </div>
+    </div>
+
   </div>
   </div>
 </form>
