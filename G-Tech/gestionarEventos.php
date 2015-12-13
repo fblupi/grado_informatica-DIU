@@ -66,9 +66,17 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '</td>';
             echo '<td>';
             if($empresa['empresa']!=''){
-              echo $empresa['empresa'];
+							$idOrganizador = $empresa['empresa'];
+							$sql4 = "SELECT Empresa.nombre FROM Empresa WHERE Empresa.id = '$idOrganizador';";
+							$resultado4 = mysqli_query($conn, $sql4);
+							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
+							echo $nombreOrganizador['nombre'];
             }else{
-              echo $empresa['usuario'];
+							$idOrganizador = $empresa['usuario'];
+							$sql4 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idOrganizador';";
+							$resultado4 = mysqli_query($conn, $sql4);
+							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
+							echo $nombreOrganizador['nombre'];
             }
 						echo '</td>';
 						echo '<td>';

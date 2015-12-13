@@ -1,0 +1,124 @@
+<?php include 'header.php';
+if(!isset($_SESSION['login'])){
+	echo '<script>location.href="inicioSesion.php";</script>';
+}
+?>
+<section>
+		<h1 class="section-header">Añadir evento
+		<hr></hr></h1>
+		<article>
+      <form method="POST" action="scripts/crearEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+      <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Taller de Arduino" required>
+        </div>
+        <div class="form-group">
+        <label>Fecha de inicio</label>
+        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" placeholder="20-08-2016" required>
+        </div>
+        <div class="form-group">
+        <label>Hora de inicio</label>
+        <input type="text" id="horaInicio" name="horaInicio" class="form-control" placeholder="10:00" required>
+        </div>
+        <div class="form-group">
+        <label>Fecha de fin</label>
+        <input type="text" id="fechaFin" name="fechaFin" class="form-control" placeholder="28-08-2016" required>
+        </div>
+        <div class="form-group">
+        <label>Hora de fin</label>
+        <input type="text" id="horaFin" name="horaFin" class="form-control" placeholder="12:00" required>
+        </div>
+        <div class="form-group">
+        <label>Precio (€)</label>
+        <input type="text" id="precio" name="precio" class="form-control" placeholder="20" required>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+        <label>Organizador (Usuario)</label>
+        <select class="form-control" name="usuario" id="usuario">
+          <?php
+          include 'libs/myLib.php';
+          $conn = dbConnect();
+          $idUsuario = $_SESSION['id'];
+          $sql3 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+          $resultado3 = mysqli_query($conn, $sql3);
+          while($usuario = mysqli_fetch_assoc($resultado3)){
+            echo '<option name="usuario" id="usuario" value="';
+            echo $usuario['id'];
+            echo '">';
+            echo $usuario['nombre'];
+            echo '</option>';
+          }
+          ?>
+        <option name="usuario" id="usuario" selected>No</option>
+        </select>
+        <span id="helpBlock" class="help-block">
+          * Cambiar en caso de que el evento esté organizado por usted
+        </span>
+        </div>
+        <div class="form-group">
+        <label>Organizador (Empresa)</label>
+        <select class="form-control" name="empresa" id="empresa">
+          <?php
+          $sql2 = "SELECT Empresa.nombre FROM Empresa WHERE representante = '$idUsuario';";
+          $resultado2 = mysqli_query($conn, $sql2);
+          while($empresasUsuario = mysqli_fetch_assoc($resultado2)){
+            echo '<option name="empresa" id="empresa" value="';
+            echo $empresasUsuario['id'];
+            echo '">';
+            echo $empresasUsuario['nombre'];
+            echo '</option>';
+          }
+          ?>
+          <option name="empresa" id="empresa" selected>No</option>
+          </select>
+          <span id="helpBlock" class="help-block">
+            * Cambiar en caso de que el evento esté organizado por una de sus empresas
+          </span>
+        </div>
+        <div class="form-group">
+        <label>Sala</label>
+        <select class="form-control" name="sala" id="sala">
+          <?php
+          $sql = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND usuario = '$idUsuario' AND alquiler.tipoSala = 'evento';";
+          $resultado = mysqli_query($conn, $sql);
+
+          while($salasAlquiladas = mysqli_fetch_assoc($resultado)){
+            echo '<option name="sala" id="sala" value="';
+            echo $salasAlquiladas['id'];
+            echo '">';
+            echo $salasAlquiladas['nombre'];
+            echo '</option>';
+          }
+          ?>
+        </select>
+        <span id="helpBlock" class="help-block">
+          * Si no tienes ninguna sala, alquila una <a href="buscarSalas.php">aquí</a>
+        </span>
+        </div>
+        <div class="form-group">
+        <label>Imagen</label>
+        <input type="file" class="form-control" id="imagen" name="imagen">
+        </div>
+        <div class="form-group">
+        <label>Descripción</label>
+        <textarea rows="7" id="descripcion" name="descripcion" class="form-control" placeholder="Pequeña descripción de la empresa..." required>
+        </textarea>
+      </div>
+      </div>
+      </div>
+      <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">
+    </form>
+</article>
+</section>
+<script type="text/javascript">
+window.onload = function()
+{
+		document.getElementById("eventos").className = "active menu";
+		$('table').stacktable();
+}
+</script>
+<?php include 'footer.php'; ?>
