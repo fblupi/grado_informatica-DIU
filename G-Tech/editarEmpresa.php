@@ -84,7 +84,7 @@ if(!isset($_SESSION['login'])){
 
         </div>
         </div>
-        <input type="submit" class="btn btn-default btnCrearSala" value="Añadir">
+        <input type="submit" class="btn btn-default btnCrearSala" value="Editar">
       </form>
       <?php
       }

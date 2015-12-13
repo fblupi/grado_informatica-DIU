@@ -6,18 +6,16 @@ if (!isset($_SESSION['login'])) {
     session_start();
 }
 
-$conexion = dbConnect();
-
-$CIF = $_POST['CIF'];
+$usuario = $_SESSION['id'];
+$empresa = $_POST['empresa'];
 $nombre = $_POST['nombre'];
+$CIF = $_POST['cif'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
-$fax = "";
 $descripcion = $_POST['descripcion'];
-$representante = $_POST['representante'];
-$imagen = "assets/img/oslugr.png";
-$sala = ""; // Las salas entiendo que las cogerá desde la interfaz de registrar empresa que se encargará de recogerlas de la base de datos.
-
+$fax = "";
+$sala = "NULL";
+$imagen = "assets/img/empresa.png";
 
 if (!empty($_POST['fax'])) {
   $fax = $_POST['fax'];
@@ -26,50 +24,60 @@ if (!empty($_POST['sala'])) {
   $sala = $_POST['sala'];
 }
 
-$subidaCorrecta = false;
+$conexion = dbConnect();
+
 if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
+  $subidaCorrecta = false;
   if ($_FILES['imagen']['error'] > 0) {
-    salir("Ha ocurrido un error en la carga de la imagen", -2);
+    salir("Ha ocurrido un error en la carga de la imagen", -1);
   } else {
     $extensiones = array("image/jpg", "image/jpeg", "image/png");
     $limite = 4096;
     if (in_array($_FILES['imagen']['type'], $extensiones) && $_FILES['imagen']['size'] < $limite * 1024) {
-      $foldername = "assets/img/empresa";
+      $foldername = "assets/img/empresas";
       $foldermkdir = "../" . $foldername;
       if (!is_dir($foldermkdir)) {
         mkdir($foldermkdir, 0777, true);
       }
       $extension = "." . split("/", $_FILES['imagen']['type'])[1];
-      $filename = $login . $extension;
+      $filename = $empresa . $extension;
       $ruta = $foldername . "/" . $filename;
       $rutacrear = $foldermkdir . "/" . $filename;
       if (!file_exists($rutacrear)) {
         $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $rutacrear);
-        if ($subidaCorrecta) {
-          $imagen = $ruta;
-        }
+      } else {
+        unlink($rutacrear);
+        $subidaCorrecta = @move_uploaded_file($_FILES['imagen']['tmp_name'], $rutacrear);
+      }
+      if ($subidaCorrecta) {
+        $imagen = $ruta;
       }
     }
+    if ($subidaCorrecta) {
+      $sql = "UPDATE empresa SET CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono',
+              fax='$fax', descripcion='$descripcion', sala=$sala, imagen='$imagen' WHERE id=$empresa";
+      $resultado = mysqli_query($conexion, $sql);
+      mysqli_close($conexion);
+      if ($resultado) {
+        salir("Empresa editada correctamente", 0);
+      } else {
+        salir("Ha ocurrido un error con la imagen", -1);
+      }
+    } else { // No se ha subido la imagen
+      mysqli_close($conexion);
+      salir("Ha ocurrido un error subiendo la imagen", -1);
+    }
+  }
+} else { // No hay imagen
+  $sql = "UPDATE empresa SET CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono',
+          fax='$fax', descripcion='$descripcion', sala=$sala WHERE id=$empresa";
+  $resultado = mysqli_query($conexion, $sql);
+  mysqli_close($conexion);
+  if ($resultado) {
+    salir("Empresa editada correctamente", 0);
+  } else {
+    salir("Error al editar empresa", -1);
   }
 }
-$sql = "";
-if($imagen != ""){
-  $sql = "UPDATE empresa set CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono', fax='$fax', descripcion='$descripcion', representante='$representate'";
-}
-else {
-  $sql = "UPDATE empresa set CIF='$CIF', nombre='$nombre', direccion='$direccion', telefono='$telefono', fax='$fax', descripcion='$descripcion', representante='$representate', imagen='$imagen'";
-}
-
-$resultado = mysqli_query($conexion, $sql);
-mysqli_close($conexion);
-
-
-if (!$resultado && $subidaCorrecta) {
-    unlink($ruta);
-    salir("Error al modificar la empresa", -1);
-} else {
-    salir("La empresa se ha modificado correctamente", 0);
-}
-
 
 ?>
