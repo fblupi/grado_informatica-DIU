@@ -11,7 +11,7 @@ $sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
   echo '<div class="table-responsive">';
-  echo '<table class="table table-condensed salasEmpresa">';
+  echo '<table class="table table-condensed salasEmpresa" id="salasEmpresa">';
   echo '<thead>';
   echo '<tr>';
   echo '<th>Nombre</th>';

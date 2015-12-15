@@ -67,7 +67,7 @@ function MostrarSalasDisponiblesEmpresas(id) {
   					type:  'GET',
   					success:  function (response) {
                 $("#modalBody").html(response);
-                $('table').stacktable();
+                $("#salasEmpresa").stacktable();
                 window.location.href = "#divModal";
   					}
   	});
@@ -84,7 +84,6 @@ function AsignarSalaEm(idSala, idEmpresa) {
           url:   'scripts/asignarSalaEm.php',
           type:  'GET',
           success:  function (response) {
-              document.getElementById("resultadoEscondido"+idEmpresa).className="resultadoEscondido";
               $("#resultado").html(response);
           }
   });
@@ -100,7 +99,7 @@ function MostrarSalasDisponiblesEventos(id) {
   					type:  'GET',
   					success:  function (response) {
                 $("#modalBody").html(response);
-                $('table').stacktable();
+                $("#salasEmpresa").stacktable();
                 window.location.href = "#divModal";
   					}
   	});
