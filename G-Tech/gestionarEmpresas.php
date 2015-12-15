@@ -111,7 +111,7 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['id'];
 						echo '">Promocionar</a>';
 						if($empresa['sala']==''){
-							echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</a>';
+							echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
 						}else{
 							echo '<a type="button" class="btn btn-danger acciones" href="scripts/desasignarSalaEmpresa.php?i=';
 							echo $empresa['id'];

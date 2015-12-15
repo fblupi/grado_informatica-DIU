@@ -5,9 +5,15 @@ if(!isset($_SESSION['id'])){
 include '../libs/myLib.php';
 $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
-$idEmpresa = $_GET['idEmpresa'];
+$idEvento = $_GET['idEvento'];
 
-$sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
+$sql = "SELECT fechaInicio, fechaFin FROM Evento WHERE id = '$idEvento';";
+$resultado = mysqli_query($conn, $sql);
+$fechas = mysqli_fetch_assoc($resultado);
+$fechaInicio = $fechas['fechaInicio'];
+$fechaFin = $fechas['fechaFin'];
+
+$sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'evento' AND alquiler.asignada = 0 AND fechaInicio >= '$fechaInicio' AND fechaFin <= '$fechaFin';";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
   echo '<table class="table table-condensed salasEmpresa">';
@@ -36,7 +42,7 @@ if(mysqli_num_rows($resultado2)>0){
     echo $misSalas['capacidad'];
     echo '</td>';
     echo '<td>';
-    echo '<button class="btn btn-success btnSalasCancelar" onClick="AsignarSalaEm(';
+    echo '<button class="btn btn-success btnSalasCancelar" onClick="AsignarSalaEv(';
     echo $misSalas['id'];
     echo ',';
     echo $idEmpresa;
@@ -49,7 +55,7 @@ if(mysqli_num_rows($resultado2)>0){
 }else{
   echo '<div class="alert alert-warning alert-dismissible" role="alert">';
   echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-  echo 'No tiene ninguna sala alquilada, para alquilarla pulse <a href="buscarSalas.php" class="alert-link">aquí</a>';
+  echo 'No tiene ninguna sala alquilada, para alquilar una pulse <a href="buscarSalas.php" class="alert-link">aquí</a>';
   echo '</div>';
 }
 ?>

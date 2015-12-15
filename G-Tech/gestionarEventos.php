@@ -105,8 +105,10 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 					echo '<th>Precio (€)</th>';
 					echo '<th>Sala</th>';
           echo '<th>Organizador</th>';
+					echo '<th>Acciones</th>';
 					echo '</tr>';
 					while ($empresa = mysqli_fetch_assoc($resultado3)) {
+						$idEmpresa = $empresa['id'];
 						echo '<tr>';
 						echo '<td>';
 						echo $empresa['nombre'];
@@ -145,9 +147,11 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '<td>';
 						if($empresa['baja']==0){
 							if($empresa['sala']==''){
-							echo '<a type="button" class="btn btn-warning accionesEventos" href="asignarSalaEventos.php?i=';
-							echo $empresa['id'];
-							echo '">Asignar Sala</a>';
+								echo '<button class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</button>';
+							}else{
+								echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEventos.php?i=';
+								echo $empresa['id'];
+								echo '">Desasignar Sala</a>';
 							}
 							echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
 							echo $empresa['id'];
@@ -169,6 +173,9 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 							echo 'EVENTO CANCELADO';
 						}
 						echo '</td>';
+						echo '</tr>';
+						echo '<tr id="resultadoEscondido'.$idEmpresa.'" class="resultadoEscondido">';
+						echo '<td colspan="7" id="resultado'.$idEmpresa.'"></td>';
 						echo '</tr>';
 				}
 			}else{

@@ -77,14 +77,50 @@ function MostrarSalasDisponiblesEmpresas(id) {
   }
 }
 
-function AsignarSala(idSala, idEmpresa) {
+function AsignarSalaEm(idSala, idEmpresa) {
   var parametros = {
       idSala : idSala,
       idEmpresa : idEmpresa
   };
   $.ajax({
           data:  parametros,
-          url:   'scripts/asignarSala.php',
+          url:   'scripts/asignarSalaEm.php',
+          type:  'GET',
+          success:  function (response) {
+              document.getElementById("resultadoEscondido"+idEmpresa).className="resultadoEscondido";
+              $("#resultado").html(response);
+          }
+  });
+}
+
+function MostrarSalasDisponiblesEventos(id) {
+  if(document.getElementById("resultadoEscondido"+id).className==""){
+    document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
+  }else{
+    document.getElementById("resultadoEscondido"+id).className="";
+    var parametros = {
+  			idEvento : id
+  	};
+  	$.ajax({
+  					data:  parametros,
+  					url:   'scripts/asignarSalaEventos.php',
+  					type:  'GET',
+  					success:  function (response) {
+  									$("#resultado"+id).html(response);
+                    $('table').stacktable();
+  					}
+  	});
+  }
+}
+
+function AsignarSalaEv(idSala, idEvento) {
+  var parametros = {
+      idSala : idSala,
+      idEvento : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/asignarSalaEv.php',
           type:  'GET',
           success:  function (response) {
               document.getElementById("resultadoEscondido"+idEmpresa).className="resultadoEscondido";
