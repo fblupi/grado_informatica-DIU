@@ -396,6 +396,10 @@ textarea{
 
 .close:hover { background: #fff; }
 
+.btnGestionarUsuarios{
+  float:right;
+}
+
 @media (max-width: 768px) {
 
   .modalDialog > div {

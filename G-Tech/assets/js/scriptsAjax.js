@@ -165,3 +165,15 @@ function ConfirmarAlquilar(idSala){
   				}
   });
 }
+
+function CambiarBoton(idUsuario){
+  var permisosUsuario = document.getElementById("permisosUsuario"+idUsuario);
+  var permisosAdmin = document.getElementById("permisosAdmin"+idUsuario);
+
+  if(permisosUsuario.defaultChecked == permisosUsuario.checked && permisosAdmin.defaultChecked == permisosAdmin.checked){
+    document.getElementById("btnModificar"+idUsuario).className="btn btn-default";
+  }else{
+    document.getElementById("btnModificar"+idUsuario).className="btn btn-warning";
+  }
+
+}

@@ -8,10 +8,23 @@
 include 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
+$id = $_SESSION['id'];
 
 $sql = "SELECT * FROM Usuario WHERE login = '$login'";
-
 $resultado = mysqli_query($conn, $sql);
+
+$sql2 = "SELECT * FROM Usuario_Permisos WHERE Usuario_Permisos.usuario = '$id';";
+$resultado2 = mysqli_query($conn, $sql2);
+$permisosAdmin = 0;
+$permisosUser = 0;
+while($permisos = mysqli_fetch_assoc($resultado2)){
+	if($permisos['permiso']==1){
+		$permisosAdmin = 1;
+	}
+	if($permisos['permiso']==2){
+		$permisosUser = 1;
+	}
+}
 
 while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<div class="miPerfil">';
@@ -22,6 +35,9 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<small>';
 	echo $usuario['login'];
 	echo '</small>';
+	if($permisosAdmin==1){
+		echo '<a href="gestionUsuarios.php" class="btn btn-default btnGestionarUsuarios"><i class="fa fa-2x fa-lock"></i> Gestionar permisos</a>';
+	}
 	echo '<hr></hr></h1>';
 	echo '<a href="cambiarPass.php" class="btn btn-default btnperfil">Cambiar contraseña</a>';
 	echo '<a href="editarPerfil.php" class="btn btn-default btnperfil2">Editar perfil</a>';
