@@ -6,10 +6,11 @@ include '../libs/myLib.php';
 $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $idEmpresa = $_GET['idEmpresa'];
-
+echo '<h2>Salas disponibles</h2>';
 $sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
+  echo '<div class="table-responsive">';
   echo '<table class="table table-condensed salasEmpresa">';
   echo '<thead>';
   echo '<tr>';
@@ -46,6 +47,7 @@ if(mysqli_num_rows($resultado2)>0){
   }
   echo '</tbody>';
   echo '</table>';
+  echo '</div>';
 }else{
   echo '<div class="alert alert-warning alert-dismissible" role="alert">';
   echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';

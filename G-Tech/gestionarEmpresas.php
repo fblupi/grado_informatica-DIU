@@ -153,6 +153,7 @@ if(!isset($_SESSION['login'])){
 window.onload = function()
 {
 		document.getElementById("empresas").className = "active menu";
+		$('table').stacktable();
 }
 </script>
 <?php include 'footer.php'; ?>

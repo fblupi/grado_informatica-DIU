@@ -23,7 +23,7 @@ $horaSalida = $_GET['horaSalida'];
     <div class="col-md-6 col-lg-6">
     <div class="form-group">
     <label>Hora de entrada</label>
-    <input type="date" id="horaEntrada" name="horaEntrada" class="form-control" placeholder="10:00" value="<?php echo $horaEntrada; ?>" required>
+    <input type="text" id="horaEntrada" name="horaEntrada" class="form-control" placeholder="10:00" value="<?php echo $horaEntrada; ?>" required>
     </div>
     </div>
     </div>
@@ -37,7 +37,7 @@ $horaSalida = $_GET['horaSalida'];
     <div class="col-md-6 col-lg-6">
     <div class="form-group">
     <label>Hora de salida</label>
-    <input type="date" id="horaSalida" name="horaSalida" class="form-control" placeholder="12:00" value="<?php echo $horaSalida; ?>" required>
+    <input type="text" id="horaSalida" name="horaSalida" class="form-control" placeholder="12:00" value="<?php echo $horaSalida; ?>" required>
     </div>
     </div>
     </div>

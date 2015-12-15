@@ -7,15 +7,17 @@ $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $idEvento = $_GET['idEvento'];
 
-$sql = "SELECT fechaInicio, fechaFin FROM Evento WHERE id = '$idEvento';";
+$sql = "SELECT fechaInicio, fechaFin, nombre FROM Evento WHERE id = '$idEvento';";
 $resultado = mysqli_query($conn, $sql);
 $fechas = mysqli_fetch_assoc($resultado);
 $fechaInicio = $fechas['fechaInicio'];
 $fechaFin = $fechas['fechaFin'];
-
+$nombreEvento = $fechas['nombre'];
+echo '<h2>Salas disponibles para '.$nombreEvento.'</h2>';
 $sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'evento' AND alquiler.asignada = 0 AND fechaInicio >= '$fechaInicio' AND fechaFin <= '$fechaFin';";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
+  echo '<div class="table-responsive">';
   echo '<table class="table table-condensed salasEmpresa">';
   echo '<thead>';
   echo '<tr>';
@@ -52,6 +54,7 @@ if(mysqli_num_rows($resultado2)>0){
   }
   echo '</tbody>';
   echo '</table>';
+  echo '</div>';
 }else{
   echo '<div class="alert alert-warning alert-dismissible" role="alert">';
   echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';

@@ -65,3 +65,10 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div id="resultado"></div>
+<div id="divModal" class="modalDialog">
+  <div>
+		<a href="#close" title="Close" class="close">X</a>
+    <div id="modalBody">
+	</div>
+</div>
+</div>

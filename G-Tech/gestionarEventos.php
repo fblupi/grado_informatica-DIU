@@ -176,10 +176,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						}
 						echo '</td>';
 						echo '</tr>';
-						echo '<tr id="resultadoEscondido'.$idEmpresa.'" class="resultadoEscondido">';
-						echo '<td colspan="7" id="resultado'.$idEmpresa.'"></td>';
-						echo '</tr>';
-				}
+					}
 			}else{
 				$sql = "SELECT * FROM Evento;";
 
@@ -232,6 +229,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 window.onload = function()
 {
 		document.getElementById("eventos").className = "active menu";
+		$('table').stacktable();
 }
 </script>
 <?php include 'footer.php'; ?>

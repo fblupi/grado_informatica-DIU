@@ -57,12 +57,6 @@ function MostrarConsultaSalas() {
 }
 
 function MostrarSalasDisponiblesEmpresas(id) {
-  if(document.getElementById("resultadoEscondido"+id).className==""){
-    document.getElementById(id).className = "";
-    document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
-  }else{
-    document.getElementById(id).className = "active";
-    document.getElementById("resultadoEscondido"+id).className="";
     var idEmpresa = id;
     var parametros = {
   			idEmpresa : idEmpresa
@@ -72,11 +66,13 @@ function MostrarSalasDisponiblesEmpresas(id) {
   					url:   'scripts/asignarSalaEmpresa.php',
   					type:  'GET',
   					success:  function (response) {
-  									$("#resultado"+idEmpresa).html(response);
+                $("#modalBody").html(response);
+                $('table').stacktable();
+                window.location.href = "#divModal";
   					}
   	});
-  }
 }
+
 
 function AsignarSalaEm(idSala, idEmpresa) {
   var parametros = {
@@ -95,12 +91,6 @@ function AsignarSalaEm(idSala, idEmpresa) {
 }
 
 function MostrarSalasDisponiblesEventos(id) {
-  if(document.getElementById("resultadoEscondido"+id).className==""){
-    document.getElementById(id).className = "";
-    document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
-  }else{
-    document.getElementById(id).className = "active";
-    document.getElementById("resultadoEscondido"+id).className="";
     var parametros = {
   			idEvento : id
   	};
@@ -109,10 +99,11 @@ function MostrarSalasDisponiblesEventos(id) {
   					url:   'scripts/asignarSalaEventos.php',
   					type:  'GET',
   					success:  function (response) {
-  									$("#resultado"+id).html(response);
+                $("#modalBody").html(response);
+                $('table').stacktable();
+                window.location.href = "#divModal";
   					}
   	});
-  }
 }
 
 function AsignarSalaEv(idSala, idEvento) {
@@ -125,7 +116,6 @@ function AsignarSalaEv(idSala, idEvento) {
           url:   'scripts/asignarSalaEv.php',
           type:  'GET',
           success:  function (response) {
-              document.getElementById("resultadoEscondido"+idEmpresa).className="resultadoEscondido";
               $("#resultado").html(response);
           }
   });
