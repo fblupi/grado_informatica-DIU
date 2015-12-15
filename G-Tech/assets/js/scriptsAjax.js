@@ -130,3 +130,49 @@ function AsignarSalaEv(idSala, idEvento) {
           }
   });
 }
+
+function ConfirmarReservar(idSala){
+  var fechaEntrada = $('#fechaEntrada').val();
+  var horaEntrada = $('#horaEntrada').val();
+  var fechaSalida = $('#fechaSalida').val();
+  var horaSalida = $('#horaSalida').val();
+  var parametros = {
+  		idSala : idSala,
+  		fechaEntrada : fechaEntrada,
+  		horaEntrada : horaEntrada,
+  		fechaSalida : fechaSalida,
+  		horaSalida : horaSalida
+  };
+  $.ajax({
+  				data:  parametros,
+  				url:   'confirmarReserva.php',
+  				type:  'GET',
+  				success:  function (response) {
+  								$("#modalBody").html(response);
+                  window.location.href = "#divModal";
+  				}
+  });
+}
+
+function ConfirmarAlquilar(idSala){
+  var fechaEntrada = $('#fechaEntrada').val();
+  var horaEntrada = $('#horaEntrada').val();
+  var fechaSalida = $('#fechaSalida').val();
+  var horaSalida = $('#horaSalida').val();
+  var parametros = {
+  		idSala : idSala,
+  		fechaEntrada : fechaEntrada,
+  		horaEntrada : horaEntrada,
+  		fechaSalida : fechaSalida,
+  		horaSalida : horaSalida
+  };
+  $.ajax({
+  				data:  parametros,
+  				url:   'confirmarAlquilar.php',
+  				type:  'GET',
+  				success:  function (response) {
+  								$("#modalBody").html(response);
+                  window.location.href = "#divModal";
+  				}
+  });
+}

@@ -28,6 +28,7 @@ echo '</thead>';
 echo '<tbody>';
 
 while($salasDisponibles = mysqli_fetch_assoc($resultado)){
+  $idSala = $salasDisponibles['id'];
   echo '<tr>';
   echo '<td>';
   echo $salasDisponibles['nombre'];
@@ -44,18 +45,13 @@ while($salasDisponibles = mysqli_fetch_assoc($resultado)){
   echo '</td>';
   echo '<td>';
   if($salasDisponibles['tipo']=='evento'){
-    echo '<a href="reservarSala?i=';
-    echo $salasDisponibles['id'];
-    echo '" class="btn btn-info btnSalas">Reservar</a>';
+    echo '<button class="btn btn-info btnSalas" onClick="ConfirmarReservar('.$idSala.');return false;">Reservar</button>';
   }else{
-    echo '<a href="alquilarSala?i=';
-    echo $salasDisponibles['id'];
-    echo '" class="btn btn-primary btnSalas">Alquilar</a>';
+    echo '<button class="btn btn-primary btnSalas" onClick="ConfirmarAlquilar('.$idSala.');return false;">Alquilar</button>';
   }
   echo '</td>';
   echo '</tr>';
 }
-
 echo '</tbody>';
 echo '</table>';
 
