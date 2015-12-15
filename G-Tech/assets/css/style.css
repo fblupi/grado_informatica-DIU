@@ -147,7 +147,7 @@ article{
 }
 
 .empresas, .eventos{
-	margin-bottom: 5%;
+	margin-bottom: 10%;
 }
 
 .logoEvento, .logoEmpresa{
@@ -463,7 +463,7 @@ textarea{
     margin-left: 0;
   }
 
-	.empresas, eventos{
+	.empresas, .eventos{
 		margin-bottom: 5%;
 	}
 
