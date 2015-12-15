@@ -1,5 +1,6 @@
 <?php include 'header.php'; ?>
 <section>
+  <h1 class="section-header">Gestionar permisos</h1>
 <article>
 <form role="search" class="busquedaEmpresas">
     <input type="text" id="busqueda" name="busqueda" onkeyup="MostrarConsultaEmpresas();" class="form-control buscar" placeholder="Buscar...">
