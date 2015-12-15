@@ -20,7 +20,8 @@
 				$resultado = mysqli_query($conn, $sql);
 
 				while ($eventos = mysqli_fetch_assoc($resultado)) {
-					echo '<div class="eventos">';
+					echo '<div class="eventos row">';
+					echo '<div class="col-md-12 col-lg-12">';
 					echo '<img class="logoEvento" src="';
 					echo $eventos['imagen'];
 					echo '">';
@@ -61,6 +62,7 @@
 					if($eventos['baja']==1){
 						echo '<span class="label label-danger eventoGratuito">Cancelado</span>';
 					}
+					echo '</div>';
 					echo '</div>';
 					echo '</div>';
 				}

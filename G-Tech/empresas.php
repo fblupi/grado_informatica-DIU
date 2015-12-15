@@ -20,7 +20,8 @@
 				$resultado = mysqli_query($conn, $sql);
 
 				while ($empresa = mysqli_fetch_assoc($resultado)) {
-					echo '<div class="empresas">';
+					echo '<div class="empresas row">';
+					echo '<div class="col-md-12 col-lg-12">';
 					echo '<img class="logoEmpresa" src="';
 					echo $empresa['imagen'];
 					echo '">';
@@ -36,6 +37,8 @@
 					echo '" role="button">Ver más...</a>';
 					echo '</div>';
 					echo '</div>';
+					echo '</div>';
+
 				}
 
 				?>
