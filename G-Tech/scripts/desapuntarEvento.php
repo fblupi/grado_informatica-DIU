@@ -16,9 +16,9 @@ $resultado = mysqli_query($conexion, $sql);
 mysqli_close($conexion);
 
 if ($resultado) {
-  salir("Desapuntado correctamente", 0);
+  salir2("Desapuntado correctamente", 0, 0);
 } else {
-  salir("Error al desapuntarse", -1);
+  salir2("Error al desapuntarse", -1, 0);
 }
 
 ?>

@@ -65,24 +65,18 @@
     echo '</div>';
     echo '<div class="col-md-2 col-lg-2">';
     if($eventos['baja']==0){
-      if(isset($_SESSION['login'])){
-        $login = $_SESSION['login'];
+      if(isset($_SESSION['id'])){
+        $login = $_SESSION['id'];
         $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
         $resultado3 = mysqli_query($conn, $sql3);
         $asiste = mysqli_num_rows($resultado3);
         if($asiste>0){
-            echo '<a href="scripts/desapuntarEvento.php?i=';
-            echo $eventos['id'];
-            echo '" class="btn btn-danger btnApuntarseEvento">Desapuntarse</a>';
+            echo '<input type="button" id="apuntarEvento" onClick="DesapuntarEvento('.$idEvento.')" class="btn btn-danger btnApuntarseEvento" value="Desapuntarse">';
           }else{
-          echo '<a href="scripts/apuntarEvento.php?i=';
-          echo $eventos['id'];
-          echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
+          echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
         }
       }else{
-        echo '<a href="apuntarEvento.php?i=';
-        echo $eventos['id'];
-        echo '" class="btn btn-primary btnApuntarseEvento">Apuntarse</a>';
+        echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
       }
     }
     echo '</div>';

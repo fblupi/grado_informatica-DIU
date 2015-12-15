@@ -175,5 +175,38 @@ function CambiarBoton(idUsuario){
   }else{
     document.getElementById("btnModificar"+idUsuario).className="btn btn-warning";
   }
+}
 
+function ApuntarEvento(idEvento){
+  var parametros = {
+      i : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/apuntarEvento.php',
+          type:  'GET',
+          success:  function (response) {
+                  $("#resultado").html(response);
+                  document.getElementById("apuntarEvento").className="btn btn-danger btnApuntarseEvento";
+                  document.getElementById("apuntarEvento").value="Desapuntarse";
+                  document.getElementById("apuntarEvento").setAttribute('onclick','DesapuntarEvento('+idEvento+')');
+          }
+  });
+}
+
+function DesapuntarEvento(idEvento){
+  var parametros = {
+      i : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/desapuntarEvento.php',
+          type:  'GET',
+          success:  function (response) {
+                  $("#resultado").html(response);
+                  document.getElementById("apuntarEvento").className="btn btn-primary btnApuntarseEvento";
+                  document.getElementById("apuntarEvento").value="Apuntarse";
+                  document.getElementById("apuntarEvento").setAttribute('onclick','ApuntarEvento('+idEvento+')');
+          }
+  });
 }
