@@ -16,7 +16,7 @@ $sql2 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Perm
 $resultado2 = mysqli_query($conn, $sql2);
 
 echo '<div class="table-responsive">';
-echo '<table class="table table-condensed salasEmpresa">';
+echo '<table class="table table-condensed salasEmpresa" id="tablaGestionUsuarios">';
 echo '<thead>';
 echo '<tr>';
 echo '<th>#</th>';
@@ -65,15 +65,12 @@ echo '</tbody>';
 echo '</table>';
 
 ?>
-
-
 </article>
 </section>
 <script type="text/javascript">
 window.onload = function()
 {
-		document.getElementById("micuenta").className = "active menu";
-    $('table').stacktable();
+    $('#tablaGestionUsuarios').stacktable();
 }
 </script>
 <?php include 'footer.php'; ?>
