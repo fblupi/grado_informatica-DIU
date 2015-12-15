@@ -58,8 +58,10 @@ function MostrarConsultaSalas() {
 
 function MostrarSalasDisponiblesEmpresas(id) {
   if(document.getElementById("resultadoEscondido"+id).className==""){
+    document.getElementById(id).className = "";
     document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
   }else{
+    document.getElementById(id).className = "active";
     document.getElementById("resultadoEscondido"+id).className="";
     var idEmpresa = id;
     var parametros = {
@@ -71,7 +73,6 @@ function MostrarSalasDisponiblesEmpresas(id) {
   					type:  'GET',
   					success:  function (response) {
   									$("#resultado"+idEmpresa).html(response);
-                    $('table').stacktable();
   					}
   	});
   }
@@ -95,8 +96,10 @@ function AsignarSalaEm(idSala, idEmpresa) {
 
 function MostrarSalasDisponiblesEventos(id) {
   if(document.getElementById("resultadoEscondido"+id).className==""){
+    document.getElementById(id).className = "";
     document.getElementById("resultadoEscondido"+id).className="resultadoEscondido"
   }else{
+    document.getElementById(id).className = "active";
     document.getElementById("resultadoEscondido"+id).className="";
     var parametros = {
   			idEvento : id
@@ -107,7 +110,6 @@ function MostrarSalasDisponiblesEventos(id) {
   					type:  'GET',
   					success:  function (response) {
   									$("#resultado"+id).html(response);
-                    $('table').stacktable();
   					}
   	});
   }

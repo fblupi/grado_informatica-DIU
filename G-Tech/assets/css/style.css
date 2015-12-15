@@ -336,7 +336,7 @@ textarea{
 }
 
 .table .table{
-  background-color: transparent;
+  background-color: #F2F2F2;
 }
 
 .resultadoEscondido{
@@ -624,5 +624,9 @@ textarea{
   .btnAdmin{
     float: right;
     margin-bottom: 6%;
+  }
+
+  .resultadoEscondido{
+    display: none;
   }
 }

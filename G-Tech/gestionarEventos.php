@@ -32,6 +32,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 				if($permisosAdmin == 1){
 					$sql3 = "SELECT * FROM Evento;";
 					$resultado3 = mysqli_query($conn, $sql3);
+					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
 					echo '<tr>';
@@ -96,6 +97,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 				}else if($permisosUser == 1){
 					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0;";
 					$resultado3 = mysqli_query($conn, $sql3);
+					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
 					echo '<tr>';
@@ -109,7 +111,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 					echo '</tr>';
 					while ($empresa = mysqli_fetch_assoc($resultado3)) {
 						$idEmpresa = $empresa['id'];
-						echo '<tr>';
+						echo '<tr id="'.$idEmpresa.'">';
 						echo '<td>';
 						echo $empresa['nombre'];
 						echo '</td>';
@@ -230,7 +232,6 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 window.onload = function()
 {
 		document.getElementById("eventos").className = "active menu";
-		$('table').stacktable();
 }
 </script>
 <?php include 'footer.php'; ?>
