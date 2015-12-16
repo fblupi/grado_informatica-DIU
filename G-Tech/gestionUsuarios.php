@@ -31,7 +31,8 @@ echo '</thead>';
 echo '<tbody>';
 while($usuario = mysqli_fetch_assoc($resultado2)){
   $idUsuario = $usuario['id'];
-  echo '<form action="scripts/gestionarPermisos.php?i='.$idUsuario.'" method="POST">';
+  echo '<form action="scripts/gestionarPermisos.php" method="POST">';
+  echo '<input type="hidden" name="idUsuario" value="'.$idUsuario.'">';
   echo '<tr>';
   echo '<td>';
   echo $usuario['id'];
