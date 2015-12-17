@@ -2,8 +2,6 @@
 <section>
   <h1>Gestionar salas<hr></h1>
 <article><center>
-<a href="buscarSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-search"></i> Buscar</a>
-<a href="misSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-cog"></i> Mis salas</a>
 <?php
 include 'libs/myLib.php';
 $conn = dbConnect();
@@ -22,8 +20,15 @@ if(isset($_SESSION['login'])){
       $permisosUser = 1;
     }
   }
-  if($permisosAdmin==1){
+  if($permisosAdmin==1 && $permisosUser==0){
     echo '<a href="gestionSalasAdmin.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-lock"></i> Opciones del administrador</a>';
+  } else if($permisosAdmin==1 && $permisosUser==1) {
+    echo '<a href="buscarSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-search"></i> Buscar</a>';
+    echo '<a href="misSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-cog"></i> Mis salas</a>';
+    echo '<a href="gestionSalasAdmin.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-lock"></i> Opciones del administrador</a>';
+  } else {
+    echo '<a href="buscarSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-search"></i> Buscar</a>';
+    echo '<a href="misSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-cog"></i> Mis salas</a>';
   }
 }
 ?>
