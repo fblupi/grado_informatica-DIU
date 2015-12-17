@@ -12,7 +12,7 @@ $horaSalida = $_GET['horaSalida'];
 ?>
 <h2>Confirmar alquiler</h2>
 <form role="search" class="buscarSalas" action="scripts/confirmarAlquiler.php" data-toggle="validator" role="form">
-  <input type="hidden" value="<?php echo $idSala; ?>">
+  <input type="hidden" name="idSala" value="<?php echo $idSala; ?>">
   <div class="row">
     <div class="col-md-6 col-lg-6">
       <div class="form-group">
