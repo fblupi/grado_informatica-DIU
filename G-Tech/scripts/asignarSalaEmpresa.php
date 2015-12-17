@@ -7,7 +7,7 @@ $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $idEmpresa = $_GET['idEmpresa'];
 echo '<h2>Salas disponibles</h2>';
-$sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
+$sql2 = "SELECT nombre, tipo, capacidad, alquiler.id AS alquiler, sala.id AS sala FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
   echo '<div class="table-responsive">';
@@ -38,7 +38,7 @@ if(mysqli_num_rows($resultado2)>0){
     echo '</td>';
     echo '<td>';
     echo '<button class="btn btn-success btnSalasCancelar" onClick="AsignarSalaEm(';
-    echo $misSalas['id'];
+    echo $misSalas['alquiler'];
     echo ',';
     echo $idEmpresa;
     echo ')">Asignar sala</a>';

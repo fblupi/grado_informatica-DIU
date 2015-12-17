@@ -28,7 +28,7 @@ if ($resultado) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Sala alquilada correctamente", -1);
+    salir("Sala alquilada correctamente", 0);
   } else {
     salir("Ha habido un error realizando el alquiler", -1);
   }

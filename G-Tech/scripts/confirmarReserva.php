@@ -27,7 +27,7 @@ if ($resultado) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Sala reservada correctamente", -1);
+    salir("Sala reservada correctamente", 0);
   } else {
     salir("Ha habido un error realizando el reserva", -1);
   }
