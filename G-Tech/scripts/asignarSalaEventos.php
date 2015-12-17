@@ -14,7 +14,7 @@ $fechaInicio = $fechas['fechaInicio'];
 $fechaFin = $fechas['fechaFin'];
 $nombreEvento = $fechas['nombre'];
 echo '<h2>Salas disponibles para '.$nombreEvento.'</h2>';
-$sql2 = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'evento' AND alquiler.asignada = 0 AND fechaInicio >= '$fechaInicio' AND fechaFin <= '$fechaFin';";
+$sql2 = "SELECT nombre, tipo, capacidad, alquiler.id AS alquiler FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'evento' AND alquiler.asignada = 0 AND fechaInicio <= '$fechaInicio' AND fechaFin >= '$fechaFin';";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
   echo '<div class="table-responsive">';
@@ -45,9 +45,9 @@ if(mysqli_num_rows($resultado2)>0){
     echo '</td>';
     echo '<td>';
     echo '<button class="btn btn-success btnSalasCancelar" onClick="AsignarSalaEv(';
-    echo $misSalas['id'];
+    echo $misSalas['alquiler'];
     echo ',';
-    echo $idEmpresa;
+    echo $idEvento;
     echo ')">Asignar sala</a>';
     echo '</td>';
     echo '</tr>';

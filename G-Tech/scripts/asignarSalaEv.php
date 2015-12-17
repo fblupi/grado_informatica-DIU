@@ -8,9 +8,9 @@ if (!isset($_SESSION['login'])) {
 
 $conexion = dbConnect();
 $alquiler = $_GET['idSala'];
-$empresa = $_GET['idEmpresa'];
+$evento = $_GET['idEvento'];
 
-$sql = "UPDATE empresa SET sala=$alquiler WHERE id=$empresa";
+$sql = "UPDATE evento SET sala=$alquiler WHERE id=$evento";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {
@@ -24,7 +24,7 @@ if ($resultado) {
   }
 } else {
   mysqli_close($conexion);
-  salir("Ha habido un error realizando la asignación de la sala a la empresa", -1);
+  salir("Ha habido un error realizando la asignación de la sala al evento"."UPDATE evento SET sala=$alquiler WHERE id=$evento", -1);
 }
 
 ?>

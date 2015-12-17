@@ -7,7 +7,7 @@ $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $idEmpresa = $_GET['idEmpresa'];
 echo '<h2>Salas disponibles</h2>';
-$sql2 = "SELECT nombre, tipo, capacidad, alquiler.id AS alquiler, sala.id AS sala FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
+$sql2 = "SELECT nombre, tipo, capacidad, alquiler.id AS alquiler FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario' AND alquiler.tipoSala = 'empresa' AND alquiler.asignada = 0;";
 $resultado2 = mysqli_query($conn, $sql2);
 if(mysqli_num_rows($resultado2)>0){
   echo '<div class="table-responsive">';
