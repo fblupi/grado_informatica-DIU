@@ -2,6 +2,7 @@
 if(!isset($_SESSION['login'])){
 	echo '<script>location.href="inicioSesion.php";</script>';
 }
+$idUsuario = $_SESSION['id'];
 $idEvento = $_GET['i'];
 include 'libs/myLib.php';
 $conn = dbConnect();
@@ -14,6 +15,20 @@ $fechaInicio = date('d-m-Y', strtotime($evento['fechaInicio']));
 $horaInicio = date('H:i:s', strtotime($evento['fechaInicio']));
 $fechaFin = date('d-m-Y', strtotime($evento['fechaFin']));
 $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
+
+$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+$resultado3 = mysqli_query($conn, $sql3);
+$permisosAdmin = 0;
+$permisosUser = 0;
+while($permisos = mysqli_fetch_assoc($resultado3)){
+	$id = $permisos['id'];
+	if($permisos['permiso']==1){
+		$permisosAdmin = 1;
+	}
+	if($permisos['permiso']==2){
+		$permisosUser = 1;
+	}
+}
 
 ?>
 <section>
@@ -66,7 +81,11 @@ $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
         </div>
 				<div class="form-group">
         <label>Organizador (Usuario)</label>
+				<?php if($permisosAdmin==1){
+					echo '<select class="form-control" name="usuario" id="usuario" disabled="true">';
+				}else{ ?>
         <select class="form-control" name="usuario" id="usuario">
+				<?php } ?>
 					<option value="">No</option>
           <?php
           $idUsuario = $_SESSION['id'];
@@ -91,10 +110,13 @@ $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
         </div>
       </div>
       <div class="col-md-6 col-lg-6">
-
         <div class="form-group">
         <label>Organizador (Empresa)</label>
-        <select class="form-control" name="empresa" id="empresa">
+				<?php if($permisosAdmin==1){
+					echo '<select class="form-control" name="empresa" id="empresa" disabled="true">';
+				}else{ ?>
+        <select class="form-control" name="empresa" id="empresa" >
+					<?php } ?>
 					<option value="">No</option>
           <?php
           $sql2 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
