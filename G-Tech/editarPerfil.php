@@ -88,10 +88,4 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 ?>
 </article>
 </section>
-<script type="text/javascript">
-window.onload = function()
-{
-		document.getElementById("micuenta").className = "active menu";
-}
-</script>
 <?php include 'footer.php'; ?>
