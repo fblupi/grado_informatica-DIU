@@ -13,7 +13,7 @@
 include 'libs/myLib.php';
 $conn = dbConnect();
 
-$sql2 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario;";
+$sql2 = "SELECT * FROM Usuario;";
 $resultado2 = mysqli_query($conn, $sql2);
 
 echo '<div class="table-responsive">';
@@ -31,9 +31,22 @@ echo '</thead>';
 echo '<tbody>';
 while($usuario = mysqli_fetch_assoc($resultado2)){
   $idUsuario = $usuario['id'];
-  echo '<form action="scripts/gestionarPermisos.php" method="POST">';
-  echo '<input type="hidden" name="idUsuario" value="'.$idUsuario.'">';
+  $sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+  $resultado3 = mysqli_query($conn, $sql3);
+  $permisosAdmin = 0;
+  $permisosUser = 0;
+  while($permisos = mysqli_fetch_assoc($resultado3)){
+  	$id = $permisos['id'];
+  	if($permisos['permiso']==1){
+  		$permisosAdmin = 1;
+  	}
+  	if($permisos['permiso']==2){
+  		$permisosUser = 1;
+  	}
+  }
   echo '<tr>';
+  echo '<form action="scripts/gestionarPermisos.php?i='.$idUsuario.'" method="POST">';
+  echo '<input type="hidden" name="idUsuario" value="'.$idUsuario.'">';
   echo '<td>';
   echo $usuario['id'];
   echo '</td>';
@@ -43,24 +56,29 @@ while($usuario = mysqli_fetch_assoc($resultado2)){
   echo '<td>';
   echo $usuario['nombre'];
   echo '</td>';
-  echo '<td>';
-  if($usuario['permiso']==2){
+  if($permisosUser==1){
+    echo '<td>';
     echo '<input type="checkbox" name="permisosUsuario'.$idUsuario.'" id="permisosUsuario'.$idUsuario.'" value="usuario" onClick="CambiarBoton('.$idUsuario.');" checked>';
+    echo '</td>';
   }else{
+    echo '<td>';
     echo '<input type="checkbox" name="permisosUsuario'.$idUsuario.'" id="permisosUsuario'.$idUsuario.'" value="usuario" onClick="CambiarBoton('.$idUsuario.');">';
+    echo '</td>';
   }
-  echo '</td>';
-  echo '<td>';
-  if($usuario['permiso']==1){
+  if($permisosAdmin==1){
+    echo '<td>';
     echo '<input type="checkbox" name="permisosAdmin'.$idUsuario.'" id="permisosAdmin'.$idUsuario.'" value="admin" onClick="CambiarBoton('.$idUsuario.');" checked>';
+    echo '</td>';
   }else{
+    echo '<td>';
     echo '<input type="checkbox" name="permisosAdmin'.$idUsuario.'" id="permisosAdmin'.$idUsuario.'" value="admin" onClick="CambiarBoton('.$idUsuario.');">';
+    echo '</td>';
   }
-  echo '</td>';
   echo '<td>';
   echo '<input type="submit" id="btnModificar'.$idUsuario.'" class="btn btn-default" value="Modificar">';
   echo '</td>';
   echo '</form>';
+  echo '</tr>';
 }
 
 echo '</tbody>';

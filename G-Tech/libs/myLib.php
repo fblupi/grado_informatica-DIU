@@ -29,16 +29,16 @@ function salir2($str, $code, $url) {
       echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
       echo '<strong>'.$str.'</strong>';
       if($url!='0'){
-        echo 'En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
+        echo ' En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
       }
       echo '</div>';
       echo '<script>
       setTimeout(function () {
-         document.getElementById("resultado").className = "alertas animated zoomOut";}, 2000);</script>';
+         document.getElementById("resultado").className = "alertas animated zoomOut";}, 5000);</script>';
       if($url!='0'){
         echo '<script>
         setTimeout(function () {
-           window.location.href = "'.$url.'";}, 3000);</script>';
+           window.location.href = "'.$url.'";}, 5000);</script>';
       }
       break;
     case '-1':
@@ -47,16 +47,16 @@ function salir2($str, $code, $url) {
       echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
       echo '<strong>'.$str.'</strong>';
       if($url!='0'){
-        echo 'En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
+        echo ' En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
       }
       echo '</div>';
       echo '<script>
       setTimeout(function () {
-         document.getElementById("resultado").className = "alertas animated zoomOut";}, 3000);</script>';
+         document.getElementById("resultado").className = "alertas animated zoomOut";}, 5000);</script>';
        if($url!='0'){
          echo '<script>
          setTimeout(function () {
-            window.location.href = "'.$url.'";}, 3000);</script>';
+            window.location.href = "'.$url.'";}, 5000);</script>';
        }
       break;
     default:
@@ -65,16 +65,16 @@ function salir2($str, $code, $url) {
       echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
       echo '<strong>Si estás viendo esto es porque algo muy malo acaba de pasar.</strong>';
       if($url!='0'){
-        echo 'En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
+        echo ' En breves instantes será redirigido. Si no fuera así, puede acceder desde el siguiente <a href="'.$url.'" class="alert-link">enlace</a>';
       }
       echo '</div>';
       echo '<script>
       setTimeout(function () {
-         document.getElementById("resultado").className = "alertas animated zoomOut";}, 3000);</script>';
+         document.getElementById("resultado").className = "alertas animated zoomOut";}, 5000);</script>';
        if($url!='0'){
          echo '<script>
          setTimeout(function () {
-            window.location.href = "'.$url.'";}, 3000);</script>';
+            window.location.href = "'.$url.'";}, 5000);</script>';
        }
       break;
   }

@@ -186,10 +186,7 @@ function ApuntarEvento(idEvento){
           url:   'scripts/apuntarEvento.php',
           type:  'GET',
           success:  function (response) {
-                  $("#resultado").html(response);
-                  document.getElementById("apuntarEvento").className="btn btn-danger btnApuntarseEvento";
-                  document.getElementById("apuntarEvento").value="Desapuntarse";
-                  document.getElementById("apuntarEvento").setAttribute('onclick','DesapuntarEvento('+idEvento+')');
+            $("#resultado").html(response);
           }
   });
 }
@@ -204,9 +201,6 @@ function DesapuntarEvento(idEvento){
           type:  'GET',
           success:  function (response) {
                   $("#resultado").html(response);
-                  document.getElementById("apuntarEvento").className="btn btn-primary btnApuntarseEvento";
-                  document.getElementById("apuntarEvento").value="Apuntarse";
-                  document.getElementById("apuntarEvento").setAttribute('onclick','ApuntarEvento('+idEvento+')');
           }
   });
 }
