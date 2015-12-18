@@ -28,7 +28,11 @@ $fechaInicio = $row['fechaInicio'];
 $fechaFin = $row['fechaFin'];
 $precio = $row['precio'];
 $asunto = "Invitación al evento " . $nombre;
-$mensaje = "Buenas, " . $login . " le invita al evento " . $nombre . " que tendrá lugar de " . $fechaInicio . " a " . $fechaFin . " por un coste de " . $precio . "€.";
+if($precio!=0){
+  $mensaje = "¡Hola!<br>, Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento tiene un coste de " . $precio . "€.";
+}else{
+  $mensaje = "¡Hola!<br>, Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento es totalmente gratuíto";
+}
 
 foreach ($mails as $mail) {
   envioCorreo($mail, $asunto, $mensaje);
