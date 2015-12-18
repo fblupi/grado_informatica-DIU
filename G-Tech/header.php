@@ -46,8 +46,9 @@
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
 					<?php if(isset($_SESSION['login'])){
+						$login = $_SESSION['login'];
 						echo '<li class="dropdown">';
-	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta <span class="caret"></span></a>';
+	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$login.' <span class="caret"></span></a>';
 	          echo '<ul class="dropdown-menu animated fadeInDown">';
 	          echo '<li><a href="miCuenta.php"><i class="fa fa-user usuario"></i> Mi perfil</a></li>';
 	          echo '<li><a href="gestionarEventos.php"><i class="fa fa-calendar usuario"></i> Mis eventos</a></li>';
