@@ -10,7 +10,7 @@ if(!isset($_SESSION['id'])){
 include 'libs/myLib.php';
 $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
-$sql = "SELECT * FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario';";
+$sql = "SELECT nombre, tipo, capacidad, fechaInicio, fechaFin, alquiler.id AS sala FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario';";
 $resultado = mysqli_query($conn, $sql);
 
 echo '<table class="table table-condensed">';
@@ -48,8 +48,8 @@ while($misSalas = mysqli_fetch_assoc($resultado)){
   echo date('j F, Y H:i',strtotime($misSalas['fechaFin']));
   echo '</td>';
   echo '<td>';
-  echo '<a href="scripts/cancelarReserva?i=';
-  echo $misSalas['id'];
+  echo '<a href="scripts/cancelarReserva.php?i=';
+  echo $misSalas['sala'];
   echo '" class="btn btn-danger btnSalasCancelar">Cancelar reserva</a>';
   echo '</td>';
   echo '</tr>';
