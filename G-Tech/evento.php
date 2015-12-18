@@ -1,7 +1,8 @@
 <?php include 'header.php'; ?>
 <section>
 <?php
-  include 'libs/myLib.php';
+  include_once 'libs/myLib.php';
+
   $conn = dbConnect();
   $idEvento = $_GET['i'];
   $sql = "SELECT * FROM Evento WHERE Evento.id = '$idEvento';";

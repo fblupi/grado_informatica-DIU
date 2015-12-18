@@ -4,7 +4,7 @@
     <hr></hr></h1>
 		<article>
 			<?php
-        include 'libs/myLib.php';
+				include_once 'libs/myLib.php';
         $conn = dbConnect();
         $idEmpresa = $_GET['i'];
         $sql = "SELECT Empresa.imagen, Empresa.nombre, Empresa.descripcion, Empresa.sala, Empresa.direccion, Empresa.telefono, Empresa.fax, Usuario.login, Usuario.email FROM Empresa, Usuario WHERE Empresa.representante = Usuario.id AND Empresa.id = '$idEmpresa';";

@@ -12,7 +12,7 @@
        </form>
 			<div id="todosEventos">
 			<?php
-				include 'libs/myLib.php';
+				include_once 'libs/myLib.php';
 				$conn = dbConnect();
 
 				$sql = "SELECT * FROM Evento;";

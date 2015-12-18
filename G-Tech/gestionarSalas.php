@@ -3,7 +3,7 @@
   <h1>Gestionar salas<hr></h1>
 <article><center>
 <?php
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 
 if(isset($_SESSION['login'])){

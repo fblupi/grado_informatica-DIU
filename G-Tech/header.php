@@ -4,27 +4,32 @@
 <title>G-Tech</title>
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 <?php
-include 'libs/myLib.php';
-$conn = dbConnect();
-if(!isset($_SESSION)){
-	session_start();
-}
-if(isset($_SESSION['id'])){
-	$login = $_SESSION['login'];
-	$idUsuario = $_SESSION['id'];
-	$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
-	$resultado3 = mysqli_query($conn, $sql3);
-	$permisosAdmin = 0;
-	$permisosUser = 0;
-	while($permisos = mysqli_fetch_assoc($resultado3)){
-		$id = $permisos['id'];
-		if($permisos['permiso']==1){
-			$permisosAdmin = 1;
-		}
-		if($permisos['permiso']==2){
-			$permisosUser = 1;
-		}
+include_once 'libs/myLib.php';
+if(function_exists('dbConnect')){
+	$conn = dbConnect();
+	if(!isset($_SESSION)){
+		session_start();
 	}
+	if(isset($_SESSION['id'])){
+		$login = $_SESSION['login'];
+		$idUsuario = $_SESSION['id'];
+		$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+		$resultado3 = mysqli_query($conn, $sql3);
+		$permisosAdmin = 0;
+		$permisosUser = 0;
+		while($permisos = mysqli_fetch_assoc($resultado3)){
+			$id = $permisos['id'];
+			if($permisos['permiso']==1){
+				$permisosAdmin = 1;
+			}
+			if($permisos['permiso']==2){
+				$permisosUser = 1;
+			}
+		}
+		mysqli_close($conn);
+	}
+}else{
+	echo 'No existe';
 }
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

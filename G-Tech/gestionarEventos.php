@@ -2,7 +2,7 @@
 if(!isset($_SESSION['login'])){
 	echo '<script>location.href="inicioSesion.php";</script>';
 }
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
 

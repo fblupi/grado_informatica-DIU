@@ -8,7 +8,7 @@ if(!isset($_SESSION['login'])){
 		<hr></hr></h1>
 		<article>
       <?php
-      include 'libs/myLib.php';
+			include_once 'libs/myLib.php';
       $conn = dbConnect();
       $idEmpresa = $_GET['i'];
       $sql = "SELECT * FROM Empresa WHERE id = '$idEmpresa';";

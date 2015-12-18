@@ -12,7 +12,7 @@
        </form>
 			<div id="todasEmpresas">
 			<?php
-				include 'libs/myLib.php';
+				include_once 'libs/myLib.php';
 				$conn = dbConnect();
 
 				$sql = "SELECT * FROM Empresa;";

@@ -54,7 +54,7 @@ if(!isset($_SESSION['login'])){
         <label>Organizador (Usuario)</label>
         <select class="form-control" name="usuario" id="usuario">
           <?php
-          include 'libs/myLib.php';
+					include_once 'libs/myLib.php';
           $conn = dbConnect();
           $idUsuario = $_SESSION['id'];
           $sql3 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";

@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])){
   echo '<script>location.href="inicioSesion.php";</script>';
 }
 
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $sql = "SELECT * FROM sala;";

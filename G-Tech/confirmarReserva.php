@@ -2,7 +2,7 @@
 if(!isset($_SESSION['id'])){
   session_start();
 }
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 $idSala = $_GET['idSala'];
 $fechaEntrada = $_GET['fechaEntrada'];

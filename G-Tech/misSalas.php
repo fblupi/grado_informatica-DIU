@@ -7,7 +7,7 @@ if(!isset($_SESSION['id'])){
   echo '<script>location.href="inicioSesion.php";</script>';
 }
 
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 $idUsuario = $_SESSION['id'];
 $sql = "SELECT nombre, tipo, capacidad, fechaInicio, fechaFin, alquiler.id AS sala FROM alquiler, sala WHERE alquiler.sala = sala.id AND alquiler.usuario = '$idUsuario';";

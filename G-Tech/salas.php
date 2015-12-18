@@ -5,7 +5,7 @@
 		<hr></hr></h1>
 <article>
 <?php
-	include 'libs/myLib.php';
+	include_once 'libs/myLib.php';
 	$conn = dbConnect();
 	if(isset($_SESSION['login'])){
 		$login = $_SESSION['login'];

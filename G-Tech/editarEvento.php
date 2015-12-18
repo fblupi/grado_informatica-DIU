@@ -4,7 +4,7 @@ if(!isset($_SESSION['login'])){
 }
 $idUsuario = $_SESSION['id'];
 $idEvento = $_GET['i'];
-include 'libs/myLib.php';
+include_once 'libs/myLib.php';
 $conn = dbConnect();
 $sql = "SELECT * FROM evento WHERE id = '$idEvento';";
 

@@ -3,7 +3,7 @@
 <h1>Editar sala<hr></h1>
 <article>
   <?php
-  include 'libs/myLib.php';
+  include_once 'libs/myLib.php';
   $conn = dbConnect();
   $idSala = $_GET['i'];
   $sql = "SELECT * FROM sala WHERE id = '$idSala';";
