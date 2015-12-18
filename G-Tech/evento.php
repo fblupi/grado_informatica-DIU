@@ -9,6 +9,15 @@
   $resultado = mysqli_query($conn, $sql);
 
   while ($eventos = mysqli_fetch_assoc($resultado)) {
+    $idAlquiler = $eventos['sala'];
+    $sql4 = "SELECT nombre FROM alquiler,sala WHERE alquiler.sala = sala.id AND alquiler.id= $idAlquiler;";
+    $resultado4 = mysqli_query($conn, $sql4);
+    if($resultado4){
+      $nombreSala = mysqli_fetch_assoc($resultado4);
+    }else{
+      $nombreSala = '';
+    }
+
     echo '<h1>';
     echo $eventos['nombre'];
     echo '<hr></h1>';
@@ -39,10 +48,10 @@
     echo ' '.$eventos['precio'].' €';
     echo '</p>';
     echo '<p class="salaEventoDetallado"><i class="fa fa-2x fa-arrows iconoEventoDetallado"></i>';
-    if($eventos['sala']==''){
+    if($nombreSala==''){
       echo ' Ninguna sala asignada';
     }else{
-      echo ' Sala '.$eventos['sala'];
+      echo ' Sala '.$nombreSala['nombre'];
     }
     echo '</p>';
     echo '<p class="organizadorEventoDetallado">';

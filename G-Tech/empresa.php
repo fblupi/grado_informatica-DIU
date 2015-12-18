@@ -11,6 +11,16 @@
         $resultado = mysqli_query($conn, $sql);
 
 				while ($empresa = mysqli_fetch_assoc($resultado)) {
+					$idAlquiler = $empresa['sala'];
+					$sql2 = "SELECT nombre FROM alquiler,sala WHERE alquiler.sala = sala.id AND alquiler.id= $idAlquiler;";
+					$resultado2 = mysqli_query($conn, $sql2);
+					if($resultado2){
+						$nombreSala = mysqli_fetch_assoc($resultado2);
+					}else{
+						$nombreSala = '';
+					}
+
+
 					echo '<div class="empresas">';
 					echo '<img class="logoEmpresa" src="';
 					echo $empresa['imagen'];
@@ -26,10 +36,11 @@
           echo $empresa['direccion'];
           echo '</p>';
           echo '<p><i class="fa fa-2x fa-arrows etiquetasEmpresa"></i>';
-          if($empresa['sala']==''){
+
+					if($nombreSala==''){
             echo 'Ninguna sala asignada';
           }else{
-            echo 'Sala '.$empresa['sala'];
+            echo 'Sala '.$nombreSala['nombre'];
           }
           echo '</p>';
           echo '<p><i class="fa fa-2x fa-phone etiquetasEmpresa"></i>';
