@@ -12,7 +12,7 @@ $horaEntrada = $_GET['horaEntrada'];
 $horaSalida = $_GET['horaSalida'];
 $fechaHoraInicio = date('Y-m-d H:i:s', strtotime($fechaEntrada.' '.$horaEntrada));
 $fechaHoraSalida = date('Y-m-d H:i:s', strtotime($fechaSalida.' '.$horaSalida));
-$sqlBusqueda = "SELECT * FROM sala WHERE (sala.nombre LIKE '%$busqueda%' AND sala.capacidad BETWEEN '$capacidadMin' AND '$capacidadMax') AND sala.id NOT IN (SELECT sala FROM alquiler WHERE fechaInicio = '$fechaHoraInicio' OR fechaInicio = '$fechaHoraSalida' OR fechaInicio BETWEEN '$fechaHoraInicio' AND '$fechaHoraSalida');";
+$sqlBusqueda = "SELECT * FROM sala WHERE (sala.nombre LIKE '%$busqueda%' AND sala.capacidad BETWEEN '$capacidadMin' AND '$capacidadMax') AND sala.id NOT IN (SELECT sala FROM alquiler WHERE (fechaInicio >= '$fechaHoraInicio' AND fechaInicio < '$fechaHoraSalida') OR (fechaFin > '$fechaHoraInicio' AND fechaFin <= '$fechaHoraSalida'));";
 
 $resultado = mysqli_query($conn, $sqlBusqueda);
 
