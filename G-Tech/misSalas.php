@@ -48,8 +48,8 @@ while($misSalas = mysqli_fetch_assoc($resultado)){
   echo date('j F, Y H:i',strtotime($misSalas['fechaFin']));
   echo '</td>';
   echo '<td>';
-  echo '<a href="cancelarReserva?i=';
-  echo $salasDisponibles['id'];
+  echo '<a href="scripts/cancelarReserva?i=';
+  echo $misSalas['id'];
   echo '" class="btn btn-danger btnSalasCancelar">Cancelar reserva</a>';
   echo '</td>';
   echo '</tr>';
