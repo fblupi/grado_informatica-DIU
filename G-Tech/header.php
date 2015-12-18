@@ -3,7 +3,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>G-Tech</title>
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-	<?php if(!isset($_SESSION)){ session_start();} ?>
+<?php
+include 'libs/myLib.php';
+$conn = dbConnect();
+if(!isset($_SESSION)){
+	session_start();
+}
+if(isset($_SESSION['id'])){
+	$login = $_SESSION['login'];
+	$idUsuario = $_SESSION['id'];
+	$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+	$resultado3 = mysqli_query($conn, $sql3);
+	$permisosAdmin = 0;
+	$permisosUser = 0;
+	while($permisos = mysqli_fetch_assoc($resultado3)){
+		$id = $permisos['id'];
+		if($permisos['permiso']==1){
+			$permisosAdmin = 1;
+		}
+		if($permisos['permiso']==2){
+			$permisosUser = 1;
+		}
+	}
+}
+?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- css -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
@@ -46,13 +69,18 @@
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
 					<?php if(isset($_SESSION['login'])){
-						$login = $_SESSION['login'];
+
 						echo '<li class="dropdown">';
 	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$login.' <span class="caret"></span></a>';
 	          echo '<ul class="dropdown-menu animated fadeInDown">';
-	          echo '<li><a href="miCuenta.php"><i class="fa fa-user usuario"></i> Mi perfil</a></li>';
-	          echo '<li><a href="gestionarEventos.php"><i class="fa fa-calendar usuario"></i> Mis eventos</a></li>';
-						echo '<li><a href="gestionarEmpresas.php"><i class="fa fa-certificate usuario"></i> Mis empresas</a></li>';
+						echo '<li><a href="miCuenta.php"><i class="fa fa-user usuario"></i> Mi perfil</a></li>';
+						if($permisosAdmin==1){
+							echo '<li><a href="gestionUsuarios.php"><i class="fa fa-users usuario"></i> Gestionar usuarios</a></li>';
+						}
+						if($permisosUser==1){
+							echo '<li><a href="gestionarEventos.php"><i class="fa fa-calendar usuario"></i> Mis eventos</a></li>';
+							echo '<li><a href="gestionarEmpresas.php"><i class="fa fa-certificate usuario"></i> Mis empresas</a></li>';
+						}
 						echo '<li role="separator" class="divider"></li>';
 	          echo '<li><a href="scripts/cerrarSesion.php">Cerrar sesión</a></li>';
 	          echo '</ul>';
