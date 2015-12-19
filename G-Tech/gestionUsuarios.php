@@ -20,15 +20,15 @@ echo '<div class="table-responsive">';
 echo '<table class="table table-condensed salasEmpresa" id="tablaGestionUsuarios">';
 echo '<thead>';
 echo '<tr>';
-echo '<th>#</th>';
-echo '<th>Login</th>';
-echo '<th>Nombre</th>';
-echo '<th>Permisos Usuario</th>';
-echo '<th>Permisos Administrador</th>';
-echo '<th>Acciones</th>';
+echo '<th class="gestionUsuariosIdUsuario">#</th>';
+echo '<th class="gestionUsuariosLogin">Login</th>';
+echo '<th class="gestionUsuariosNombre">Nombre</th>';
+echo '<th class="gestionUsuariosPermisosUsuario">Permisos Usuario</th>';
+echo '<th class="gestionUsuariosPermisosAdmin">Permisos Administrador</th>';
+echo '<th class="gestionUsuariosBtnModificar">Acciones</th>';
 echo '</tr>';
 echo '</thead>';
-echo '<tbody>';
+echo '</table>';
 while($usuario = mysqli_fetch_assoc($resultado2)){
   $idUsuario = $usuario['id'];
   $sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
@@ -44,46 +44,44 @@ while($usuario = mysqli_fetch_assoc($resultado2)){
   		$permisosUser = 1;
   	}
   }
-  echo '<tr>';
   echo '<form action="scripts/gestionarPermisos.php?i='.$idUsuario.'" method="POST">';
+  echo '<table class="table table-condensed salasEmpresa" id="tablaGestionUsuarios">';
+  echo '<tr>';
   echo '<input type="hidden" name="idUsuario" value="'.$idUsuario.'">';
-  echo '<td>';
+  echo '<td class="gestionUsuariosIdUsuario">';
   echo $usuario['id'];
   echo '</td>';
-  echo '<td>';
+  echo '<td class="gestionUsuariosLogin">';
   echo $usuario['login'];
   echo '</td>';
-  echo '<td>';
+  echo '<td class="gestionUsuariosNombre">';
   echo $usuario['nombre'];
   echo '</td>';
   if($permisosUser==1){
-    echo '<td>';
+    echo '<td class="gestionUsuariosPermisosUsuario">';
     echo '<input type="checkbox" name="permisosUsuario'.$idUsuario.'" id="permisosUsuario'.$idUsuario.'" value="usuario" onClick="CambiarBoton('.$idUsuario.');" checked>';
     echo '</td>';
   }else{
-    echo '<td>';
+    echo '<td class="gestionUsuariosPermisosUsuario">';
     echo '<input type="checkbox" name="permisosUsuario'.$idUsuario.'" id="permisosUsuario'.$idUsuario.'" value="usuario" onClick="CambiarBoton('.$idUsuario.');">';
     echo '</td>';
   }
   if($permisosAdmin==1){
-    echo '<td>';
+    echo '<td class="gestionUsuariosPermisosAdmin">';
     echo '<input type="checkbox" name="permisosAdmin'.$idUsuario.'" id="permisosAdmin'.$idUsuario.'" value="admin" onClick="CambiarBoton('.$idUsuario.');" checked>';
     echo '</td>';
   }else{
-    echo '<td>';
+    echo '<td class="gestionUsuariosPermisosAdmin">';
     echo '<input type="checkbox" name="permisosAdmin'.$idUsuario.'" id="permisosAdmin'.$idUsuario.'" value="admin" onClick="CambiarBoton('.$idUsuario.');">';
     echo '</td>';
   }
-  echo '<td>';
+  echo '<td class="gestionUsuariosBtnModificar">';
   echo '<input type="submit" id="btnModificar'.$idUsuario.'" class="btn btn-default" value="Modificar">';
   echo '</td>';
-  echo '</form>';
   echo '</tr>';
+  echo '</table>';
+  echo '</form>';
 }
-
-echo '</tbody>';
-echo '</table>';
-
 ?>
 </article>
 </section>

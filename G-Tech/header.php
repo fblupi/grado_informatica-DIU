@@ -73,8 +73,7 @@ if(function_exists('dbConnect')){
 					<li role="presentation" id="salas"><a href="salas.php">Salas</a></li>
 			</ul>
 				<ul class="nav navbar-nav nav-tabs navbar-right">
-					<?php if(isset($_SESSION['login'])){
-
+					<?php if(!empty($_SESSION['login'])){
 						echo '<li class="dropdown">';
 	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$login.' <span class="caret"></span></a>';
 	          echo '<ul class="dropdown-menu animated fadeInDown">';

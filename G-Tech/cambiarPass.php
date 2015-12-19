@@ -10,17 +10,14 @@
 			<div class="form-group has-feedback">
 				<label>Contraseña antigua</label>
 					<input type="password" class="form-control" id="pass" name="pass" data-minlength="6" required>
-				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 			<div class="form-group has-feedback">
 				<label>Contraseña nueva</label>
 					<input type="password" class="form-control" id="newPass" name="newPass" data-minlength="6" required>
-				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		<div class="form-group has-feedback">
 				<label>Repetir contraseña nueva</label>
 					<input type="password" class="form-control" id="newPass2" data-minlength="6" name="newPass2" data-match="#newPass" required>
-				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">

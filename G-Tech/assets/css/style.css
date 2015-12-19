@@ -400,6 +400,40 @@ textarea{
   float:right;
 }
 
+.gestionUsuariosIdUsuario{
+  width: 3%;
+}
+
+.gestionUsuariosLogin{
+  width: 10%;
+}
+
+.gestionUsuariosNombre{
+  width: 35%;
+}
+
+.gestionUsuariosPermisosUsuario{
+  width: 20%;
+  text-align: center;
+}
+
+.gestionUsuariosPermisosAdmin{
+  width: 20%;
+  text-align: center;
+}
+
+.gestionUsuariosBtnModificar{
+  text-align: center;
+}
+
+.table > thead > tr > th{
+  border-bottom: 0;
+}
+
+#tablaGestionUsuarios{
+  margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
 
   .modalDialog > div {
