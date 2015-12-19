@@ -17,6 +17,7 @@ $idEvento = $_GET['i'];
           * Puede invitar a tantas personas como desee, escriba los emails separados por comas
         </span>
         </div>
+				<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
       <input type="submit" class="btn btn-default btnCrearSala" value="Invitar">
     </form>
 </article>

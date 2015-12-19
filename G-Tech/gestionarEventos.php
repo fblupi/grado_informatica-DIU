@@ -94,6 +94,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '</td>';
 						echo '</tr>';
 					}
+					echo '</table>';
 				}else if($permisosUser == 1){
 					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0;";
 					$resultado3 = mysqli_query($conn, $sql3);
@@ -177,6 +178,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 						echo '</td>';
 						echo '</tr>';
 					}
+					echo '</table>';
 			}else{
 				$sql = "SELECT * FROM Evento;";
 
@@ -223,6 +225,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 			}
 				?>
 </div>
+<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </article>
 </section>
 <script type="text/javascript">

@@ -59,6 +59,7 @@ $conn = dbConnect();
 <h2>Resultados</h2>
 <div id="resultadosSalas" class="row">
 </div>
+<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </article>
 </section>
 <script type="text/javascript">

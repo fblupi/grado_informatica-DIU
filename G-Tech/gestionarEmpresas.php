@@ -69,6 +69,7 @@ if(!isset($_SESSION['login'])){
 						echo '</td>';
 						echo '</tr>';
 					}
+					echo '</table>';
 				}else if($permisosUser == 1){
 					$sql3 = "SELECT * FROM Empresa WHERE representante = '$id';";
 					$resultado3 = mysqli_query($conn, $sql3);
@@ -122,8 +123,8 @@ if(!isset($_SESSION['login'])){
 						echo '<tr id="resultadoEscondido'.$idEmpresa.'" class="resultadoEscondido">';
 						echo '<td colspan="4" id="resultado'.$idEmpresa.'"></td>';
 						echo '</tr>';
-
 					}
+					echo '</table>';
 				}else{
 
 				$sql = "SELECT * FROM Empresa;";
@@ -147,6 +148,7 @@ if(!isset($_SESSION['login'])){
 				}
 				?>
 </div>
+<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </article>
 </section>
 <script type="text/javascript">

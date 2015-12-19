@@ -69,6 +69,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 }
 
 ?>
+<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </article>
 </section>
 <?php include 'footer.php'; ?>

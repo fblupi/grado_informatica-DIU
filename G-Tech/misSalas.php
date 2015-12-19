@@ -59,6 +59,7 @@ echo '</tbody>';
 echo '</table>';
 
 ?>
+<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </article>
 </section>
 <script type="text/javascript">

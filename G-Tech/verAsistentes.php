@@ -48,7 +48,10 @@ $resultado3 = mysqli_query($conn, $sql3);
   			echo '</td>';
   			echo '</tr>';
     }
+
 				?>
+			</table>
+				<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
 </div>
 </article>
 </section>

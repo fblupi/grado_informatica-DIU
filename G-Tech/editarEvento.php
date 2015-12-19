@@ -152,6 +152,7 @@ while($permisos = mysqli_fetch_assoc($resultado3)){
 		</div>
       </div>
       </div>
+			<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>
       <input type="submit" class="btn btn-default btnCrearSala" value="Editar">
     </form>
 </article>
