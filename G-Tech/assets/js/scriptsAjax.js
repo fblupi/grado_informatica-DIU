@@ -204,3 +204,14 @@ function DesapuntarEvento(idEvento){
           }
   });
 }
+
+function CambiarPermisos(idUsuario){
+  $.ajax({
+    data:  $("#formularioPermisos"+idUsuario).serialize(),
+    url:   'scripts/gestionarPermisos.php',
+    type:  'POST',
+    success:  function (response) {
+            $("#resultado").html(response);
+    }
+  });
+}

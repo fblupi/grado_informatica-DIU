@@ -44,7 +44,7 @@ while($usuario = mysqli_fetch_assoc($resultado2)){
   		$permisosUser = 1;
   	}
   }
-  echo '<form action="scripts/gestionarPermisos.php?i='.$idUsuario.'" method="POST">';
+  echo '<form id="formularioPermisos'.$idUsuario.'" action="scripts/gestionarPermisos.php" method="POST">';
   echo '<table class="table table-condensed salasEmpresa" id="tablaGestionUsuarios">';
   echo '<tr>';
   echo '<input type="hidden" name="idUsuario" value="'.$idUsuario.'">';
@@ -76,7 +76,7 @@ while($usuario = mysqli_fetch_assoc($resultado2)){
     echo '</td>';
   }
   echo '<td class="gestionUsuariosBtnModificar">';
-  echo '<input type="submit" id="btnModificar'.$idUsuario.'" class="btn btn-default" value="Modificar">';
+  echo '<button type="button" id="btnModificar'.$idUsuario.'" class="btn btn-default" onClick="CambiarPermisos('.$idUsuario.')">Modificar</button>';
   echo '</td>';
   echo '</tr>';
   echo '</table>';
