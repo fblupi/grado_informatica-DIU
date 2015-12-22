@@ -15,7 +15,7 @@
 				include_once 'libs/myLib.php';
 				$conn = dbConnect();
 
-				$sql = "SELECT * FROM Evento;";
+				$sql = "SELECT * FROM Evento ORDER BY promocion DESC, fechaInicio ASC;";
 
 				$resultado = mysqli_query($conn, $sql);
 
