@@ -21,7 +21,7 @@ if(isset($_SESSION['login'])){
     }
   }
   if($permisosAdmin==1 && $permisosUser==0){
-    echo '<a href="gestionSalasAdmin.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-lock"></i> Opciones del administrador</a>';
+    echo '<script>location.href="gestionSalasAdmin.php";</script>';
   } else if($permisosAdmin==1 && $permisosUser==1) {
     echo '<a href="buscarSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-search"></i> Buscar</a>';
     echo '<a href="misSalas.php" class="btn btn-default btnGestionarSala"><i class="fa fa-2x fa-cog"></i> Mis salas</a>';
