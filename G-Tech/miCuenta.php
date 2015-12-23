@@ -28,9 +28,11 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 
 while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<div class="miPerfil">';
-	echo '<img class="fotoPerfil" src="';
+	echo '<div class="fotoPerfil">';
+	echo '<img class="portrait" src="';
 	echo $usuario['imagen'];
 	echo '">';
+	echo '</div>';
 	echo '<h1 class="section-header">Mi perfil ';
 	echo '<small>';
 	echo $usuario['login'];

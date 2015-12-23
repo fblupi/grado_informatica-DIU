@@ -22,9 +22,11 @@
 				while ($empresa = mysqli_fetch_assoc($resultado)) {
 					echo '<div class="empresas row">';
 					echo '<div class="col-md-12 col-lg-12">';
-					echo '<img class="logoEmpresa" src="';
+					echo '<div class="logoEmpresa">';
+					echo '<img src="';
 					echo $empresa['imagen'];
 					echo '">';
+					echo '</div>';
 					echo '<h2 class="nombreEmpresa">';
 					echo $empresa['nombre'];
 					echo '</h2>';

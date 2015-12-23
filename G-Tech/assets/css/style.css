@@ -152,8 +152,46 @@ article{
 
 .logoEvento, .logoEmpresa{
 	width: 24%;
-	margin-top: 1%;
+	margin-top: 3%;
 	float: left;
+}
+
+.logoEvento{
+  float: left;
+  position: relative !important;
+  width: 200px !important;
+  height: 140px !important;
+  overflow: hidden !important;
+}
+
+.logoEvento img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: 100% !important;
+  width: auto !important;
+  -webkit-transform: translate(-50%,-50%) !important;
+      -ms-transform: translate(-50%,-50%) !important;
+          transform: translate(-50%,-50%) !important;
+}
+
+.logoEmpresa{
+  float: left;
+  position: relative !important;
+  width: 190px !important;
+  height: 140px !important;
+  overflow: hidden !important;
+}
+
+.logoEmpresa img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: 100% !important;
+  width: auto !important;
+  -webkit-transform: translate(-50%,-50%) !important;
+      -ms-transform: translate(-50%,-50%) !important;
+          transform: translate(-50%,-50%) !important;
 }
 
 .nombreEvento{
@@ -183,8 +221,51 @@ article{
 }
 
 .fotoPerfil{
-	width: 24%;
-	float:left;
+  float: left;
+  position: relative !important;
+  width: 200px !important;
+  height: 200px !important;
+  overflow: hidden !important;
+}
+
+.fotoPerfil img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: 100% !important;
+  width: auto !important;
+  -webkit-transform: translate(-50%,-50%) !important;
+      -ms-transform: translate(-50%,-50%) !important;
+          transform: translate(-50%,-50%) !important;
+}
+
+.fotoPerfil img.portrait{
+  width: 100% !important;
+  height: auto !important;
+}
+
+.fotoHeader{
+  float: left;
+  position: relative !important;
+  width: 20px !important;
+  height: 20px !important;
+  overflow: hidden !important;
+}
+
+.fotoHeader img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: 100% !important;
+  width: auto !important;
+  -webkit-transform: translate(-50%,-50%) !important;
+      -ms-transform: translate(-50%,-50%) !important;
+          transform: translate(-50%,-50%) !important;
+}
+
+.fotoHeader img.portrait{
+  width: 100% !important;
+  height: auto !important;
 }
 
 .nombreUsuario{
@@ -595,11 +676,11 @@ textarea{
 	}
 
 	.logoEvento, .logoEmpresa{
-		float:none;
-		display: block;
-		margin: 0 auto;
-		margin-top: 1%;
-		width: 80%;
+		float:none !important;
+		display: block !important;
+		margin: 0 auto !important;
+		margin-top: 1% !important;
+		width: 80% !important;
 	}
 
 	.nombreEvento{

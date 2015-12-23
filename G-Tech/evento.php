@@ -61,7 +61,6 @@
       $sql2 = "SELECT Empresa.nombre, Empresa.representante FROM Empresa WHERE Empresa.id = '$organiza';";
       $resultado2 = mysqli_query($conn, $sql2);
       $nombreEmpresa = mysqli_fetch_assoc($resultado2);
-      $representante = $nombreEmpresa['representante'];
       echo '<i class="fa fa-2x fa-university iconoEventoDetallado"></i>';
       echo ' '.$nombreEmpresa['nombre'];
     }else if($eventos['usuario']!=''){
@@ -76,7 +75,7 @@
     echo '</div>';
     echo '<div class="col-md-2 col-lg-2">';
     if($eventos['baja']==0){
-      if(isset($_SESSION['id']) && ($eventos['usuario']!=$_SESSION['id'] || $representante!=$_SESSION['id'])){
+      if(isset($_SESSION['id']) && ($organiza!=$_SESSION['id'])){
         $login = $_SESSION['id'];
         $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
         $resultado3 = mysqli_query($conn, $sql3);

@@ -22,9 +22,11 @@
 				while ($eventos = mysqli_fetch_assoc($resultado)) {
 					echo '<div class="eventos row">';
 					echo '<div class="col-md-12 col-lg-12">';
-					echo '<img class="logoEvento" src="';
+					echo '<div class="logoEvento">';
+					echo '<img src="';
 					echo $eventos['imagen'];
 					echo '">';
+					echo '</div>';
 					echo '<h2 class="nombreEvento">';
 					echo $eventos['nombre'];
 					echo '</h2>';
