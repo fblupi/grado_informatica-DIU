@@ -62,6 +62,7 @@
     echo '</div>';
     echo '</div>';
     echo '</div>';
+    echo '<button type="button" class="btn btn-primary btnVolver" onclick="window.history.back();return false;">Volver</button>';
     echo '<input type="submit" class="btn btn-default btnCrearSala" value="Editar">';
     echo '</form>';
   }
