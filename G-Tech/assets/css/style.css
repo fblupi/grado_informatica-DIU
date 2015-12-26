@@ -222,9 +222,10 @@ article{
 
 .fotoPerfil{
   float: left;
-  position: relative !important;
-  width: 200px !important;
-  height: 200px !important;
+  position: absolute !important;
+	margin-top: 5%;
+  min-width: 200px !important;
+  min-height: 200px !important;
   overflow: hidden !important;
 }
 
@@ -246,7 +247,8 @@ article{
 
 .fotoHeader{
   float: left;
-  position: relative !important;
+  position: absolute !important;
+	margin-left: -30%;
   width: 20px !important;
   height: 20px !important;
   overflow: hidden !important;
