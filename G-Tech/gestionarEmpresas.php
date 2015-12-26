@@ -27,7 +27,63 @@ if(!isset($_SESSION['login'])){
 					}
 				}
 
-				if($permisosAdmin == 1){
+				if($permisosAdmin==1 && $permisosUser==1){
+					$sql3 = "SELECT * FROM Empresa;";
+					$resultado3 = mysqli_query($conn, $sql3);
+					echo '<table class="table table-condensed">';
+					echo '<thead>';
+					echo '<tr>';
+					echo '<th>Nombre</th>';
+					echo '<th>CIF</th>';
+					echo '<th>Sala</th>';
+					echo '<th>Acciones</th>';
+					echo '</tr>';
+					while ($empresa = mysqli_fetch_assoc($resultado3)) {
+						$idEmpresa = $empresa['id'];
+						echo '<tr>';
+						echo '<td>';
+						echo $empresa['nombre'];
+						echo '</td>';
+						echo '<td>';
+						echo $empresa['CIF'];
+						echo '</td>';
+						echo '<td>';
+						if($empresa['sala']==''){
+							echo 'Sin asignar';
+						}else{
+							echo $empresa['sala'];
+						}
+						echo '</td>';
+						echo '<td>';
+						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
+						echo $empresa['id'];
+						echo '">Editar</a>';
+						if($empresa['baja']==0){
+							echo '<a type="button" class="btn btn-danger acciones" href="scripts/bajaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de baja</a>';
+						}else{
+							echo '<a type="button" class="btn btn-info acciones" href="scripts/altaEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Dar de alta</a>';
+						}
+						if($empresa['representante']==$_SESSION['id']){
+							echo '<a type="button" class="btn btn-success acciones" href="scripts/promocionarEmpresa.php?i=';
+							echo $empresa['id'];
+							echo '">Promocionar</a>';
+							if($empresa['sala']==''){
+								echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
+							}else{
+								echo '<a type="button" class="btn btn-danger acciones" href="scripts/desasignarSalaEmpresa.php?i=';
+								echo $empresa['id'];
+								echo '">Desasignar Sala</a>';
+							}
+						}
+						echo '</td>';
+						echo '</tr>';
+					}
+					echo '</table>';
+				}else if($permisosAdmin == 1){
 					$sql3 = "SELECT * FROM Empresa;";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed">';

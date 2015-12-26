@@ -29,7 +29,138 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 		<hr></hr></h1>
 		<article>
 			<?php
-				if($permisosAdmin == 1){
+				if($permisosAdmin==1 && $permisosUser==1){
+					$sql3 = "SELECT * FROM Evento;";
+					$resultado3 = mysqli_query($conn, $sql3);
+					echo '<div class="table-responsive">';
+					echo '<table class="table table-condensed">';
+					echo '<thead>';
+					echo '<tr>';
+					echo '<th>Nombre</th>';
+					echo '<th>Fecha Inicio</th>';
+          echo '<th>Fecha Fin</th>';
+					echo '<th>Precio (€)</th>';
+					echo '<th>Sala</th>';
+          echo '<th>Organizador</th>';
+          echo '<th>Acciones</th>';
+					echo '</tr>';
+					while ($empresa = mysqli_fetch_assoc($resultado3)) {
+						$idEmpresa = $empresa['id'];
+						echo '<tr>';
+						echo '<td>';
+						echo $empresa['nombre'];
+						echo '</td>';
+						echo '<td>';
+						echo $empresa['fechaInicio'];
+						echo '</td>';
+            echo '<td>';
+						echo $empresa['fechaFin'];
+						echo '</td>';
+            echo '<td>';
+						echo $empresa['precio'];
+						echo '</td>';
+						echo '<td>';
+						if($empresa['sala']==''){
+							echo 'Sin asignar';
+						}else{
+							echo $empresa['sala'];
+						}
+						echo '</td>';
+            echo '<td>';
+            if($empresa['empresa']!=''){
+							$idOrganizador = $empresa['empresa'];
+							$sql4 = "SELECT Empresa.nombre FROM Empresa WHERE Empresa.id = '$idOrganizador';";
+							$resultado4 = mysqli_query($conn, $sql4);
+							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
+							echo $nombreOrganizador['nombre'];
+            }else{
+							$idOrganizador = $empresa['usuario'];
+							$sql4 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idOrganizador';";
+							$resultado4 = mysqli_query($conn, $sql4);
+							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
+							echo $nombreOrganizador['nombre'];
+            }
+						echo '</td>';
+						echo '<td>';
+						if($empresa['baja']==0){
+							if($empresa['usuario']!='' && $empresa['usuario']==$_SESSION['id']){
+								if($empresa['sala']==''){
+									echo '<a type="button" class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</a>';
+								}else{
+									echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Desasignar Sala</a>';
+								}
+								echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+								echo $empresa['id'];
+								echo '">Editar</a>';
+								echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
+								echo $empresa['id'];
+								echo '">Asistentes</a>';
+								echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
+								echo $empresa['id'];
+								echo '">Promocionar</a>';
+
+		            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
+								echo $empresa['id'];
+								echo '">Invitar</a>';
+								echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
+								echo $empresa['id'];
+								echo '">Cancelar</a>';
+							}else if($empresa['empresa']!=''){
+								$idEvento = $empresa['id'];
+								$representante = $_SESSION['id'];
+								$sql5 = "SELECT * FROM Evento, Empresa WHERE Evento.id='$idEvento' AND Evento.empresa = Empresa.id AND Empresa.representante = '$representante';";
+								$resultado5 = mysqli_query($conn, $sql5);
+								$rows = mysqli_num_rows($resultado5);
+								if($rows>0){
+									if($empresa['sala']==''){
+										echo '<a type="button" class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</a>';
+									}else{
+										echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEvento.php?i=';
+										echo $empresa['id'];
+										echo '">Desasignar Sala</a>';
+									}
+									echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Editar</a>';
+									echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
+									echo $empresa['id'];
+									echo '">Asistentes</a>';
+									echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Promocionar</a>';
+
+			            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Invitar</a>';
+									echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Cancelar</a>';
+								}else{
+									echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Cancelar</a>';
+									echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+									echo $empresa['id'];
+									echo '">Editar</a>';
+								}
+							}else{
+							echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/cancelarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Cancelar</a>';
+							echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
+							echo $empresa['id'];
+							echo '">Editar</a>';
+							}
+						}else{
+							echo 'EVENTO CANCELADO';
+						}
+						echo '</td>';
+						echo '</tr>';
+					}
+					echo '</table>';
+				}else if($permisosAdmin == 1){
 					$sql3 = "SELECT * FROM Evento;";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
