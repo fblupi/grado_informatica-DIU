@@ -56,13 +56,16 @@
     }
     echo '</p>';
     echo '<p class="organizadorEventoDetallado">';
+    $empresa = 0;
     if($eventos['empresa']!=''){
+      $empresa = 1;
       $organiza = $eventos['empresa'];
       $sql2 = "SELECT Empresa.nombre, Empresa.representante FROM Empresa WHERE Empresa.id = '$organiza';";
       $resultado2 = mysqli_query($conn, $sql2);
       $nombreEmpresa = mysqli_fetch_assoc($resultado2);
       echo '<i class="fa fa-2x fa-university iconoEventoDetallado"></i>';
       echo ' '.$nombreEmpresa['nombre'];
+      $representante = $nombreEmpresa['representante'];
     }else if($eventos['usuario']!=''){
       $organiza = $eventos['usuario'];
       $sql2 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$organiza';";
@@ -75,20 +78,39 @@
     echo '</div>';
     echo '<div class="col-md-2 col-lg-2">';
     if($eventos['baja']==0){
-      if(isset($_SESSION['id']) && ($organiza!=$_SESSION['id'])){
-        $login = $_SESSION['id'];
-        $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
-        $resultado3 = mysqli_query($conn, $sql3);
-        $asiste = mysqli_num_rows($resultado3);
-        $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
-        $resultado4 = mysqli_query($conn, $sql4);
-        $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
-        if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
-          echo '<input type="button" id="apuntarEvento" class="btn btn-danger btnApuntarseEvento" value="No hay plazas" disabled>';
-        }else if($asiste>0){
+      if(isset($_SESSION['id'])) {
+        if($empresa==0 && $organiza!=$_SESSION['id']) {
+          $login = $_SESSION['id'];
+          $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
+          $resultado3 = mysqli_query($conn, $sql3);
+          $asiste = mysqli_num_rows($resultado3);
+          $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+          $resultado4 = mysqli_query($conn, $sql4);
+          $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
+          if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
+            echo '<input type="button" id="apuntarEvento" class="btn btn-danger btnApuntarseEvento" value="No hay plazas" disabled>';
+          }else if($asiste>0){
             echo '<input type="button" id="apuntarEvento" onClick="DesapuntarEvento('.$idEvento.')" class="btn btn-danger btnApuntarseEvento" value="Desapuntarse">';
           }else{
-          echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
+            echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
+          }
+        }else if($empresa==1){
+          if($representante!=$_SESSION['id']){
+            $login = $_SESSION['id'];
+            $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
+            $resultado3 = mysqli_query($conn, $sql3);
+            $asiste = mysqli_num_rows($resultado3);
+            $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+            $resultado4 = mysqli_query($conn, $sql4);
+            $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
+            if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
+              echo '<input type="button" id="apuntarEvento" class="btn btn-danger btnApuntarseEvento" value="No hay plazas" disabled>';
+            }else if($asiste>0){
+              echo '<input type="button" id="apuntarEvento" onClick="DesapuntarEvento('.$idEvento.')" class="btn btn-danger btnApuntarseEvento" value="Desapuntarse">';
+            }else{
+              echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
+            }
+          }
         }
       }
     }
