@@ -725,7 +725,8 @@ textarea{
 	}
 
 	.fotoPerfil{
-    margin: 0 auto;
+		position: relative !important;
+		margin: 0 auto;
     display: block;
     margin-bottom: 2%;
     min-width: 200px;
