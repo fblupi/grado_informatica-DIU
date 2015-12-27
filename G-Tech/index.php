@@ -41,9 +41,17 @@
 </div>
 
 <h2>Contacto</h2>
-<address>Dirección: C/ Nueva, 654</address>
-<small>Tfno.: 958664422</small><br>
-<small>Fax: 958664422</small>
+
+<div class="row">
+  <div class="col-md-6 col-lg-6">
+    <p class="elementoContacto"><i class="fa fa-1x fa-home etiquetasContacto"></i>C/ Periodista Daniel Saucedo Aranda, s/n, 18071 (Granada)</p>
+    <p class="elementoContacto"><i class="fa fa-1x fa-phone etiquetasContacto"></i>958664422</p>
+    <p class="elementoContacto"><i class="fa fa-1x fa-fax etiquetasContacto"></i>958664422</p>
+  </div>
+  <div class="col-md-6 col-lg-6">
+    <iframe class="mapaContacto" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3178.1369913180424!2d-3.624257999999999!3d37.19697549999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x4dbbca09efdcad08!2sE.T.S.+de+Ingenier%C3%ADas+Inform%C3%A1tica+y+de+Telecomunicaci%C3%B3n!5e0!3m2!1ses!2ses!4v1426164292339"></iframe>
+  </div>
+</div>
 
 </article>
 </section>
