@@ -7,33 +7,69 @@
 		<hr></hr></h1>
 <article>
 <?php
-	include_once 'libs/myLib.php';
-	$conn = dbConnect();
-	if(isset($_SESSION['login'])){
-		$login = $_SESSION['login'];
-		$sql = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
-		$resultado = mysqli_query($conn, $sql);
-		$permisosAdmin = 0;
-		$permisosUser = 0;
-		while($permisos = mysqli_fetch_assoc($resultado)){
-			if($permisos['permiso']==1){
-				$permisosAdmin = 1;
-			}
-			if($permisos['permiso']==2){
-				$permisosUser = 1;
-			}
-		}
+$sql2 = "SELECT * FROM Sala;";
+$resultado2 = mysqli_query($conn, $sql2);
+$auxEmpresas = Array();
+$auxEventos = Array();
 
-		if($permisosAdmin == 1){
-			include 'salasAdmin.php';
-		}else if($permisosUser == 1){
-			include 'salasUser.php';
-		}else{
-			include 'salasNoIdentificado.php';
-		}
-	}else{
-		include 'salasNoIdentificado.php';
+while($salas = mysqli_fetch_assoc($resultado2)){
+	if($salas['tipo'] == "empresa"){
+		array_push($auxEmpresas,$salas);
 	}
+	if($salas['tipo'] == "evento"){
+		array_push($auxEventos,$salas);
+	}
+}
+echo '<h2>Salas para eventos</h2>';
+
+foreach(array_chunk($auxEventos, 3, true) as $salasRow) {
+	echo '<div class="row">';
+		foreach ($salasRow as $sala) {
+			echo '<div class="col-md-4 col-lg-4 sala">';
+			echo '<img class="imagenSala" src="';
+			echo $sala['imagen'];
+			echo '">';
+			echo '<h3 class="nombreSala">';
+			echo $sala['nombre'];
+			echo '</h3>';
+			echo '<p>Capacidad: ';
+			echo $sala['capacidad'];
+			echo ' personas</p>';
+			echo '<p>Localización: ';
+			echo $sala['planta'];
+			echo '.';
+			echo $sala['numero'];
+			echo '</p>';
+			echo '</div>';
+		}
+	echo '</div>';
+}
+
+
+echo '<h2>Salas para empresas</h2>';
+
+foreach(array_chunk($auxEmpresas, 3, true) as $salasRow) {
+	echo '<div class="row">';
+		foreach ($salasRow as $sala) {
+			echo '<div class="col-md-4 col-lg-4 sala">';
+			echo '<img class="imagenSala" src="';
+			echo $sala['imagen'];
+			echo '">';
+			echo '<h3 class="nombreSala">';
+			echo $sala['nombre'];
+			echo '</h3>';
+			echo '<p>Capacidad: ';
+			echo $sala['capacidad'];
+			echo ' personas</p>';
+			echo '<p>Localización: ';
+			echo $sala['planta'];
+			echo '.';
+			echo $sala['numero'];
+			echo '</p>';
+			echo '</div>';
+		}
+	echo '</div>';
+}
 ?>
 </article>
 </section>
