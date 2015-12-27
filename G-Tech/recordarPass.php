@@ -4,6 +4,7 @@
 }
 ?>
 <section class="divInicioSesion">
+<h1>Recordar contraseña<hr></h1>
 <article>
 	<form class="form-horizontal" method="POST" action="scripts/recordarPass.php" data-toggle="validator" role="form">
 			<div class="form-group has-feedback">
