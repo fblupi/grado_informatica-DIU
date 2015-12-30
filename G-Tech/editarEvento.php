@@ -15,6 +15,16 @@ $fechaInicio = date('d-m-Y', strtotime($evento['fechaInicio']));
 $horaInicio = date('H:i:s', strtotime($evento['fechaInicio']));
 $fechaFin = date('d-m-Y', strtotime($evento['fechaFin']));
 $horaFin = date('H:i:s', strtotime($evento['fechaFin']));
+if($evento['usuario']!=''){
+	$organizadorUsuario = $evento['usuario'];
+}
+if($evento['empresa']!=''){
+	$organizadorEmpresa = $evento['empresa'];
+	$sql4 = "SELECT Usuario.id FROM Usuario, Empresa WHERE Usuario.id = Empresa.representante AND Empresa.id = '$organizadorEmpresa';";
+	$resultado4 = mysqli_query($conn, $sql4);
+	$idRepresentante = mysqli_fetch_assoc($resultado4);
+	$idRepresentanteEmpresa = $idRepresentante['id'];
+}
 
 $sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
 $resultado3 = mysqli_query($conn, $sql3);
@@ -82,16 +92,65 @@ while($permisos = mysqli_fetch_assoc($resultado3)){
 				<div class="form-group">
         <label>Organizador (Usuario)</label>
 				<?php if($permisosAdmin==1){
-					echo '<select class="form-control" name="usuario" id="usuario" disabled="true">';
-				}else{ ?>
+					if($evento['usuario']!=''){
+						if($evento['usuario']!= $_SESSION['id']){
+							//EL EVENTO NO ES MIO
+							echo '<select class="form-control" name="usuario" id="usuario" disabled="true">';
+							echo '<option value="">No</option>';
+							$idUsuario = $organizadorUsuario;
+							$sql5 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+							$resultado5 = mysqli_query($conn, $sql5);
+							while($usuario = mysqli_fetch_assoc($resultado5)){
+								echo '<option value="';
+								echo $idUsuario;
+								echo '" selected>';
+								echo $usuario['nombre'];
+								echo '</option>';
+							}
+						}else{
+							//EL EVENTO ES MIO
+							echo '<select class="form-control" name="usuario" id="usuario">';
+							echo '<option value="">No</option>';
+							$idUsuario = $organizadorUsuario;
+							$sql5 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+							$resultado5 = mysqli_query($conn, $sql5);
+							while($usuario = mysqli_fetch_assoc($resultado5)){
+								echo '<option value="';
+								echo $idUsuario;
+								echo '" selected>';
+								echo $usuario['nombre'];
+								echo '</option>';
+							}
+						}
+					}else if($idRepresentanteEmpresa==$_SESSION['id']){
+						echo '<select class="form-control" name="usuario" id="usuario">';
+						echo '<option value="">No</option>';
+						$idUsuario = $_SESSION['id'];
+						$sql5 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+						$resultado5 = mysqli_query($conn, $sql5);
+						while($usuario = mysqli_fetch_assoc($resultado5)){
+							echo '<option value="';
+							echo $idUsuario;
+							echo '">';
+							echo $usuario['nombre'];
+							echo '</option>';
+						}
+					}else{
+						echo '<select class="form-control" name="usuario" id="usuario" disabled="true">';
+						echo '<option value="">No</option>';
+						echo '</select>';
+					}
+
+          ?>
+        </select>
+			<?php }else{ ?>
         <select class="form-control" name="usuario" id="usuario">
-				<?php } ?>
 					<option value="">No</option>
           <?php
           $idUsuario = $_SESSION['id'];
-          $sql3 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
-          $resultado3 = mysqli_query($conn, $sql3);
-          while($usuario = mysqli_fetch_assoc($resultado3)){
+          $sql6 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+          $resultado6 = mysqli_query($conn, $sql6);
+          while($usuario = mysqli_fetch_assoc($resultado6)){
             echo '<option value="';
             echo $usuario['id'];
             echo '"';
@@ -107,21 +166,69 @@ while($permisos = mysqli_fetch_assoc($resultado3)){
         <span id="helpBlock" class="help-block">
           * Cambiar en caso de que el evento esté organizado por usted
         </span>
+				<?php } ?>
         </div>
       </div>
       <div class="col-md-6 col-lg-6">
         <div class="form-group">
         <label>Organizador (Empresa)</label>
 				<?php if($permisosAdmin==1){
-					echo '<select class="form-control" name="empresa" id="empresa" disabled="true">';
-				}else{ ?>
+					if($evento['empresa']!=''){
+							if($idRepresentanteEmpresa!=$_SESSION['id']){
+								//SI EL REPRESENTANTE DE LA EMPRESA NO SOY YO
+								echo '<select class="form-control" name="usuario" id="usuario" disabled="true">';
+								echo '<option value="">No</option>';
+								$idUsuario = $organizadorEmpresa;
+								$sql7 = "SELECT Empresa.nombre FROM Empresa WHERE id='$organizadorEmpresa' AND representante = '$idRepresentanteEmpresa';";
+								$resultado7 = mysqli_query($conn, $sql7);
+								while($empresasUsuario = mysqli_fetch_assoc($resultado7)){
+									echo '<option value="';
+									echo $organizadorEmpresa;
+									echo '" selected>';
+									echo $empresasUsuario['nombre'];
+			            echo '</option>';
+								}
+							}else{ //SI EL REPRESENTANTE DE LA EMPRESA SOY YO
+								echo '<select class="form-control" name="usuario" id="usuario">';
+								echo '<option value="">No</option>';
+								$idUsuario = $organizadorEmpresa;
+								$sql7 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idRepresentanteEmpresa';";
+								$resultado7 = mysqli_query($conn, $sql7);
+								while($empresasUsuario = mysqli_fetch_assoc($resultado7)){
+									echo '<option value="';
+									echo $organizadorEmpresa;
+									echo '" selected>';
+									echo $empresasUsuario['nombre'];
+			            echo '</option>';
+								}
+							}
+						}else if($organizadorUsuario==$_SESSION['id']){
+							echo '<select class="form-control" name="usuario" id="usuario">';
+							echo '<option value="">No</option>';
+							$idUsuario = $_SESSION['id'];
+							$sql7 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
+							$resultado7 = mysqli_query($conn, $sql7);
+							while($empresasUsuario = mysqli_fetch_assoc($resultado7)){
+								echo '<option value="';
+								echo $idUsuario;
+								echo '" selected>';
+								echo $empresasUsuario['nombre'];
+								echo '</option>';
+							}
+						}else{
+							echo '<select class="form-control" name="empresa" id="empresa" disabled="true">';
+							echo '<option value="">No</option>';
+							echo '</select>';
+						}
+					?>
+				</select>
+				<?php } else{ ?>
         <select class="form-control" name="empresa" id="empresa" >
-					<?php } ?>
 					<option value="">No</option>
           <?php
-          $sql2 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
-          $resultado2 = mysqli_query($conn, $sql2);
-          while($empresasUsuario = mysqli_fetch_assoc($resultado2)){
+          $sql8 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
+          $resultado8 = mysqli_query($conn, $sql8);
+          while($empresasUsuario = mysqli_fetch_assoc($resultado8)){
             echo '<option value="';
             echo $empresasUsuario['id'];
 						echo '"';
@@ -137,6 +244,7 @@ while($permisos = mysqli_fetch_assoc($resultado3)){
           <span id="helpBlock" class="help-block">
             * Cambiar en caso de que el evento esté organizado por una de sus empresas
           </span>
+				<?php } ?>
         </div>
         <div class="form-group">
         <label>Imagen</label>
