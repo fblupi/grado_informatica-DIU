@@ -2,7 +2,9 @@
 <section>
 		<h1 class="section-header">Nuestras instalaciones
 		<?php if(isset($_SESSION['login'])){
-		echo '<a href="gestionarSalas.php" type="button" class="btn btn-default gestionar"><i class="fa fa-cogs"></i>  Gestionar </a>';
+			if($permisosUser==1 || $permisosAdmin==1){
+				echo '<a href="gestionarSalas.php" type="button" class="btn btn-default gestionar"><i class="fa fa-cogs"></i>  Gestionar </a>';
+			}
 		}?>
 		<hr></hr></h1>
 <article>
