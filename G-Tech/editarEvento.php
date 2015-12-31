@@ -69,7 +69,7 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
-								<label>Fecha de inicio</label>
+								<label>Fecha</label>
 								<input type="text" id="fechaInicio" name="fechaInicio" class="form-control" value="<?php echo $fechaInicio;?>" placeholder="20-08-2016" required>
 							</div>
 						</div>
@@ -82,10 +82,6 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-lg-6">
-							<div class="form-group">
-								<label>Fecha de fin</label>
-								<input type="text" id="fechaFin" name="fechaFin" class="form-control" value="<?php echo $fechaFin;?>" placeholder="28-08-2016" required>
-							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
@@ -140,7 +136,7 @@
 						?>
 						</select>
 						<span id="helpBlock" class="help-block">
-							* Cambiar en caso de que sea usted mismo el organizador del evento
+							* Cambiar en caso de que el evento esté organizado por usted
 						</span>
 					</div>
 				</div>

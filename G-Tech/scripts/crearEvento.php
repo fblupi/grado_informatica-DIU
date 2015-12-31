@@ -9,7 +9,7 @@ if (!isset($_SESSION['login'])) {
 $nombre = $_POST['nombre'];
 $fechaInicio= $_POST['fechaInicio'];
 $horaInicio = $_POST['horaInicio'];
-$fechaFin = $_POST['fechaFin'];
+$fechaFin = $_POST['fechaInicio'];
 $horaFin = $_POST['horaFin'];
 $precio = $_POST['precio'];
 $plazas = $_POST['plazas'];
