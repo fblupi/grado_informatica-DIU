@@ -23,7 +23,7 @@ if (!empty($_POST['fax'])) {
 }
 
 $conexion = dbConnect();
-$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante)";
+$sql = "INSERT INTO empresa (CIF,nombre,direccion,telefono,fax,descripcion,representante,imagen) VALUES ('$CIF','$nombre','$direccion','$telefono','$fax','$descripcion',$representante,'$imagen')";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {

@@ -26,12 +26,12 @@ $todoFin = date('Y-m-d H:i:s', strtotime($fechaF));
 $salir = false;
 if ($_POST['empresa'] != "" && $_POST['usuario'] == ""){
   $empresa = $_POST['empresa'];
-  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,empresa)
-          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$empresa')";
+  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,empresa,imagen)
+          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$empresa','$imagen')";
 } else if ($_POST['empresa'] == "" && $_POST['usuario'] != ""){
   $usuario = $_POST['usuario'];
-  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,usuario)
-          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$usuario')";
+  $sql = "INSERT INTO evento (nombre,fechaInicio,fechaFin,precio,plazas,descripcion,requisitos,usuario,imagen)
+          VALUES ('$nombre','$todoInicio','$todoFin','$precio','$plazas','$descripcion','$requisitos','$usuario','$imagen')";
 } else {
   $salir = true;
 }
