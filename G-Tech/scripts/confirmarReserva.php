@@ -8,10 +8,10 @@ if (!isset($_SESSION['login'])) {
 
 $conexion = dbConnect();
 $usuario = $_SESSION['id'];
-$sala = $_GET['idSala'];
-$diaEntrada = $_GET['fechaEntrada'];
-$horaEntrada = $_GET['horaEntrada'];
-$horaSalida = $_GET['horaSalida'];
+$sala = $_POST['idSala'];
+$diaEntrada = $_POST['fechaEntrada'];
+$horaEntrada = $_POST['horaEntrada'];
+$horaSalida = $_POST['horaSalida'];
 $fechaEntrada = date('Y-m-d H:i:s', strtotime($diaEntrada.' '.$horaEntrada));
 $fechaSalida = date('Y-m-d H:i:s', strtotime($diaEntrada.' '.$horaSalida));
 
@@ -27,13 +27,13 @@ if ($resultado) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Sala reservada correctamente", 0);
+    salir2("Sala reservada correctamente", 0, "misSalas.php");
   } else {
-    salir("Ha habido un error realizando el reserva", -1);
+    salir2("Ha habido un error realizando el reserva", -1, "buscarSalas.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("Ha habido un error buscando el tipo de sala", -1);
+  salir2("Ha habido un error buscando el tipo de sala", -1, "buscarSalas.php");
 }
 
 ?>

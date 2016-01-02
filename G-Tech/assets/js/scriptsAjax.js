@@ -143,6 +143,17 @@ function ConfirmarReservar(idSala){
   });
 }
 
+function ConfirmarReserva(){
+  $.ajax({
+          data:  $("#formularioConfirmarReserva").serialize(),
+          url:   'scripts/confirmarReserva.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function ConfirmarAlquilar(idSala){
   var fechaEntrada = $('#fechaEntrada').val();
   var horaEntrada = $('#horaEntrada').val();
