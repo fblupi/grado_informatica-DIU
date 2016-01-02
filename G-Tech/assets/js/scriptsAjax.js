@@ -446,3 +446,7 @@ $('#formularioEditarSala').ajaxForm(function (response) {
 $('#formularioCrearEvento').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioEditarEvento').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});

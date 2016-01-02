@@ -48,7 +48,7 @@
 	<h1 class="section-header">Editar evento
 	<hr></hr></h1>
 	<article>
-		<form method="POST" action="scripts/editarEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+		<form id="formularioEditarEvento" method="POST" action="scripts/editarEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
 					<input type="hidden" name="id" id="id" value="<?php echo $evento['id']; ?>">
