@@ -49,7 +49,7 @@ if (!empty($_POST['codigoPostal'])) {
 $subidaCorrecta = false;
 if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
   if ($_FILES['imagen']['error'] > 0) {
-    salir("Ha ocurrido un error en la carga de la imagen", -2);
+    salir2("Ha ocurrido un error en la carga de la imagen", -1, "registro.php");
   } else {
     $extensiones = array("image/jpg", "image/jpeg", "image/png");
     $limite = 4096;
@@ -85,11 +85,11 @@ mysqli_close($conexion);
 
 if (!$resultado && $subidaCorrecta) {
   unlink($ruta);
-  salir("El usuario ya existe", -1);
+  salir2("El usuario ya existe", -1, "registro.php");
 } else {
   $_SESSION['login'] = $login;
   $_SESSION['id'] = $row['id'];
-  salir("Se ha registrado correctamente", 0);
+  salir2("Se ha registrado correctamente", 0, "index.php");
 }
 
 ?>
