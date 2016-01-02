@@ -49,7 +49,7 @@ if (!$salir) {
       $row = mysqli_fetch_array($resultado);
       $id = $row['id'];
       if ($_FILES['imagen']['error'] > 0) {
-        salir("Ha ocurrido un error en la carga de la imagen", -1);
+        salir2("Ha ocurrido un error en la carga de la imagen", -1, "gestionarEventos.php");
       } else {
         $extensiones = array("image/jpg", "image/jpeg", "image/png");
         $limite = 4096;
@@ -73,26 +73,26 @@ if (!$salir) {
           $resultado = mysqli_query($conexion, $sql);
           mysqli_close($conexion);
           if ($resultado) {
-            salir("Evento añadido correctamente", 0);
+            salir2("Evento añadido correctamente", 0, "gestionarEventos.php");
           } else {
-            salir("Ha ocurrido un error con la imagen", -1);
+            salir2("Ha ocurrido un error con la imagen", -1, "gestionarEventos.php");
           }
         } else { // No se ha subido la imagen
           mysqli_close($conexion);
-          salir("Ha ocurrido un error subiendo la imagen", -1);
+          salir2("Ha ocurrido un error subiendo la imagen", -1, "gestionarEventos.php");
         }
 
       }
     } else { // No hay imagen
       mysqli_close($conexion);
-      salir("Evento añadido correctamente", 0);
+      salir2("Evento añadido correctamente", 0, "gestionarEventos.php");
     }
   } else { // Fallo en INSERT
     mysqli_close($conexion);
-    salir("Error añadiendo el evento", -1);
+    salir2("Error añadiendo el evento", -1, "gestionarEventos.php");
   }
 } else {
-  salir("No se ha introducido correctamente el organizador", -1);
+  salir2("No se ha introducido correctamente el organizador", -1, "gestionarEventos.php");
 }
 
 ?>

@@ -7,7 +7,7 @@
 	<h1 class="section-header">Crear evento
 	<hr></hr></h1>
 	<article>
-		<form method="POST" action="scripts/crearEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+		<form id="formularioCrearEvento" method="POST" action="scripts/crearEvento.php" data-toggle="validator" role="form" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
 					<div class="form-group">
