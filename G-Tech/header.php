@@ -86,6 +86,7 @@ if(isset($_SESSION['id'])){
 						if($permisosUser==1){
 							echo '<li><a href="gestionarEventos.php"><i class="fa fa-calendar usuario"></i> Mis eventos</a></li>';
 							echo '<li><a href="gestionarEmpresas.php"><i class="fa fa-certificate usuario"></i> Mis empresas</a></li>';
+							echo '<li><a href="misSalas.php"><i class="fa fa-home usuario"></i> Mis salas</a></li>';
 						}
 						echo '<li role="separator" class="divider"></li>';
 	          echo '<li><a href="scripts/cerrarSesion.php">Cerrar sesión</a></li>';
