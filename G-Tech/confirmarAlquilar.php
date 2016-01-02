@@ -11,7 +11,7 @@ $fechaSalida = $_GET['fechaSalida'];
 $horaSalida = $_GET['horaSalida'];
 ?>
 <h2>Confirmar alquiler</h2>
-<form role="search" class="buscarSalas" action="scripts/confirmarAlquiler.php" data-toggle="validator" role="form">
+<form id="formularioConfirmarAlquiler" method="POST" role="search" class="buscarSalas" action="javascript:ConfirmarAlquiler()" data-toggle="validator" role="form">
   <input type="hidden" name="idSala" value="<?php echo $idSala; ?>">
   <div class="row">
     <div class="col-md-6 col-lg-6">

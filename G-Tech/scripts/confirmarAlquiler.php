@@ -8,11 +8,11 @@ if (!isset($_SESSION['login'])) {
 
 $conexion = dbConnect();
 $usuario = $_SESSION['id'];
-$sala = $_GET['idSala'];
-$diaEntrada = $_GET['fechaEntrada'];
-$horaEntrada = $_GET['horaEntrada'];
-$diaSalida = $_GET['fechaSalida'];
-$horaSalida = $_GET['horaSalida'];
+$sala = $_POST['idSala'];
+$diaEntrada = $_POST['fechaEntrada'];
+$horaEntrada = $_POST['horaEntrada'];
+$diaSalida = $_POST['fechaSalida'];
+$horaSalida = $_POST['horaSalida'];
 $fechaEntrada = date('Y-m-d H:i:s', strtotime($diaEntrada.' '.$horaEntrada));
 $fechaSalida = date('Y-m-d H:i:s', strtotime($diaSalida.' '.$horaSalida));
 
@@ -28,13 +28,13 @@ if ($resultado) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Sala alquilada correctamente", 0);
+    salir2("Sala alquilada correctamente", 0, "misSalas.php");
   } else {
-    salir("Ha habido un error realizando el alquiler", -1);
+    salir2("Ha habido un error realizando el alquiler", -1, "buscarSalas.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("Ha habido un error buscando el tipo de sala", -1);
+  salir2("Ha habido un error buscando el tipo de sala", -1, "buscarSalas.php");
 }
 
 ?>

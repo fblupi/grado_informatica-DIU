@@ -177,6 +177,18 @@ function ConfirmarAlquilar(idSala){
   });
 }
 
+function ConfirmarAlquiler(){
+  $.ajax({
+          data:  $("#formularioConfirmarAlquiler").serialize(),
+          url:   'scripts/confirmarAlquiler.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
+
 function CambiarBoton(idUsuario){
   var permisosUsuario = document.getElementById("permisosUsuario"+idUsuario);
   var permisosAdmin = document.getElementById("permisosAdmin"+idUsuario);
