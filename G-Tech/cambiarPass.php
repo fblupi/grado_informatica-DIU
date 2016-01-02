@@ -6,7 +6,7 @@
 <section class="divInicioSesion">
 	<h1 class="section-header">Cambiar contraseña<hr></hr></h1>
 <article>
-	<form class="form-horizontal" method="POST" action="scripts/cambiarPass.php" data-toggle="validator" role="form">
+	<form id="formularioCambiarPass" class="form-horizontal" action="javascript:CambiarPass()" method="POST" data-toggle="validator" role="form">
 			<div class="form-group has-feedback">
 				<label>Contraseña antigua</label>
 					<input type="password" class="form-control" id="pass" name="pass" data-minlength="6" required>

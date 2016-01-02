@@ -285,3 +285,14 @@ function BajaSala(idSala){
           }
   });
 }
+
+function CambiarPass(){
+  $.ajax({
+          data:  $("#formularioCambiarPass").serialize(),
+          url:   'scripts/cambiarPass.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
