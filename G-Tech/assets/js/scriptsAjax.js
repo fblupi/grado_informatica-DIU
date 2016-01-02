@@ -434,3 +434,7 @@ $('#formularioRegistrarUsuario').ajaxForm(function (response) {
 $('#formularioEditarPerfil').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioCrearSala').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});

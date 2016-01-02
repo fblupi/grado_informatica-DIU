@@ -26,7 +26,7 @@ if ($resultado) {
     $row = mysqli_fetch_array($resultado);
     $id = $row['id'];
     if ($_FILES['imagen']['error'] > 0) {
-      salir("Ha ocurrido un error en la carga de la imagen", -1);
+      salir2("Ha ocurrido un error en la carga de la imagen", -1, "gestionSalasAdmin.php");
     } else {
       $extensiones = array("image/jpg", "image/jpeg", "image/png");
       $limite = 4096;
@@ -50,22 +50,22 @@ if ($resultado) {
         $resultado = mysqli_query($conexion, $sql);
         mysqli_close($conexion);
         if ($resultado) {
-          salir("Sala añadida correctamente", 0);
+          salir2("Sala añadida correctamente", 0, "gestionSalasAdmin.php");
         } else {
-          salir("Ha ocurrido un error con la imagen", -1);
+          salir2("Ha ocurrido un error con la imagen", -1, "gestionSalasAdmin.php");
         }
       } else { // No se ha subido la imagen
         mysqli_close($conexion);
-        salir("Ha ocurrido un error subiendo la imagen", -1);
+        salir2("Ha ocurrido un error subiendo la imagen", -1, "gestionSalasAdmin.php");
       }
     }
   } else { // No hay imagen
     mysqli_close($conexion);
-    salir("Sala añadida correctamente", 0);
+    salir2("Sala añadida correctamente", 0, "gestionSalasAdmin.php");
   }
 } else { // Fallo en INSERT
   mysqli_close($conexion);
-  salir("Error añadiendo la sala", -1);
+  salir2("Error añadiendo la sala", -1, "gestionSalasAdmin.php");
 }
 
 ?>

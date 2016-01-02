@@ -3,7 +3,7 @@
 <h1>Añadir sala<hr></h1>
 <article>
 
-  <form method="POST" action="scripts/crearSala.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+  <form method="POST" id="formularioCrearSala" action="scripts/crearSala.php" data-toggle="validator" role="form" enctype="multipart/form-data">
   <div class="row">
   <div class="col-md-6 col-lg-6">
     <div class="form-group">
