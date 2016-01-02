@@ -84,6 +84,7 @@ function AsignarSalaEm(idSala, idEmpresa) {
           url:   'scripts/asignarSalaEm.php',
           type:  'GET',
           success:  function (response) {
+              window.location.href = "#close";
               $("#resultado").html(response);
           }
   });
@@ -115,6 +116,7 @@ function AsignarSalaEv(idSala, idEvento) {
           url:   'scripts/asignarSalaEv.php',
           type:  'GET',
           success:  function (response) {
+              window.location.href = "#close";
               $("#resultado").html(response);
           }
   });
@@ -149,6 +151,7 @@ function ConfirmarReserva(){
           url:   'scripts/confirmarReserva.php',
           type:  'POST',
           success:  function (response) {
+            window.location.href = "#close";
             $("#resultado").html(response);
           }
   });
@@ -183,6 +186,7 @@ function ConfirmarAlquiler(){
           url:   'scripts/confirmarAlquiler.php',
           type:  'POST',
           success:  function (response) {
+            window.location.href = "#close";
             $("#resultado").html(response);
           }
   });
