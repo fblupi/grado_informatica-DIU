@@ -450,3 +450,7 @@ $('#formularioCrearEvento').ajaxForm(function (response) {
 $('#formularioEditarEvento').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioCrearEmpresa').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});

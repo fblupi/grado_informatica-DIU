@@ -7,7 +7,7 @@ if(!isset($_SESSION['login'])){
 		<h1 class="section-header">Crear empresa
 		<hr></hr></h1>
 		<article>
-      <form method="POST" action="scripts/crearEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+      <form method="POST" id="formularioCrearEmpresa" action="scripts/crearEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
       <div class="row">
       <div class="col-md-6 col-lg-6">
         <div class="form-group">
