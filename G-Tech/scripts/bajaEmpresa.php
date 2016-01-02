@@ -21,13 +21,13 @@ if ($representante == $usuario) {
   mysqli_close($conexion);
 
   if (!$resultado) {
-    salir("Error al dar de baja", -1);
+    salir2("Error al dar de baja", -1, "gestionarEmpresas.php");
   } else {
-    salir("Se ha dado de baja correctamente", 0);
+    salir2("Se ha dado de baja correctamente", 0, "gestionarEmpresas.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("El usuario no tiene permisos", -1);
+  salir2("El usuario no tiene permisos", -1, "gestionarEmpresas.php");
 }
 
 ?>

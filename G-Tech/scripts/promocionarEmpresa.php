@@ -25,13 +25,13 @@ if ($representante == $usuario) {
   $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
   mysqli_close($conexion);
   if ($resultadoActualizar) {
-    salir("Empresa promocionada correctamente", 0);
+    salir2("Empresa promocionada correctamente", 0, "gestionarEmpresas.php");
   } else {
-    salir("Error al promocionar empresa", -1);
+    salir2("Error al promocionar empresa", -1, "gestionarEmpresas.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("El usuario no tiene permisos", -1);
+  salir2("El usuario no tiene permisos", -1, "gestionarEmpresas.php");
 }
 
 ?>

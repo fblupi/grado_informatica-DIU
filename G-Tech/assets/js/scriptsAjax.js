@@ -215,3 +215,73 @@ function CambiarPermisos(idUsuario){
     }
   });
 }
+
+function AltaEmpresa(idEmpresa){
+  var parametros = {
+      i : idEmpresa
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/altaEmpresa.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
+function BajaEmpresa(idEmpresa){
+  var parametros = {
+      i : idEmpresa
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/bajaEmpresa.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
+function PromocionarEmpresa(idEmpresa){
+  var parametros = {
+      i : idEmpresa
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/promocionarEmpresa.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
+function AltaSala(idSala){
+  var parametros = {
+      i : idSala
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/altaSala.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
+function BajaSala(idSala){
+  var parametros = {
+      i : idSala
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/bajaSala.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}

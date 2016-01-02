@@ -20,13 +20,13 @@ if ($permiso == 1) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if (!$resultado) {
-    salir("Error al dar de alta", -1);
+    salir2("Error al dar de alta", -1, "gestionSalasAdmin.php");
   } else {
-    salir("Se ha dado de alta correctamente", 0);
+    salir2("Se ha dado de alta correctamente", 0, "gestionSalasAdmin.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("El usuario no tiene permisos", -1);
+  salir2("El usuario no tiene permisos", -1, "gestionSalasAdmin.php");
 }
 
 ?>

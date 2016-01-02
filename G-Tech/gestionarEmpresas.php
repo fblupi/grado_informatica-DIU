@@ -59,18 +59,12 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['id'];
 						echo '">Editar</a>';
 						if($empresa['baja']==0){
-							echo '<a type="button" class="btn btn-danger acciones" href="scripts/bajaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de baja</a>';
+							echo '<input type="button" onClick="BajaEmpresa('.$empresa['id'].')" class="btn btn-danger acciones" value="Dar de baja">';
 						}else{
-							echo '<a type="button" class="btn btn-info acciones" href="scripts/altaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de alta</a>';
+							echo '<input type="button" onClick="AltaEmpresa('.$empresa['id'].')" class="btn btn-info acciones" value="Dar de alta">';
 						}
 						if($empresa['representante']==$_SESSION['id']){
-							echo '<a type="button" class="btn btn-success acciones" href="scripts/promocionarEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Promocionar</a>';
+							echo '<input type="button" onClick="PromocionarEmpresa('.$empresa['id'].')" class="btn btn-success acciones" value="Promocionar">';
 							if($empresa['sala']==''){
 								echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
 							}else{
@@ -114,13 +108,9 @@ if(!isset($_SESSION['login'])){
 						echo $empresa['id'];
 						echo '">Editar</a>';
 						if($empresa['baja']==0){
-							echo '<a type="button" class="btn btn-danger acciones" href="scripts/bajaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de baja</a>';
-						}else{
-							echo '<a type="button" class="btn btn-info acciones" href="scripts/altaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de alta</a>';
+							echo '<input type="button" onClick="BajaEmpresa('.$empresa['id'].')" class="btn btn-danger acciones" value="Dar de baja">';
+						}else{	
+							echo '<input type="button" onClick="AltaEmpresa('.$empresa['id'].')" class="btn btn-info acciones" value="Dar de alta">';
 						}
 						echo '</td>';
 						echo '</tr>';
@@ -153,20 +143,14 @@ if(!isset($_SESSION['login'])){
 						echo '</td>';
 						echo '<td>';
 						if($empresa['baja']==0){
-							echo '<a type="button" class="btn btn-danger acciones" href="scripts/bajaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de baja</a>';
+							echo '<input type="button" onClick="BajaEmpresa('.$empresa['id'].')" class="btn btn-danger acciones" value="Dar de baja">';
 						}else{
-							echo '<a type="button" class="btn btn-info acciones" href="scripts/altaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Dar de alta</a>';
+							echo '<input type="button" onClick="AltaEmpresa('.$empresa['id'].')" class="btn btn-info acciones" value="Dar de alta">';
 						}
 						echo '<a type="button" class="btn btn-warning acciones" href="editarEmpresa.php?i=';
 						echo $empresa['id'];
 						echo '">Editar</a>';
-						echo '<a type="button" class="btn btn-success acciones" href="scripts/promocionarEmpresa.php?i=';
-						echo $empresa['id'];
-						echo '">Promocionar</a>';
+						echo '<input type="button" onClick="PromocionarEmpresa('.$empresa['id'].')" class="btn btn-success acciones" value="Promocionar">';
 						if($empresa['sala']==''){
 							echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
 						}else{

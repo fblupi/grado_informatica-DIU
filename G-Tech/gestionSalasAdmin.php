@@ -46,13 +46,9 @@ while($misSalas = mysqli_fetch_assoc($resultado)){
   echo '</td>';
   echo '<td>';
   if($misSalas['baja']==0){
-    echo '<a href="scripts/bajaSala.php?i=';
-    echo $misSalas['id'];
-    echo '" class="btn btn-danger btnSalasAdmin">Dar de baja</a>';
+    echo '<input type="button" onClick="BajaSala('.$misSalas['id'].')" class="btn btn-danger btnSalasAdmin" value="Dar de baja">';
   }else{
-    echo '<a href="scripts/altaSala.php?i=';
-    echo $misSalas['id'];
-    echo '" class="btn btn-info btnSalasAdmin">Dar de alta</a>';
+    echo '<input type="button" onClick="AltaSala('.$misSalas['id'].')" class="btn btn-info btnSalasAdmin" value="Dar de alta">';
   }
   echo '<a href="editarSala.php?i=';
   echo $misSalas['id'];
