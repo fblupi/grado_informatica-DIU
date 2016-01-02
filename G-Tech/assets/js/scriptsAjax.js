@@ -438,3 +438,7 @@ $('#formularioEditarPerfil').ajaxForm(function (response) {
 $('#formularioCrearSala').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioEditarSala').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});

@@ -9,7 +9,7 @@
   $sql = "SELECT * FROM sala WHERE id = '$idSala';";
   $resultado = mysqli_query($conn, $sql);
   while($sala = mysqli_fetch_assoc($resultado)){
-    echo '<form method="POST" action="scripts/editarSala.php" data-toggle="validator" role="form" enctype="multipart/form-data">';
+    echo '<form method="POST" id="formularioEditarSala" action="scripts/editarSala.php" data-toggle="validator" role="form" enctype="multipart/form-data">';
     echo '<div class="row">';
     echo '<div class="col-md-6 col-lg-6">';
     echo '<input type="hidden" name="sala" value="';
