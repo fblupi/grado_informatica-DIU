@@ -335,3 +335,14 @@ function CambiarPass(){
           }
   });
 }
+
+function RecordarPass(){
+  $.ajax({
+          data:  $("#formularioRecordarPass").serialize(),
+          url:   'scripts/recordarPass.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}

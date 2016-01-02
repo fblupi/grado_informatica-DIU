@@ -18,13 +18,13 @@ if (mysqli_fetch_array($resultado)) {
     $asunto = "Cambio de contraseña";
     $mensaje = "Su nueva contraseña es: " . $pass;
     envioCorreo($email, $asunto, $mensaje);
-    salir("Se le ha enviado una nueva contraseña al email indicado. Revise su bandeja de entrada.", 0);
+    salir2("Se le ha enviado una nueva contraseña al email indicado. Revise su bandeja de entrada", 0, "inicioSesion.php");
   } else {
-    salir("Error generando la contraseña", -1);
+    salir2("Error generando la contraseña", -1, "inicioSesion.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("Email no válido", -1);
+  salir2("Email no válido", -1, "inicioSesion.php");
 }
 
 ?>
