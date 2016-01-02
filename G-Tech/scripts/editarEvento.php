@@ -97,10 +97,7 @@ if (!$salir) {
     $resultado = mysqli_query($conexion, $sql);
     mysqli_close($conexion);
     if ($resultado) {
-      echo '<script>
-        alert("Evento editado correctamente");
-        location.href= "../gestionarEventos.php";
-      </script>';
+      salir2("Evento editado correctamente", 0, "gestionarEventos.php");
     } else {
       salir2("Error al editar evento", -1, "gestionarEventos.php");
     }

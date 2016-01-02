@@ -18,7 +18,7 @@
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<label>Fecha</label>
-								<input type="text" id="fechaInicio" name="fechaInicio" class="form-control" placeholder="20-08-2016" required>
+								<input type="date" id="fechaInicio" name="fechaInicio" class="form-control" placeholder="20-08-2016" required>
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">

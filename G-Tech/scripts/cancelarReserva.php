@@ -33,7 +33,7 @@ if($resultado){
 }
 else {
   mysqli_close($conexion);
-  salir("Error ", -1, "misSalas.php");
+  salir2("Error ", -1, "misSalas.php");
 }
 
 ?>
