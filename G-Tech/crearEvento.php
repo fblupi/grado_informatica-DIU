@@ -40,11 +40,11 @@
 					</div>
 						<div class="form-group">
 							<label>Precio (€)</label>
-							<input type="text" id="precio" name="precio" class="form-control" placeholder="20" required>
+							<input type="number" min="0" id="precio" name="precio" class="form-control" placeholder="20" required>
 						</div>
 					<div class="form-group">
 						<label>Plazas</label>
-						<input type="number" id="plazas" name="plazas" class="form-control" placeholder="20" value="50" required>
+						<input type="number" min="0" id="plazas" name="plazas" class="form-control" placeholder="20" value="50" required>
 					</div>
 					<div class="form-group">
 						<label>Organizador (Usuario)</label>
@@ -110,7 +110,7 @@
 		</form>
 	</article>
 </section>
-<?php 
+<?php
 	mysqli_close($conn);
 ?>
 <script type="text/javascript">

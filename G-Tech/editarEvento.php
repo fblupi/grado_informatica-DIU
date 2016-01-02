@@ -82,7 +82,7 @@
 					</div>
 					<div class="form-group">
 						<label>Precio (€)</label>
-						<input type="text" id="precio" name="precio" class="form-control" value="<?php echo $evento['precio'];?>" placeholder="20" required>
+						<input type="number" id="precio" min="0" name="precio" class="form-control" value="<?php echo $evento['precio'];?>" placeholder="20" required>
 					</div>
 					<div class="form-group">
 						<label>Plazas</label>
