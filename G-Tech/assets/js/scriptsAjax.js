@@ -286,6 +286,20 @@ function BajaSala(idSala){
   });
 }
 
+function CancelarReserva(idSala){
+  var parametros = {
+      i : idSala
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/cancelarReserva.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function CancelarEvento(idEvento){
   var parametros = {
       i : idEvento

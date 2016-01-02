@@ -26,15 +26,14 @@ if($resultado){
   $resultado0 = mysqli_query($conexion,$sql0);
 
   if ($resultado) {
-    salir("Alquiler cancelado correctamente", 0);
+    salir2("Alquiler cancelado correctamente", 0, "misSalas.php");
   } else {
-    salir("Error al cancelar evento", -1);
+    salir2("Error al cancelar evento", -1, "misSalas.php");
   }
 }
 else {
   mysqli_close($conexion);
-  salir("Error ", -1);
+  salir("Error ", -1, "misSalas.php");
 }
-?>
 
-  ?>
+?>
