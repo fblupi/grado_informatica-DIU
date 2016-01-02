@@ -10,35 +10,18 @@ $conexion = dbConnect();
 $evento = $_GET['i'];
 $usuario = $_SESSION['id'];
 
-$sqlPermiso = "SELECT empresa, usuario FROM evento WHERE id=$evento";
-$resultadoPermiso = mysqli_query($conexion, $sqlPermiso);
-$filaPermiso = mysqli_fetch_array($resultadoPermiso);
-$representante = $filaPermiso['usuario'];
-$representanteEmpresa = $filaPermiso['empresa'];
-if ($filaPermiso['empresa'] != '') {
-  $sqlEmpresa = "SELECT representante FROM empresa WHERE id=$representanteEmpresa";
-  $resultadoEmpresa = mysqli_query($conexion, $sqlEmpresa);
-  $filaEmpresa = mysqli_fetch_array($resultadoEmpresa);
-  $representante = $filaEmpresa['representante'];
-}
-
-if ($representante == $usuario) {
-  $sqlPromocion = "SELECT promocion FROM evento WHERE id=$evento";
-  $resultadoPromocion = mysqli_query($conexion, $sqlPromocion);
-  $filaPromocion = mysqli_fetch_array($resultadoPromocion);
-  $promocion = $filaPromocion['promocion'];
-  $promocion++;
-  $sqlActualizar = "UPDATE evento SET promocion=$promocion WHERE id=$evento";
-  $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
-  mysqli_close($conexion);
-  if ($resultadoActualizar) {
-    salir2("Evento promocionado correctamente", 0, "gestionarEventos.php");
-  } else {
-    salir2("Error al promocionar evento", -1, "gestionarEventos.php");
-  }
+$sqlPromocion = "SELECT promocion FROM evento WHERE id=$evento";
+$resultadoPromocion = mysqli_query($conexion, $sqlPromocion);
+$filaPromocion = mysqli_fetch_array($resultadoPromocion);
+$promocion = $filaPromocion['promocion'];
+$promocion++;
+$sqlActualizar = "UPDATE evento SET promocion=$promocion WHERE id=$evento";
+$resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
+mysqli_close($conexion);
+if ($resultadoActualizar) {
+  salir2("Evento promocionado correctamente", 0, "gestionarEventos.php");
 } else {
-  mysqli_close($conexion);
-  salir2("El usuario no tiene permisos", -1, "gestionarEventos.php");
+  salir2("Error al promocionar evento", -1, "gestionarEventos.php");
 }
 
 ?>

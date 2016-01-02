@@ -92,7 +92,11 @@
 						<label>Organizador (Usuario)</label>
 						<?php
 							$idUsuario = $_SESSION['id'];
-							$sqlUsuarioOrganizador = "SELECT nombre FROM usuario WHERE id='$idUsuario'";
+							$sqlUsuarioOrganizadorDeEvento = "SELECT usuario FROM evento WHERE id=$idEvento";
+							$resultadoUsuarioOrganizadorDeEvento = mysqli_query($conn, $sqlUsuarioOrganizadorDeEvento);
+							$usuarioOrganizadorDeEvento = mysqli_fetch_assoc($resultadoUsuarioOrganizadorDeEvento);
+							$idOrganizadorDeEvento = $usuarioOrganizadorDeEvento['usuario'];
+							$sqlUsuarioOrganizador = "SELECT nombre FROM usuario WHERE id=$idOrganizadorDeEvento";
 							$resultadoUsuarioOrganizador = mysqli_query($conn, $sqlUsuarioOrganizador);
 							$usuarioOrganizador = mysqli_fetch_assoc($resultadoUsuarioOrganizador);
 							if ($evento['usuario'] == '') { // El representante no es el usuario
@@ -119,7 +123,7 @@
 									echo '</option>';
 								} else { // Si el evento no me pertenece
 									echo '<select class="form-control" name="usuario" id="usuario" readonly="true">';
-									echo '<option value="'.$idUsuario.'">'.$usuarioOrganizador['nombre'].'</option>';
+									echo '<option value="'.$idOrganizadorDeEvento.'">'.$usuarioOrganizador['nombre'].'</option>';
 									echo '</select>';
 								}
 							}
