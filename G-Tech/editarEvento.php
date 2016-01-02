@@ -1,28 +1,20 @@
-<?php 
+<?php
 	include 'header.php';
-
 	if (!isset($_SESSION['login'])) {
 		echo '<script>location.href="inicioSesion.php";</script>';
 	}
-
 	$idUsuario = $_SESSION['id'];
 	$idEvento = $_GET['i'];
-
 	include_once 'libs/myLib.php';
-
 	$conn = dbConnect();
 	$sql = "SELECT * FROM evento WHERE id = '$idEvento';";
-
 	$resultado = mysqli_query($conn, $sql);
-
 	$evento = mysqli_fetch_assoc($resultado);
 	$fechaInicio = date('d-m-Y', strtotime($evento['fechaInicio']));
 	$horaInicio = date('H:i:s', strtotime($evento['fechaInicio']));
 	$fechaFin = date('d-m-Y', strtotime($evento['fechaFin']));
 	$horaFin = date('H:i:s', strtotime($evento['fechaFin']));
-
 	$eventoMePertenece = false;
-
 	if ($evento['usuario'] != '') {
 		$organizadorUsuario = $evento['usuario'];
 		if ($organizadorUsuario == $_SESSION['id']) {
@@ -38,7 +30,6 @@
 			$eventoMePertenece = true;
 		}
 	}
-
 	$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
 	$resultado3 = mysqli_query($conn, $sql3);
 	$permisosAdmin = 0;
@@ -52,7 +43,6 @@
 			$permisosUser = 1;
 		}
 	}
-
 ?>
 <section>
 	<h1 class="section-header">Editar evento
@@ -96,7 +86,7 @@
 					</div>
 					<div class="form-group">
 						<label>Plazas</label>
-						<input type="number" id="plazas" name="plazas" class="form-control" placeholder="20" value="<?php echo $evento['plazas'];?>" required>
+						<input type="number" id="plazas" min="0" name="plazas" class="form-control" placeholder="20" value="<?php echo $evento['plazas'];?>" required>
 					</div>
 					<div class="form-group">
 						<label>Organizador (Usuario)</label>
@@ -215,7 +205,7 @@
 		</form>
 	</article>
 </section>
-<?php 
+<?php
 	mysqli_close($conn);
 ?>
 <script type="text/javascript">
