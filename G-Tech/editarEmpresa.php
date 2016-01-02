@@ -16,7 +16,7 @@ if(!isset($_SESSION['login'])){
       $resultado = mysqli_query($conn, $sql);
 
       while($empresa = mysqli_fetch_assoc($resultado)){ ?>
-        <form method="POST" action="scripts/editarEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
+        <form id="formularioEditarEmpresa" method="POST" action="scripts/editarEmpresa.php" data-toggle="validator" role="form" enctype="multipart/form-data">
         <div class="row">
         <div class="col-md-6 col-lg-6">
 					<input type="hidden" name="empresa" value="<?php echo $empresa['id']; ?>">

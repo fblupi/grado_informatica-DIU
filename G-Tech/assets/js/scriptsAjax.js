@@ -454,3 +454,7 @@ $('#formularioEditarEvento').ajaxForm(function (response) {
 $('#formularioCrearEmpresa').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioEditarEmpresa').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});
