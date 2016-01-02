@@ -286,6 +286,20 @@ function BajaSala(idSala){
   });
 }
 
+function CancelarEvento(idEvento){
+  var parametros = {
+      i : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/cancelarEvento.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function CambiarPass(){
   $.ajax({
           data:  $("#formularioCambiarPass").serialize(),

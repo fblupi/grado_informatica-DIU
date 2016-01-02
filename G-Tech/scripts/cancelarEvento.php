@@ -27,13 +27,13 @@ if ($representante == $usuario) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Evento cancelado correctamente", 0);
+    salir2("Evento cancelado correctamente", 0, "gestionarEventos.php");
   } else {
-    salir("Error al cancelar evento", -1);
+    salir2("Error al cancelar evento", -1, "gestionarEventos.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("El usuario no tiene permisos", -1);
+  salir2("El usuario no tiene permisos", -1, "gestionarEventos.php");
 }
 
 ?>
