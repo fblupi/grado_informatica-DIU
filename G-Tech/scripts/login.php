@@ -15,14 +15,14 @@ if ($row = mysqli_fetch_array($resultado)) {
     $_SESSION['login'] = $login;
     $_SESSION['id'] = $row['id'];
     mysqli_close($conexion);
-    salir("Se ha iniciado sesión correctamente", 0);
+    salir2("Se ha iniciado sesión correctamente", 0, "index.php");
   } else {
     mysqli_close($conexion);
-    salir("El nombre de usuario o la contraseña no son correctos", -1);
+    salir2("El nombre de usuario o la contraseña no son correctos", -1, "index.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("No existe ese usuario en el sistema", -1);
+  salir2("No existe ese usuario en el sistema", -1, "index.php");
 }
 
 ?>

@@ -6,7 +6,7 @@
 <section class="divInicioSesion">
 	<h1>Iniciar Sesión<hr></h1>
 	<article>
-		<form class="form-horizontal" method="POST" action="scripts/login.php" data-toggle="validator" role="form">
+		<form id="formularioLogin" class="form-horizontal" method="POST" action="javascript:Login()" data-toggle="validator" role="form">
 			<div class="form-group has-feedback">
 				<label>Nombre de usuario</label>
 					<input type="text" class="form-control" id="login" name="login" placeholder="Nombre de usuario" required>

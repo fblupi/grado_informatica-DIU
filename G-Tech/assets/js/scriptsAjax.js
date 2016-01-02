@@ -314,6 +314,17 @@ function CancelarEvento(idEvento){
   });
 }
 
+function Login(){
+  $.ajax({
+          data:  $("#formularioLogin").serialize(),
+          url:   'scripts/login.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function CambiarPass(){
   $.ajax({
           data:  $("#formularioCambiarPass").serialize(),
