@@ -300,6 +300,20 @@ function CancelarReserva(idSala){
   });
 }
 
+function PromocionarEvento(idEvento){
+  var parametros = {
+      i : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/promocionarEvento.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function CancelarEvento(idEvento){
   var parametros = {
       i : idEvento

@@ -32,13 +32,13 @@ if ($representante == $usuario) {
   $resultadoActualizar = mysqli_query($conexion, $sqlActualizar);
   mysqli_close($conexion);
   if ($resultadoActualizar) {
-    salir("Evento promocionado correctamente", 0);
+    salir2("Evento promocionado correctamente", 0, "gestionarEventos.php");
   } else {
-    salir("Error al promocionar evento", -1);
+    salir2("Error al promocionar evento", -1, "gestionarEventos.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("El usuario no tiene permisos", -1);
+  salir2("El usuario no tiene permisos", -1, "gestionarEventos.php");
 }
 
 ?>

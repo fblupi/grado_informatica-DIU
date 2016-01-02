@@ -97,9 +97,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 								echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
 								echo $empresa['id'];
 								echo '">Asistentes</a>';
-								echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
-								echo $empresa['id'];
-								echo '">Promocionar</a>';
+								echo '<input type="button" class="btn btn-success accionesEventos" onclick="PromocionarEvento('.$empresa['id'].')" value="Promocionar">';
 
 		            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
 								echo $empresa['id'];
@@ -125,10 +123,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 									echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
 									echo $empresa['id'];
 									echo '">Asistentes</a>';
-									echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
-									echo $empresa['id'];
-									echo '">Promocionar</a>';
-
+									echo '<input type="button" class="btn btn-success accionesEventos" onclick="PromocionarEvento('.$empresa['id'].')" value="Promocionar">';
 									echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
 									echo $empresa['id'];
 									echo '">Invitar</a>';
@@ -283,9 +278,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 							echo '<a type="button" class="btn btn-primary accionesEventos" href="verAsistentes.php?i=';
 							echo $empresa['id'];
 							echo '">Asistentes</a>';
-							echo '<a type="button" class="btn btn-success accionesEventos" href="scripts/promocionarEvento.php?i=';
-							echo $empresa['id'];
-							echo '">Promocionar</a>';
+							echo '<input type="button" class="btn btn-success accionesEventos" onclick="PromocionarEvento('.$empresa['id'].')" value="Promocionar">';
 
 	            echo '<a type="button" class="btn btn-info accionesEventos" href="invitarEvento.php?i=';
 							echo $empresa['id'];
