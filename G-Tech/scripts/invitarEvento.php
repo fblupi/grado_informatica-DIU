@@ -13,7 +13,7 @@ $evento = $_POST['id'];
 $mails = explode(',', $inputMails);
 
 if (count($mails) == 0) {
-  salir("No se ha introducido ningún correo", -1);
+  salir2("No se ha introducido ningún correo", -1, "gestionarEventos.php");
 }
 
 $conexion = dbConnect();
@@ -29,15 +29,15 @@ $fechaFin = $row['fechaFin'];
 $precio = $row['precio'];
 $asunto = "Invitación al evento " . $nombre;
 if($precio!=0){
-  $mensaje = "¡Hola!<br>, Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento tiene un coste de " . $precio . "€.";
+  $mensaje = "¡Hola!<br>Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento tiene un coste de " . $precio . "€.";
 }else{
-  $mensaje = "¡Hola!<br>, Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento es totalmente gratuíto";
+  $mensaje = "¡Hola!<br>Has sido invitado por " . $login . " al evento " . $nombre . " que tendrá lugar de " . date('d-m-Y H:i',strtotime($fechaInicio)) . " a " . date('d-m-Y H:i',strtotime($fechaFin)) . ".<br> Este evento es totalmente gratuito";
 }
 
 foreach ($mails as $mail) {
   envioCorreo($mail, $asunto, $mensaje);
 }
 
-salir("Invitaciones enviadas correctamente", 0);
+salir2("Invitaciones enviadas correctamente", 0, "gestionarEventos.php");
 
 ?>

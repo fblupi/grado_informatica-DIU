@@ -328,6 +328,17 @@ function CancelarEvento(idEvento){
   });
 }
 
+function InvitarEvento(){
+  $.ajax({
+          data:  $("#formularioInvitarEvento").serialize(),
+          url:   'scripts/invitarEvento.php',
+          type:  'POST',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function Login(){
   $.ajax({
           data:  $("#formularioLogin").serialize(),

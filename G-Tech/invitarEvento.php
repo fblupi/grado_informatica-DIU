@@ -8,7 +8,7 @@ $idEvento = $_GET['i'];
 		<h1 class="section-header">Invitar
 		<hr></hr></h1>
 		<article>
-      <form method="POST" action="scripts/invitarEvento.php" data-toggle="validator" role="form">
+      <form id="formularioInvitarEvento" method="POST" action="javascript:InvitarEvento()" data-toggle="validator" role="form">
 				<input type="hidden" name="id" id="id" value="<?php echo $idEvento; ?>">
         <div class="form-group">
         <label>Email</label>
