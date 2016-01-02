@@ -68,9 +68,7 @@ if(!isset($_SESSION['login'])){
 							if($empresa['sala']==''){
 								echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
 							}else{
-								echo '<a type="button" class="btn btn-danger acciones" href="scripts/desasignarSalaEmpresa.php?i=';
-								echo $empresa['id'];
-								echo '">Desasignar Sala</a>';
+								echo '<input type="button" class="btn btn-danger acciones" onclick="DesasignarSalaEmpresa('.$empresa['id'].')" value="Desasignar Sala">';
 							}
 						}
 						echo '</td>';
@@ -154,9 +152,7 @@ if(!isset($_SESSION['login'])){
 						if($empresa['sala']==''){
 							echo '<button class="btn btn-info acciones" onClick="MostrarSalasDisponiblesEmpresas('.$idEmpresa.'); return false;">Asignar Sala</button>';
 						}else{
-							echo '<a type="button" class="btn btn-danger acciones" href="scripts/desasignarSalaEmpresa.php?i=';
-							echo $empresa['id'];
-							echo '">Desasignar Sala</a>';
+							echo '<input type="button" class="btn btn-danger acciones" onclick="DesasignarSalaEmpresa('.$empresa['id'].')" value="Desasignar Sala">';
 						}
 						echo '</td>';
 						echo '</tr>';

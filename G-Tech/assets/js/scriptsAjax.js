@@ -258,6 +258,20 @@ function PromocionarEmpresa(idEmpresa){
   });
 }
 
+function DesasignarSalaEmpresa(idEmpresa){
+  var parametros = {
+      i : idEmpresa
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/desasignarSalaEmpresa.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function AltaSala(idSala){
   var parametros = {
       i : idSala
