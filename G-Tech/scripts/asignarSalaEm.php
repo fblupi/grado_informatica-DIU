@@ -18,13 +18,13 @@ if ($resultado) {
   $resultado = mysqli_query($conexion, $sql);
   mysqli_close($conexion);
   if ($resultado) {
-    salir("Sala asignada correctamente", 0);
+    salir2("Sala asignada correctamente", 0, "gestionarEmpresas.php");
   } else {
-    salir("Ha habido un error realizando la asignación de la sala poniéndola como no disponible", -1);
+    salir2("Ha habido un error realizando la asignación de la sala poniéndola como no disponible", -1, "gestionarEmpresas.php");
   }
 } else {
   mysqli_close($conexion);
-  salir("Ha habido un error realizando la asignación de la sala a la empresa", -1);
+  salir2("Ha habido un error realizando la asignación de la sala a la empresa", -1, "gestionarEmpresas.php");
 }
 
 ?>
