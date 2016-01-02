@@ -87,9 +87,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 								if($empresa['sala']==''){
 									echo '<a type="button" class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</a>';
 								}else{
-									echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEvento.php?i=';
-									echo $empresa['id'];
-									echo '">Desasignar Sala</a>';
+									echo '<input type="button" class="btn btn-danger accionesEventos" onclick="DesasignarSalaEvento('.$empresa['id'].')" value="Desasignar Sala">';
 								}
 								echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
 								echo $empresa['id'];
@@ -113,9 +111,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 									if($empresa['sala']==''){
 										echo '<a type="button" class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</a>';
 									}else{
-										echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEvento.php?i=';
-										echo $empresa['id'];
-										echo '">Desasignar Sala</a>';
+										echo '<input type="button" class="btn btn-danger accionesEventos" onclick="DesasignarSalaEvento('.$empresa['id'].')" value="Desasignar Sala">';
 									}
 									echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
 									echo $empresa['id'];
@@ -268,9 +264,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 							if($empresa['sala']==''){
 								echo '<a type="button" class="btn btn-info accionesEventos" onClick="MostrarSalasDisponiblesEventos('.$idEmpresa.'); return false;">Asignar Sala</a>';
 							}else{
-								echo '<a type="button" class="btn btn-danger accionesEventos" href="scripts/desasignarSalaEvento.php?i=';
-								echo $empresa['id'];
-								echo '">Desasignar Sala</a>';
+								echo '<input type="button" class="btn btn-danger accionesEventos" onclick="DesasignarSalaEvento('.$empresa['id'].')" value="Desasignar Sala">';
 							}
 							echo '<a type="button" class="btn btn-warning accionesEventos" href="editarEvento.php?i=';
 							echo $empresa['id'];

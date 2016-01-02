@@ -353,6 +353,20 @@ function InvitarEvento(){
   });
 }
 
+function DesasignarSalaEvento(idEvento){
+  var parametros = {
+      i : idEvento
+  };
+  $.ajax({
+          data:  parametros,
+          url:   'scripts/desasignarSalaEvento.php',
+          type:  'GET',
+          success:  function (response) {
+            $("#resultado").html(response);
+          }
+  });
+}
+
 function Login(){
   $.ajax({
           data:  $("#formularioLogin").serialize(),

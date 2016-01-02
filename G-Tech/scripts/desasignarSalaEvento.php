@@ -21,18 +21,18 @@ if ($resultado) {
     $resultado = mysqli_query($conexion, $sql);
     mysqli_close($conexion);
     if ($resultado) {
-      salir("Sala desasignada correctamente", 0);
+      salir2("Sala desasignada correctamente", 0, "gestionarEventos.php");
     } else {
-      salir("Ha habido un error desasignando la sala volviéndola a poner como disponible", -1);
+      salir2("Ha habido un error desasignando la sala volviéndola a poner como disponible", -1, "gestionarEventos.php");
     }
   } else {
     mysqli_close($conexion);
-    salir("Ha habido un error desasignando la sala del evento", -1);
+    salir2("Ha habido un error desasignando la sala del evento", -1, "gestionarEventos.php");
   }
   
 } else {
   mysqli_close($conexion);
-  salir("Ha habido un error buscando la información del evento", -1);
+  salir2("Ha habido un error buscando la información del evento", -1, "gestionarEventos.php");
 }
 
 ?>
