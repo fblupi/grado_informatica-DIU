@@ -430,3 +430,7 @@ function RecordarPass(){
 $('#formularioRegistrarUsuario').ajaxForm(function (response) {
   $("#resultado").html(response);
 });
+
+$('#formularioEditarPerfil').ajaxForm(function (response) {
+  $("#resultado").html(response);
+});

@@ -19,7 +19,7 @@ while($usuario = mysqli_fetch_assoc($resultado)){
 	echo '<h2>';
 	echo $usuario['login'];
 	echo '</h2>';
-	echo '<form class="formularioEditarPerfil" method="POST" action="scripts/modificarPerfil.php" data-toggle="validator" role="form" enctype="multipart/form-data">';
+	echo '<form class="formularioEditarPerfil" id="formularioEditarPerfil" method="POST" action="scripts/modificarPerfil.php" data-toggle="validator" role="form" enctype="multipart/form-data">';
 	echo '<div class="col-lg-6 col-md-6">';
 	echo '<div class="form-group has-feedback">';
 	echo '<label>Nombre: </label>';

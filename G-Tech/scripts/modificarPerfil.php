@@ -22,7 +22,7 @@ $imagen = "";
 $subidaCorrecta = false;
 if (isset($_FILES['imagen']) && $_FILES['imagen']['name']) {
   if ($_FILES['imagen']['error'] > 0) {
-    salir("Ha ocurrido un error en la carga de la imagen", -2);
+    salir2("Ha ocurrido un error en la carga de la imagen", -1, "miCuenta.php");
   } else {
     $extensiones = array("image/jpg", "image/jpeg", "image/png");
     $limite = 4096;
@@ -63,9 +63,9 @@ if (!$resultado) {
   if ($subidaCorrecta) {
     unlink($rutacrear);
   }
-  salir("Error al modificar el perfil".$sql, -1);
+  salir2("Error al modificar el perfil", -1, "miCuenta.php");
 } else {
-  salir("Se ha editado correctamente", 0);
+  salir2("Se ha editado correctamente", 0, "miCuenta.php");
 }
 
 ?>
