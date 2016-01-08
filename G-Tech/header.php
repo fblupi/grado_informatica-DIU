@@ -76,7 +76,7 @@ if(isset($_SESSION['id'])){
 						$fotoHeader = $imagen['imagen'];
 						echo '<li class="dropdown">';
 	          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<div class="fotoHeader"><img class="portrait" src="'.$fotoHeader.'"></div>'
+							<div class="fotoHeader"><img alt="Mi foto de perfil" class="portrait" src="'.$fotoHeader.'"></div>'
 							.$login.' <span class="caret"></span></a>';
 	          echo '<ul class="dropdown-menu animated fadeInDown">';
 						echo '<li><a href="miCuenta.php"><i class="fa fa-user usuario"></i> Mi perfil</a></li>';
