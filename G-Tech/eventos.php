@@ -17,8 +17,8 @@
 				include_once 'libs/myLib.php';
 				$conn = dbConnect();
 				$hoy = date('Y-m-d');
-				$sql = "SELECT * FROM Evento WHERE fechaInicio > '$hoy' ORDER BY baja ASC, promocion DESC, fechaInicio ASC;";
-				$sql5 = "SELECT * FROM Evento WHERE fechaInicio < '$hoy' ORDER BY baja ASC, promocion DESC, fechaInicio ASC;";
+				$sql = "SELECT * FROM evento WHERE fechaInicio > '$hoy' ORDER BY baja ASC, promocion DESC, fechaInicio ASC;";
+				$sql5 = "SELECT * FROM evento WHERE fechaInicio < '$hoy' ORDER BY baja ASC, promocion DESC, fechaInicio ASC;";
 
 				$resultado = mysqli_query($conn, $sql);
 				$resultado5 = mysqli_query($conn, $sql5);
@@ -61,7 +61,7 @@
 						echo '<span class="label label-success eventoGratuito">Gratuito</span>';
 					}
 					$idEvento = $eventos['id'];
-					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
 					$resultado2 = mysqli_query($conn, $sql2);
 					$totalUsuariosApuntados = mysqli_fetch_assoc($resultado2);
 					if($eventos['plazas']==$totalUsuariosApuntados['usuariosApuntados']){
@@ -113,7 +113,7 @@
 						echo '<span class="label label-success eventoGratuito">Gratuito</span>';
 					}
 					$idEvento = $eventos['id'];
-					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
 					$resultado2 = mysqli_query($conn, $sql2);
 					$totalUsuariosApuntados = mysqli_fetch_assoc($resultado2);
 					if($eventos['plazas']==$totalUsuariosApuntados['usuariosApuntados']){

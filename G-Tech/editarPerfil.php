@@ -10,7 +10,7 @@ include_once 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
 
-$sql = "SELECT * FROM Usuario WHERE login = '$login'";
+$sql = "SELECT * FROM usuario WHERE login = '$login'";
 
 $resultado = mysqli_query($conn, $sql);
 

@@ -13,7 +13,7 @@
 include_once 'libs/myLib.php';
 $conn = dbConnect();
 
-$sql2 = "SELECT * FROM Usuario;";
+$sql2 = "SELECT * FROM usuario;";
 $resultado2 = mysqli_query($conn, $sql2);
 
 echo '<div class="table-responsive">';
@@ -32,7 +32,7 @@ echo '</table>';
 while($usuario = mysqli_fetch_assoc($resultado2)){
   $idUsuario = $usuario['id'];
   if($idUsuario!=$_SESSION['id']){
-    $sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+    $sql3 = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.id = '$idUsuario';";
     $resultado3 = mysqli_query($conn, $sql3);
     $permisosAdmin = 0;
     $permisosUser = 0;

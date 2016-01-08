@@ -17,7 +17,7 @@
 				include_once 'libs/myLib.php';
 				$conn = dbConnect();
 
-				$sql = "SELECT * FROM Empresa ORDER BY baja ASC, promocion DESC;";
+				$sql = "SELECT * FROM empresa ORDER BY baja ASC, promocion DESC;";
 
 				$resultado = mysqli_query($conn, $sql);
 

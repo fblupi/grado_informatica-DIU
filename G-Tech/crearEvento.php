@@ -53,7 +53,7 @@
 								include_once 'libs/myLib.php';
 								$conn = dbConnect();
 								$idUsuario = $_SESSION['id'];
-								$sql3 = "SELECT Usuario.id, Usuario.nombre FROM Usuario WHERE Usuario.id = '$idUsuario';";
+								$sql3 = "SELECT usuario.id, usuario.nombre FROM usuario WHERE usuario.id = '$idUsuario';";
 								$resultado3 = mysqli_query($conn, $sql3);
 								while ($usuario = mysqli_fetch_assoc($resultado3)) {
 									echo '<option value="';
@@ -75,7 +75,7 @@
 						<label>Organizador (Empresa)</label>
 						<select class="form-control" name="empresa" id="empresa">
 							<?php
-								$sql2 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
+								$sql2 = "SELECT empresa.nombre, empresa.id FROM empresa WHERE representante = '$idUsuario';";
 								$resultado2 = mysqli_query($conn, $sql2);
 								while ($empresasUsuario = mysqli_fetch_assoc($resultado2)) {
 									echo '<option value="';

@@ -13,7 +13,7 @@ if(!isset($_SESSION['login'])){
 				$conn = dbConnect();
 				$login = $_SESSION['login'];
 
-				$sql2 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
+				$sql2 = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.login = '$login';";
 				$resultado2 = mysqli_query($conn, $sql2);
 				$permisosAdmin = 0;
 				$permisosUser = 0;
@@ -28,7 +28,7 @@ if(!isset($_SESSION['login'])){
 				}
 
 				if($permisosAdmin==1 && $permisosUser==1){
-					$sql3 = "SELECT * FROM Empresa;";
+					$sql3 = "SELECT * FROM empresa;";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
@@ -76,7 +76,7 @@ if(!isset($_SESSION['login'])){
 					}
 					echo '</table>';
 				}else if($permisosAdmin == 1){
-					$sql3 = "SELECT * FROM Empresa;";
+					$sql3 = "SELECT * FROM empresa;";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed">';
 					echo '<thead>';
@@ -107,7 +107,7 @@ if(!isset($_SESSION['login'])){
 						echo '">Editar</a>';
 						if($empresa['baja']==0){
 							echo '<input type="button" onClick="BajaEmpresa('.$empresa['id'].')" class="btn btn-danger acciones" value="Dar de baja">';
-						}else{	
+						}else{
 							echo '<input type="button" onClick="AltaEmpresa('.$empresa['id'].')" class="btn btn-info acciones" value="Dar de alta">';
 						}
 						echo '</td>';
@@ -115,7 +115,7 @@ if(!isset($_SESSION['login'])){
 					}
 					echo '</table>';
 				}else if($permisosUser == 1){
-					$sql3 = "SELECT * FROM Empresa WHERE representante = '$id';";
+					$sql3 = "SELECT * FROM empresa WHERE representante = '$id';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<table class="table table-condensed" id="testingTable1">';
 					echo '<thead>';
@@ -163,7 +163,7 @@ if(!isset($_SESSION['login'])){
 					echo '</table>';
 				}else{
 
-				$sql = "SELECT * FROM Empresa;";
+				$sql = "SELECT * FROM empresa;";
 
 				$resultado = mysqli_query($conn, $sql);
 

@@ -6,7 +6,7 @@ include_once 'libs/myLib.php';
 $conn = dbConnect();
 $login = $_SESSION['login'];
 
-$sql2 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
+$sql2 = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.login = '$login';";
 $resultado2 = mysqli_query($conn, $sql2);
 $permisosAdmin = 0;
 $permisosUser = 0;
@@ -32,7 +32,7 @@ $hoy = date('Y-m-d');
 		<article>
 			<?php
 				if($permisosAdmin==1 && $permisosUser==1){
-					$sql3 = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
+					$sql3 = "SELECT * FROM evento WHERE fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -71,13 +71,13 @@ $hoy = date('Y-m-d');
             echo '<td>';
             if($empresa['empresa']!=''){
 							$idOrganizador = $empresa['empresa'];
-							$sql4 = "SELECT Empresa.nombre FROM Empresa WHERE Empresa.id = '$idOrganizador';";
+							$sql4 = "SELECT empresa.nombre FROM empresa WHERE empresa.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
             }else{
 							$idOrganizador = $empresa['usuario'];
-							$sql4 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idOrganizador';";
+							$sql4 = "SELECT usuario.nombre FROM usuario WHERE usuario.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
@@ -106,7 +106,7 @@ $hoy = date('Y-m-d');
 							}else if($empresa['empresa']!=''){
 								$idEvento = $empresa['id'];
 								$representante = $_SESSION['id'];
-								$sql5 = "SELECT * FROM Evento, Empresa WHERE Evento.id='$idEvento' AND Evento.empresa = Empresa.id AND Empresa.representante = '$representante';";
+								$sql5 = "SELECT * FROM evento, empresa WHERE evento.id='$idEvento' AND evento.empresa = empresa.id AND empresa.representante = '$representante';";
 								$resultado5 = mysqli_query($conn, $sql5);
 								$rows = mysqli_num_rows($resultado5);
 								if($rows>0){
@@ -146,7 +146,7 @@ $hoy = date('Y-m-d');
 					}
 					echo '</table>';
 				}else if($permisosAdmin == 1){
-					$sql3 = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
+					$sql3 = "SELECT * FROM evento WHERE fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -184,13 +184,13 @@ $hoy = date('Y-m-d');
             echo '<td>';
             if($empresa['empresa']!=''){
 							$idOrganizador = $empresa['empresa'];
-							$sql4 = "SELECT Empresa.nombre FROM Empresa WHERE Empresa.id = '$idOrganizador';";
+							$sql4 = "SELECT empresa.nombre FROM empresa WHERE empresa.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
             }else{
 							$idOrganizador = $empresa['usuario'];
-							$sql4 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idOrganizador';";
+							$sql4 = "SELECT usuario.nombre FROM usuario WHERE usuario.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
@@ -210,7 +210,7 @@ $hoy = date('Y-m-d');
 					}
 					echo '</table>';
 				}else if($permisosUser == 1){
-					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0 AND evento.fechaInicio > '$hoy';";
+					$sql3 = "SELECT DISTINCT evento.id, evento.nombre, evento.fechaInicio, evento.fechaFin, evento.sala, evento.precio, evento.empresa, evento.usuario, evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0 AND evento.fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -249,13 +249,13 @@ $hoy = date('Y-m-d');
             echo '<td>';
 						if($empresa['empresa']!=''){
 							$idOrganizador = $empresa['empresa'];
-							$sql4 = "SELECT Empresa.nombre FROM Empresa WHERE Empresa.id = '$idOrganizador';";
+							$sql4 = "SELECT empresa.nombre FROM empresa WHERE empresa.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
             }else{
 							$idOrganizador = $empresa['usuario'];
-							$sql4 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$idOrganizador';";
+							$sql4 = "SELECT usuario.nombre FROM usuario WHERE usuario.id = '$idOrganizador';";
 							$resultado4 = mysqli_query($conn, $sql4);
 							$nombreOrganizador = mysqli_fetch_assoc($resultado4);
 							echo $nombreOrganizador['nombre'];
@@ -288,7 +288,7 @@ $hoy = date('Y-m-d');
 					}
 					echo '</table>';
 			}else{
-				$sql = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
+				$sql = "SELECT * FROM evento WHERE fechaInicio > '$hoy';";
 
 				$resultado = mysqli_query($conn, $sql);
 

@@ -7,7 +7,7 @@
 		include_once 'libs/myLib.php';
         $conn = dbConnect();
         $idEmpresa = $_GET['i'];
-        $sql = "SELECT Empresa.imagen, Empresa.nombre, Empresa.descripcion, Empresa.sala, Empresa.direccion, Empresa.telefono, Empresa.fax, Usuario.login, Usuario.email FROM Empresa, Usuario WHERE Empresa.representante = Usuario.id AND Empresa.id = '$idEmpresa';";
+        $sql = "SELECT empresa.imagen, empresa.nombre, empresa.descripcion, empresa.sala, empresa.direccion, empresa.telefono, empresa.fax, usuario.login, usuario.email FROM empresa, usuario WHERE empresa.representante = usuario.id AND empresa.id = '$idEmpresa';";
         $resultado = mysqli_query($conn, $sql);
 
 		while ($empresa = mysqli_fetch_assoc($resultado)) {

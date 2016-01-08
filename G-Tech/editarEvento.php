@@ -22,7 +22,7 @@
 		}
 	} else {
 		$organizadorEmpresa = $evento['empresa'];
-		$sql4 = "SELECT Usuario.id FROM Usuario, Empresa WHERE Usuario.id = Empresa.representante AND Empresa.id = '$organizadorEmpresa';";
+		$sql4 = "SELECT usuario.id FROM usuario, empresa WHERE usuario.id = empresa.representante AND empresa.id = '$organizadorEmpresa';";
 		$resultado4 = mysqli_query($conn, $sql4);
 		$idRepresentante = mysqli_fetch_assoc($resultado4);
 		$idRepresentanteEmpresa = $idRepresentante['id'];
@@ -30,7 +30,7 @@
 			$eventoMePertenece = true;
 		}
 	}
-	$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+	$sql3 = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.id = '$idUsuario';";
 	$resultado3 = mysqli_query($conn, $sql3);
 	$permisosAdmin = 0;
 	$permisosUser = 0;
@@ -166,7 +166,7 @@
 									echo '<select class="form-control" name="empresa" id="empresa">';
 									echo '<option value="" selected>No</option>';
 									$idUsuario = $_SESSION['id'];
-									$sql7 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
+									$sql7 = "SELECT empresa.nombre, empresa.id FROM empresa WHERE representante = '$idUsuario';";
 									$resultado7 = mysqli_query($conn, $sql7);
 									while($empresasUsuario = mysqli_fetch_assoc($resultado7)){
 										echo '<option value="';
@@ -184,7 +184,7 @@
 									echo '<select class="form-control" name="empresa" id="empresa">';
 									echo '<option value="">No</option>';
 									$idUsuario = $_SESSION['id'];
-									$sql7 = "SELECT Empresa.nombre, Empresa.id FROM Empresa WHERE representante = '$idUsuario';";
+									$sql7 = "SELECT empresa.nombre, empresa.id FROM empresa WHERE representante = '$idUsuario';";
 									$resultado7 = mysqli_query($conn, $sql7);
 									while($empresasUsuario = mysqli_fetch_assoc($resultado7)){
 										echo '<option value="';

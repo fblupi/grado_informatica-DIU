@@ -12,7 +12,7 @@ if(!isset($_SESSION)){
 if(isset($_SESSION['id'])){
 	$login = $_SESSION['login'];
 	$idUsuario = $_SESSION['id'];
-	$sql3 = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.id = '$idUsuario';";
+	$sql3 = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.id = '$idUsuario';";
 	$resultado3 = mysqli_query($conn, $sql3);
 	$permisosAdmin = 0;
 	$permisosUser = 0;
@@ -70,7 +70,7 @@ if(isset($_SESSION['id'])){
 				<ul class="nav navbar-nav nav-tabs navbar-right">
 					<?php if(!empty($_SESSION['login'])){
 						$id = $_SESSION['id'];
-						$sql3 = "SELECT Usuario.imagen FROM Usuario WHERE Usuario.id = $id;";
+						$sql3 = "SELECT usuario.imagen FROM usuario WHERE usuario.id = $id;";
 						$resImagen = mysqli_query($conn, $sql3);
 						$imagen = mysqli_fetch_assoc($resImagen);
 						$fotoHeader = $imagen['imagen'];

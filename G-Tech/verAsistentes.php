@@ -5,7 +5,7 @@ if(!isset($_SESSION['login'])){
 include_once 'libs/myLib.php';
 $conn = dbConnect();
 $idEvento = $_GET['i'];
-$sql = "SELECT Evento.nombre FROM Evento WHERE id= '$idEvento';";
+$sql = "SELECT evento.nombre FROM evento WHERE id= '$idEvento';";
 $resultado = mysqli_query($conn, $sql);
 $nombreEvento = mysqli_fetch_assoc($resultado);
 $sql3 = "SELECT * FROM asistencia, usuario WHERE asistencia.usuario = usuario.id AND asistencia.evento = '$idEvento';";

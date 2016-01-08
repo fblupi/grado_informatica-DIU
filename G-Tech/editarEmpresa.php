@@ -11,7 +11,7 @@ if(!isset($_SESSION['login'])){
 			include_once 'libs/myLib.php';
       $conn = dbConnect();
       $idEmpresa = $_GET['i'];
-      $sql = "SELECT * FROM Empresa WHERE id = '$idEmpresa';";
+      $sql = "SELECT * FROM empresa WHERE id = '$idEmpresa';";
       $idUsuario = $_SESSION['id'];
       $resultado = mysqli_query($conn, $sql);
 

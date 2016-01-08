@@ -10,10 +10,10 @@ $conn = dbConnect();
 $login = $_SESSION['login'];
 $id = $_SESSION['id'];
 
-$sql = "SELECT * FROM Usuario WHERE login = '$login'";
+$sql = "SELECT * FROM usuario WHERE login = '$login'";
 $resultado = mysqli_query($conn, $sql);
 
-$sql2 = "SELECT * FROM Usuario_Permisos WHERE Usuario_Permisos.usuario = '$id';";
+$sql2 = "SELECT * FROM usuario_permisos WHERE usuario_permisos.usuario = '$id';";
 $resultado2 = mysqli_query($conn, $sql2);
 $permisosAdmin = 0;
 $permisosUser = 0;

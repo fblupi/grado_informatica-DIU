@@ -8,7 +8,7 @@ $conn = dbConnect();
 
 if(isset($_SESSION['login'])){
   $login = $_SESSION['login'];
-  $sql = "SELECT * FROM Usuario, Usuario_Permisos WHERE Usuario.id = Usuario_Permisos.usuario AND Usuario.login = '$login';";
+  $sql = "SELECT * FROM usuario, usuario_permisos WHERE usuario.id = usuario_permisos.usuario AND usuario.login = '$login';";
   $resultado = mysqli_query($conn, $sql);
   $permisosAdmin = 0;
   $permisosUser = 0;

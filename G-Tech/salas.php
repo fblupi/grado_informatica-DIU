@@ -9,7 +9,7 @@
 		<hr></hr></h1>
 <article>
 <?php
-$sql2 = "SELECT * FROM Sala;";
+$sql2 = "SELECT * FROM sala;";
 $resultado2 = mysqli_query($conn, $sql2);
 $auxEmpresas = Array();
 $auxEventos = Array();

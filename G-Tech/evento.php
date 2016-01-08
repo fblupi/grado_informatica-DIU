@@ -5,7 +5,7 @@
 
   $conn = dbConnect();
   $idEvento = $_GET['i'];
-  $sql = "SELECT * FROM Evento WHERE Evento.id = '$idEvento';";
+  $sql = "SELECT * FROM evento WHERE evento.id = '$idEvento';";
 
   $resultado = mysqli_query($conn, $sql);
 
@@ -62,7 +62,7 @@
     if($eventos['empresa']!=''){
       $empresa = 1;
       $organiza = $eventos['empresa'];
-      $sql2 = "SELECT Empresa.nombre, Empresa.representante FROM Empresa WHERE Empresa.id = '$organiza';";
+      $sql2 = "SELECT empresa.nombre, empresa.representante FROM empresa WHERE empresa.id = '$organiza';";
       $resultado2 = mysqli_query($conn, $sql2);
       $nombreEmpresa = mysqli_fetch_assoc($resultado2);
       echo '<i class="fa fa-2x fa-university iconoEventoDetallado"></i>';
@@ -70,7 +70,7 @@
       $representante = $nombreEmpresa['representante'];
     }else if($eventos['usuario']!=''){
       $organiza = $eventos['usuario'];
-      $sql2 = "SELECT Usuario.nombre FROM Usuario WHERE Usuario.id = '$organiza';";
+      $sql2 = "SELECT usuario.nombre FROM usuario WHERE usuario.id = '$organiza';";
       $resultado2 = mysqli_query($conn, $sql2);
       $nombreUsuario = mysqli_fetch_assoc($resultado2);
       echo '<i class="fa fa-2x fa-user iconoEventoDetallado"></i>';
@@ -83,10 +83,10 @@
       if(isset($_SESSION['id'])) {
         if($empresa==0 && $organiza!=$_SESSION['id']) {
           $login = $_SESSION['id'];
-          $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
+          $sql3 = "SELECT * FROM asistencia WHERE asistencia.usuario = '$login' AND asistencia.evento = '$idEvento';";
           $resultado3 = mysqli_query($conn, $sql3);
           $asiste = mysqli_num_rows($resultado3);
-          $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+          $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
           $resultado4 = mysqli_query($conn, $sql4);
           $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
           if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
@@ -99,10 +99,10 @@
         }else if($empresa==1){
           if($representante!=$_SESSION['id']){
             $login = $_SESSION['id'];
-            $sql3 = "SELECT * FROM Asistencia WHERE Asistencia.usuario = '$login' AND Asistencia.evento = '$idEvento';";
+            $sql3 = "SELECT * FROM asistencia WHERE asistencia.usuario = '$login' AND asistencia.evento = '$idEvento';";
             $resultado3 = mysqli_query($conn, $sql3);
             $asiste = mysqli_num_rows($resultado3);
-            $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
+            $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
             $resultado4 = mysqli_query($conn, $sql4);
             $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
             if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
