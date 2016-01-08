@@ -22,10 +22,12 @@
     echo '<h1>';
     echo $eventos['nombre'];
     echo '<hr></h1>';
-		echo '<article>';
+    echo '<article>';
     echo '<div class="eventos row">';
     echo '<div class="col-md-4 col-lg-4">';
-    echo '<img class="logoEventoDetallado" src="';
+    echo '<img class="logoEventoDetallado" alt="Logo ';
+    echo $eventos['nombre'];
+    echo '" src="';
     echo $eventos['imagen'];
     echo '">';
     echo '</div>';
