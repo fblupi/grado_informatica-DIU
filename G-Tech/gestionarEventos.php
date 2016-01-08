@@ -294,9 +294,11 @@ $hoy = date('Y-m-d');
 
 				while ($eventos = mysqli_fetch_assoc($resultado)) {
 					echo '<div class="eventos">';
-					echo '<img class="logoEvento" src="';
+					echo '<img class="logoEvento" alt="Logo ';
+					echo $eventos['nombre'];
+					echo '" src="';
 					echo $eventos['imagen'];
-					echo '">';
+					echo '"/>';
 					echo '<h2 class="nombreEvento">';
 					echo $eventos['nombre'];
 					echo '</h2>';

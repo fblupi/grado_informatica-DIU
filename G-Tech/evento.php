@@ -29,7 +29,7 @@
     echo $eventos['nombre'];
     echo '" src="';
     echo $eventos['imagen'];
-    echo '">';
+    echo '"/>';
     echo '</div>';
     echo '<div class="col-md-6 col-lg-6">';
     echo '<p class="fechaEventoDetallado">';

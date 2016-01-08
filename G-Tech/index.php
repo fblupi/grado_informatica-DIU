@@ -17,15 +17,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-			<img class="carrousel" src="assets/img/carousel1.jpg" alt="Coworking">
+			<img class="carrousel" src="assets/img/carousel1.jpg" alt="Imagen Coworking 1">
     </div>
 
     <div class="item">
-      <img class="carrousel" src="assets/img/carousel2.jpg" alt="Coworking">
+      <img class="carrousel" src="assets/img/carousel2.jpg" alt="Imagen Coworking 2">
     </div>
 
     <div class="item">
-      <img class="carrousel" src="assets/img/carousel3.jpg" alt="Coworking">
+      <img class="carrousel" src="assets/img/carousel3.jpg" alt="Imagen Coworking 3">
     </div>
   </div>
 

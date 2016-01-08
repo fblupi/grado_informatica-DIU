@@ -29,7 +29,7 @@
 					echo $empresa['nombre'];
 					echo '" src="';
 					echo $empresa['imagen'];
-					echo '">';
+					echo '"/>';
 					echo '</div>';
 					echo '<h2 class="nombreEmpresa">';
 					echo $empresa['nombre'];

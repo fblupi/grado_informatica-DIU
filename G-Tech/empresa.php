@@ -25,7 +25,7 @@
 			echo $empresa['nombre'];
 			echo '" src="';
 			echo $empresa['imagen'];
-			echo '">';
+			echo '"/>';
 			echo '<h2 class="nombreEmpresa">';
 			echo $empresa['nombre'];
 			echo '</h2>';

@@ -31,7 +31,7 @@
 					echo $eventos['nombre'];
 					echo '" src="';
 					echo $eventos['imagen'];
-					echo '">';
+					echo '"/>';
 					echo '</div>';
 					echo '<h2 class="nombreEvento">';
 					echo $eventos['nombre'];
@@ -78,9 +78,11 @@
 					echo '<div class="eventos row">';
 					echo '<div class="col-md-12 col-lg-12">';
 					echo '<div class="logoEvento">';
-					echo '<img src="';
+					echo '<img alt="Logo ';
+					echo $eventos['nombre'];
+					echo '" src="';
 					echo $eventos['imagen'];
-					echo '">';
+					echo '"/>';
 					echo '</div>';
 					echo '<h2 class="nombreEvento">';
 					echo $eventos['nombre'];

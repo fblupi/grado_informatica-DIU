@@ -9,7 +9,9 @@ $result = mysqli_query($conn, $todosEventos);
 
 while ($eventos = mysqli_fetch_assoc($result)) {
   echo '<div class="eventos">';
-  echo '<img class="logoEvento" src="';
+  echo '<img class="logoEvento" alt="Logo ';
+  echo $eventos['nombre'];
+  echo '" src="';
   echo $eventos['imagen'];
   echo '">';
   echo '<h2 class="nombreEvento">';

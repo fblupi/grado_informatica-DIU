@@ -9,7 +9,9 @@ $result = mysqli_query($conn, $empresas);
 
 while ($empresa = mysqli_fetch_assoc($result)) {
   echo '<div class="empresas">';
-  echo '<img class="logoEmpresa" src="';
+  echo '<img class="logoEmpresa" alt="Logo ';
+  echo $empresa['nombre'];
+  echo '" src="';
   echo $empresa['imagen'];
   echo '">';
   echo '<h2 class="nombreEmpresa">';

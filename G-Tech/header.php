@@ -41,9 +41,9 @@ if(isset($_SESSION['id'])){
 <body id="divPrincipal">
 <header>
 <div class="header" id="logos">
-<a href="index.php"><img id="logo" src="assets/img/logo.png" alt="Inicio"></a>
-	<img class="gtech" src="assets/img/header1.png">
-	<img class="coworking" src="assets/img/header2.png">
+<a href="index.php"><img alt="Logo G-Tech" id="logo" src="assets/img/logo.png" alt="Inicio"></a>
+	<img alt="Cabecera G-Tech" class="gtech" src="assets/img/header1.png">
+	<img alt="Lema G-Tech" class="coworking" src="assets/img/header2.png">
 </div>
 </header>
 <!-- navbar -->

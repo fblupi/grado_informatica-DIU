@@ -169,9 +169,11 @@ if(!isset($_SESSION['login'])){
 
 					while ($empresa = mysqli_fetch_assoc($resultado)) {
 						echo '<div class="empresas">';
-						echo '<img class="logoEmpresa" src="';
+						echo '<img class="logoEmpresa" alt="Logo ';
+						echo $empresa['nombre'];
+						echo '" src="';
 						echo $empresa['imagen'];
-						echo '">';
+						echo '"/>';
 						echo '<h2 class="nombreEmpresa">';
 						echo $empresa['nombre'];
 						echo '</h2>';
