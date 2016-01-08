@@ -25,7 +25,9 @@
 					echo '<div class="empresas row">';
 					echo '<div class="col-md-12 col-lg-12">';
 					echo '<div class="logoEmpresa">';
-					echo '<img src="';
+					echo '<img alt="Logo ';
+					echo $empresa['nombre'];
+					echo '" src="';
 					echo $empresa['imagen'];
 					echo '">';
 					echo '</div>';
