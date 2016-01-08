@@ -117,7 +117,10 @@
           }
         }
       }else{ //SI no estoy identificado
-        if($eventos['fechaInicio'] > date('Y-m-d')){
+        $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
+        $resultado4 = mysqli_query($conn, $sql4);
+        $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
+        if($eventos['fechaInicio'] > date('Y-m-d') && $eventos['baja']==0 && $eventos['plazas']>$totalUsuariosApuntados['usuariosApuntados']){
           echo '<a href="inicioSesion.php" id="apuntarEvento" class="btn btn-primary btnApuntarseEvento2">Apuntarse</a>';
           echo '<div class="btnApuntarseEventoDiv">* Para poder apuntarse, es necesario estar identificado en el sistema</div>';
         }
