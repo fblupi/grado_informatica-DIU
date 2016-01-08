@@ -60,13 +60,21 @@
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<label>Fecha</label>
-								<input type="date" id="fechaInicio" name="fechaInicio" class="form-control" value="<?php echo date('Y-m-d', strtotime($fechaInicio)); ?>" required>
+								<?php if($evento['sala']!=''){
+									echo '<input type="date" id="fechaInicio" name="fechaInicio" class="form-control" value="'.date('Y-m-d', strtotime($fechaInicio)).'" readonly required>';
+								}else{
+									echo '<input type="date" id="fechaInicio" name="fechaInicio" class="form-control" value="'.date('Y-m-d', strtotime($fechaInicio)).'" required>';
+								} ?>
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<label>Hora de inicio</label>
-								<input type="text" id="horaInicio" name="horaInicio" class="form-control" value="<?php echo $horaInicio;?>" placeholder="10:00" required>
+								<?php if($evento['sala']!=''){
+									echo '<input type="text" id="horaInicio" name="horaInicio" class="form-control" value="'.$horaInicio.'" placeholder="10:00" required readonly>';
+								}else{
+									echo '<input type="text" id="horaInicio" name="horaInicio" class="form-control" value="'.$horaInicio.'" placeholder="10:00" required>';
+								} ?>
 							</div>
 						</div>
 					</div>
@@ -76,10 +84,21 @@
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<label>Hora de fin</label>
-								<input type="text" id="horaFin" name="horaFin" class="form-control" value="<?php echo $horaFin;?>" placeholder="12:00" required>
+								<?php if($evento['sala']!=''){
+									echo '<input type="text" id="horaFin" name="horaFin" class="form-control" value="'.$horaFin.'" placeholder="12:00" required readonly>';
+								}else{
+									echo '<input type="text" id="horaFin" name="horaFin" class="form-control" value="'.$horaFin.'" placeholder="12:00" required>';
+								} ?>
 							</div>
 						</div>
 					</div>
+					<?php if($evento['sala']!=''){
+						echo '<span id="helpBlock" class="help-block">';
+						echo '* Este evento tiene una sala asignada, primero <a href="#" onclick="DesasignarSalaEvento('.$idEvento.')">desasigne la sala</a> para poder editar la fecha y hora del evento';
+						echo '</span>';
+					}
+					?>
+
 					<div class="form-group">
 						<label>Precio (€)</label>
 						<input type="number" id="precio" min="0" name="precio" class="form-control" value="<?php echo $evento['precio'];?>" placeholder="20" required>
