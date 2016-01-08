@@ -19,6 +19,8 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 		$permisosUser = 1;
 	}
 }
+
+$hoy = date('Y-m-d');
 ?>
 
 <section>
@@ -30,7 +32,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 		<article>
 			<?php
 				if($permisosAdmin==1 && $permisosUser==1){
-					$sql3 = "SELECT * FROM Evento;";
+					$sql3 = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -144,7 +146,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 					}
 					echo '</table>';
 				}else if($permisosAdmin == 1){
-					$sql3 = "SELECT * FROM Evento;";
+					$sql3 = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -208,7 +210,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 					}
 					echo '</table>';
 				}else if($permisosUser == 1){
-					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0;";
+					$sql3 = "SELECT DISTINCT Evento.id, Evento.nombre, Evento.fechaInicio, Evento.fechaFin, Evento.sala, Evento.precio, Evento.empresa, Evento.usuario, Evento.baja FROM evento, empresa WHERE (evento.empresa = empresa.id AND empresa.representante = '$id') OR (evento.usuario = '$id') AND evento.baja = 0 AND evento.fechaInicio > '$hoy';";
 					$resultado3 = mysqli_query($conn, $sql3);
 					echo '<div class="table-responsive">';
 					echo '<table class="table table-condensed">';
@@ -286,7 +288,7 @@ while($permisos = mysqli_fetch_assoc($resultado2)){
 					}
 					echo '</table>';
 			}else{
-				$sql = "SELECT * FROM Evento;";
+				$sql = "SELECT * FROM Evento WHERE fechaInicio > '$hoy';";
 
 				$resultado = mysqli_query($conn, $sql);
 
