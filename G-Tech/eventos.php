@@ -54,7 +54,7 @@
 					echo $eventos['id'];
 					echo '" role="button">Ver más...</a>';
 					if($eventos['precio']==0){
-						echo '<span class="label label-success eventoGratuito">Evento gratuito</span>';
+						echo '<span class="label label-success eventoGratuito">Gratuito</span>';
 					}
 					$idEvento = $eventos['id'];
 					$sql2 = "SELECT COUNT(*) AS usuariosApuntados FROM Asistencia WHERE Asistencia.evento = $idEvento;";
