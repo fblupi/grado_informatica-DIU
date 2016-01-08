@@ -81,23 +81,8 @@
     echo '<div class="col-md-2 col-lg-2">';
     if($eventos['baja']==0){
       if(isset($_SESSION['id'])) {
-        if($empresa==0 && $organiza!=$_SESSION['id']) {
-          $login = $_SESSION['id'];
-          $sql3 = "SELECT * FROM asistencia WHERE asistencia.usuario = '$login' AND asistencia.evento = '$idEvento';";
-          $resultado3 = mysqli_query($conn, $sql3);
-          $asiste = mysqli_num_rows($resultado3);
-          $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
-          $resultado4 = mysqli_query($conn, $sql4);
-          $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
-          if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
-            echo '<input type="button" id="apuntarEvento" class="btn btn-danger btnApuntarseEvento" value="No hay plazas" disabled>';
-          }else if($asiste>0){
-            echo '<input type="button" id="apuntarEvento" onClick="DesapuntarEvento('.$idEvento.')" class="btn btn-danger btnApuntarseEvento" value="Desapuntarse">';
-          }else{
-            echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
-          }
-        }else if($empresa==1){
-          if($representante!=$_SESSION['id']){
+        if($eventos['fechaInicio'] > date('Y-m-d')){
+          if($empresa==0 && $organiza!=$_SESSION['id']) {
             $login = $_SESSION['id'];
             $sql3 = "SELECT * FROM asistencia WHERE asistencia.usuario = '$login' AND asistencia.evento = '$idEvento';";
             $resultado3 = mysqli_query($conn, $sql3);
@@ -112,11 +97,30 @@
             }else{
               echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
             }
+          }else if($empresa==1){
+            if($representante!=$_SESSION['id']){
+              $login = $_SESSION['id'];
+              $sql3 = "SELECT * FROM asistencia WHERE asistencia.usuario = '$login' AND asistencia.evento = '$idEvento';";
+              $resultado3 = mysqli_query($conn, $sql3);
+              $asiste = mysqli_num_rows($resultado3);
+              $sql4 = "SELECT COUNT(*) AS usuariosApuntados FROM asistencia WHERE asistencia.evento = $idEvento;";
+              $resultado4 = mysqli_query($conn, $sql4);
+              $totalUsuariosApuntados = mysqli_fetch_assoc($resultado4);
+              if($eventos['plazas']<=$totalUsuariosApuntados['usuariosApuntados']){
+                echo '<input type="button" id="apuntarEvento" class="btn btn-danger btnApuntarseEvento" value="No hay plazas" disabled>';
+              }else if($asiste>0){
+                echo '<input type="button" id="apuntarEvento" onClick="DesapuntarEvento('.$idEvento.')" class="btn btn-danger btnApuntarseEvento" value="Desapuntarse">';
+              }else{
+                echo '<input type="button" id="apuntarEvento" onClick="ApuntarEvento('.$idEvento.')" class="btn btn-primary btnApuntarseEvento" value="Apuntarse">';
+              }
+            }
           }
         }
       }else{ //SI no estoy identificado
-        echo '<a href="inicioSesion.php" id="apuntarEvento" class="btn btn-primary btnApuntarseEvento2">Apuntarse</a>';
-        echo '<div class="btnApuntarseEventoDiv">* Para poder apuntarse, es necesario estar identificado en el sistema</div>';
+        if($eventos['fechaInicio'] > date('Y-m-d')){
+          echo '<a href="inicioSesion.php" id="apuntarEvento" class="btn btn-primary btnApuntarseEvento2">Apuntarse</a>';
+          echo '<div class="btnApuntarseEventoDiv">* Para poder apuntarse, es necesario estar identificado en el sistema</div>';
+        }
       }
     }
     echo '</div>';
