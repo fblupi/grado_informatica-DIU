@@ -114,6 +114,9 @@
             }
           }
         }
+      }else{ //SI no estoy identificado
+        echo '<a href="inicioSesion.php" id="apuntarEvento" class="btn btn-primary btnApuntarseEvento2">Apuntarse</a>';
+        echo '<div class="btnApuntarseEventoDiv">* Para poder apuntarse, es necesario estar identificado en el sistema</div>';
       }
     }
     echo '</div>';
